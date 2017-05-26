@@ -1,0 +1,590 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DE52C9651ED8005200FDE643 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C9641ED8005200FDE643 /* main.m */; };
+		DE52C9681ED8005200FDE643 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C9671ED8005200FDE643 /* AppDelegate.m */; };
+		DE52C96B1ED8005200FDE643 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C96A1ED8005200FDE643 /* ViewController.m */; };
+		DE52C96E1ED8005200FDE643 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE52C96C1ED8005200FDE643 /* Main.storyboard */; };
+		DE52C9711ED8005200FDE643 /* WQBaseUIDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DE52C96F1ED8005200FDE643 /* WQBaseUIDemo.xcdatamodeld */; };
+		DE52C9731ED8005200FDE643 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE52C9721ED8005200FDE643 /* Assets.xcassets */; };
+		DE52C9761ED8005200FDE643 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE52C9741ED8005200FDE643 /* LaunchScreen.storyboard */; };
+		DE52C9BA1ED8019600FDE643 /* ZHAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C9811ED8019600FDE643 /* ZHAnimationView.m */; };
+		DE52C9BB1ED8019600FDE643 /* WQCommonArrowItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C9851ED8019600FDE643 /* WQCommonArrowItem.m */; };
+		DE52C9BC1ED8019600FDE643 /* WQCommonBaseItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C9871ED8019600FDE643 /* WQCommonBaseItem.m */; };
+		DE52C9BD1ED8019600FDE643 /* WQCommonCenterItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C9891ED8019600FDE643 /* WQCommonCenterItem.m */; };
+		DE52C9BE1ED8019600FDE643 /* WQCommonCustomItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C98B1ED8019600FDE643 /* WQCommonCustomItem.m */; };
+		DE52C9BF1ED8019600FDE643 /* WQCommonGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C98D1ED8019600FDE643 /* WQCommonGroup.m */; };
+		DE52C9C01ED8019600FDE643 /* WQCommonSubtitleItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C98F1ED8019600FDE643 /* WQCommonSubtitleItem.m */; };
+		DE52C9C11ED8019600FDE643 /* WQCommonSwitchItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C9911ED8019600FDE643 /* WQCommonSwitchItem.m */; };
+		DE52C9C21ED8019600FDE643 /* WQCommonBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C9941ED8019600FDE643 /* WQCommonBaseCell.m */; };
+		DE52C9C31ED8019600FDE643 /* WQCommonBaseTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C9971ED8019600FDE643 /* WQCommonBaseTableController.m */; };
+		DE52C9C41ED8019600FDE643 /* WQCommonDataResource.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C99B1ED8019600FDE643 /* WQCommonDataResource.m */; };
+		DE52C9C51ED8019600FDE643 /* WQStarContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C99F1ED8019600FDE643 /* WQStarContainerView.m */; };
+		DE52C9C61ED8019600FDE643 /* WQStarLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C9A11ED8019600FDE643 /* WQStarLevel.m */; };
+		DE52C9C71ED8019600FDE643 /* WQEdgeTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C9A41ED8019600FDE643 /* WQEdgeTitleButton.m */; };
+		DE52C9C81ED8019600FDE643 /* WQStepNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C9A61ED8019600FDE643 /* WQStepNumberView.m */; };
+		DE52C9C91ED8019600FDE643 /* WQTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C9A81ED8019600FDE643 /* WQTextView.m */; };
+		DE52C9CA1ED8019600FDE643 /* WQTipTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C9AA1ED8019600FDE643 /* WQTipTextField.m */; };
+		DE52C9E11ED804C800FDE643 /* WQAPPHELP.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C9D41ED804C800FDE643 /* WQAPPHELP.m */; };
+		DE52C9E21ED804C800FDE643 /* WQBroserController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C9D61ED804C800FDE643 /* WQBroserController.m */; };
+		DE52C9E31ED804C800FDE643 /* WQBroserController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE52C9D71ED804C800FDE643 /* WQBroserController.xib */; };
+		DE52C9E41ED804C800FDE643 /* WQKeyboardAdjustHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C9D91ED804C800FDE643 /* WQKeyboardAdjustHelp.m */; };
+		DE52C9E51ED804C800FDE643 /* WQControllerTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C9DC1ED804C800FDE643 /* WQControllerTransition.m */; };
+		DE52C9E61ED804C800FDE643 /* WQPopoverPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C9DE1ED804C800FDE643 /* WQPopoverPresentationController.m */; };
+		DE52C9E71ED804C800FDE643 /* WQPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C9E01ED804C800FDE643 /* WQPresentationController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DE52C9601ED8005200FDE643 /* WQBaseUIDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WQBaseUIDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE52C9641ED8005200FDE643 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DE52C9661ED8005200FDE643 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DE52C9671ED8005200FDE643 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DE52C9691ED8005200FDE643 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		DE52C96A1ED8005200FDE643 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		DE52C96D1ED8005200FDE643 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DE52C9701ED8005200FDE643 /* WQBaseUIDemo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WQBaseUIDemo.xcdatamodel; sourceTree = "<group>"; };
+		DE52C9721ED8005200FDE643 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DE52C9751ED8005200FDE643 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DE52C9771ED8005200FDE643 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE52C9801ED8019600FDE643 /* ZHAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHAnimationView.h; sourceTree = "<group>"; };
+		DE52C9811ED8019600FDE643 /* ZHAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHAnimationView.m; sourceTree = "<group>"; };
+		DE52C9841ED8019600FDE643 /* WQCommonArrowItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQCommonArrowItem.h; sourceTree = "<group>"; };
+		DE52C9851ED8019600FDE643 /* WQCommonArrowItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQCommonArrowItem.m; sourceTree = "<group>"; };
+		DE52C9861ED8019600FDE643 /* WQCommonBaseItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQCommonBaseItem.h; sourceTree = "<group>"; };
+		DE52C9871ED8019600FDE643 /* WQCommonBaseItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQCommonBaseItem.m; sourceTree = "<group>"; };
+		DE52C9881ED8019600FDE643 /* WQCommonCenterItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQCommonCenterItem.h; sourceTree = "<group>"; };
+		DE52C9891ED8019600FDE643 /* WQCommonCenterItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQCommonCenterItem.m; sourceTree = "<group>"; };
+		DE52C98A1ED8019600FDE643 /* WQCommonCustomItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQCommonCustomItem.h; sourceTree = "<group>"; };
+		DE52C98B1ED8019600FDE643 /* WQCommonCustomItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQCommonCustomItem.m; sourceTree = "<group>"; };
+		DE52C98C1ED8019600FDE643 /* WQCommonGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQCommonGroup.h; sourceTree = "<group>"; };
+		DE52C98D1ED8019600FDE643 /* WQCommonGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQCommonGroup.m; sourceTree = "<group>"; };
+		DE52C98E1ED8019600FDE643 /* WQCommonSubtitleItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQCommonSubtitleItem.h; sourceTree = "<group>"; };
+		DE52C98F1ED8019600FDE643 /* WQCommonSubtitleItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQCommonSubtitleItem.m; sourceTree = "<group>"; };
+		DE52C9901ED8019600FDE643 /* WQCommonSwitchItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQCommonSwitchItem.h; sourceTree = "<group>"; };
+		DE52C9911ED8019600FDE643 /* WQCommonSwitchItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQCommonSwitchItem.m; sourceTree = "<group>"; };
+		DE52C9931ED8019600FDE643 /* WQCommonBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQCommonBaseCell.h; sourceTree = "<group>"; };
+		DE52C9941ED8019600FDE643 /* WQCommonBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQCommonBaseCell.m; sourceTree = "<group>"; };
+		DE52C9961ED8019600FDE643 /* WQCommonBaseTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQCommonBaseTableController.h; sourceTree = "<group>"; };
+		DE52C9971ED8019600FDE643 /* WQCommonBaseTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQCommonBaseTableController.m; sourceTree = "<group>"; };
+		DE52C9991ED8019600FDE643 /* WQCommonCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQCommonCellProtocol.h; sourceTree = "<group>"; };
+		DE52C99A1ED8019600FDE643 /* WQCommonDataResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQCommonDataResource.h; sourceTree = "<group>"; };
+		DE52C99B1ED8019600FDE643 /* WQCommonDataResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQCommonDataResource.m; sourceTree = "<group>"; };
+		DE52C99E1ED8019600FDE643 /* WQStarContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQStarContainerView.h; sourceTree = "<group>"; };
+		DE52C99F1ED8019600FDE643 /* WQStarContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQStarContainerView.m; sourceTree = "<group>"; };
+		DE52C9A01ED8019600FDE643 /* WQStarLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQStarLevel.h; sourceTree = "<group>"; };
+		DE52C9A11ED8019600FDE643 /* WQStarLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQStarLevel.m; sourceTree = "<group>"; };
+		DE52C9A31ED8019600FDE643 /* WQEdgeTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQEdgeTitleButton.h; sourceTree = "<group>"; };
+		DE52C9A41ED8019600FDE643 /* WQEdgeTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQEdgeTitleButton.m; sourceTree = "<group>"; };
+		DE52C9A51ED8019600FDE643 /* WQStepNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQStepNumberView.h; sourceTree = "<group>"; };
+		DE52C9A61ED8019600FDE643 /* WQStepNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQStepNumberView.m; sourceTree = "<group>"; };
+		DE52C9A71ED8019600FDE643 /* WQTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQTextView.h; sourceTree = "<group>"; };
+		DE52C9A81ED8019600FDE643 /* WQTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQTextView.m; sourceTree = "<group>"; };
+		DE52C9A91ED8019600FDE643 /* WQTipTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQTipTextField.h; sourceTree = "<group>"; };
+		DE52C9AA1ED8019600FDE643 /* WQTipTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQTipTextField.m; sourceTree = "<group>"; };
+		DE52C9D31ED804C800FDE643 /* WQAPPHELP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQAPPHELP.h; sourceTree = "<group>"; };
+		DE52C9D41ED804C800FDE643 /* WQAPPHELP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQAPPHELP.m; sourceTree = "<group>"; };
+		DE52C9D51ED804C800FDE643 /* WQBroserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQBroserController.h; sourceTree = "<group>"; };
+		DE52C9D61ED804C800FDE643 /* WQBroserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQBroserController.m; sourceTree = "<group>"; };
+		DE52C9D71ED804C800FDE643 /* WQBroserController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WQBroserController.xib; sourceTree = "<group>"; };
+		DE52C9D81ED804C800FDE643 /* WQKeyboardAdjustHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQKeyboardAdjustHelp.h; sourceTree = "<group>"; };
+		DE52C9D91ED804C800FDE643 /* WQKeyboardAdjustHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQKeyboardAdjustHelp.m; sourceTree = "<group>"; };
+		DE52C9DB1ED804C800FDE643 /* WQControllerTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQControllerTransition.h; sourceTree = "<group>"; };
+		DE52C9DC1ED804C800FDE643 /* WQControllerTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQControllerTransition.m; sourceTree = "<group>"; };
+		DE52C9DD1ED804C800FDE643 /* WQPopoverPresentationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQPopoverPresentationController.h; sourceTree = "<group>"; };
+		DE52C9DE1ED804C800FDE643 /* WQPopoverPresentationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQPopoverPresentationController.m; sourceTree = "<group>"; };
+		DE52C9DF1ED804C800FDE643 /* WQPresentationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQPresentationController.h; sourceTree = "<group>"; };
+		DE52C9E01ED804C800FDE643 /* WQPresentationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQPresentationController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DE52C95D1ED8005200FDE643 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DE52C9571ED8005200FDE643 = {
+			isa = PBXGroup;
+			children = (
+				DE52C97D1ED8019500FDE643 /* WQBaseUIComponents */,
+				DE52C9621ED8005200FDE643 /* WQBaseUIDemo */,
+				DE52C9611ED8005200FDE643 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DE52C9611ED8005200FDE643 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DE52C9601ED8005200FDE643 /* WQBaseUIDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DE52C9621ED8005200FDE643 /* WQBaseUIDemo */ = {
+			isa = PBXGroup;
+			children = (
+				DE52C9661ED8005200FDE643 /* AppDelegate.h */,
+				DE52C9671ED8005200FDE643 /* AppDelegate.m */,
+				DE52C9691ED8005200FDE643 /* ViewController.h */,
+				DE52C96A1ED8005200FDE643 /* ViewController.m */,
+				DE52C96C1ED8005200FDE643 /* Main.storyboard */,
+				DE52C9721ED8005200FDE643 /* Assets.xcassets */,
+				DE52C9741ED8005200FDE643 /* LaunchScreen.storyboard */,
+				DE52C9771ED8005200FDE643 /* Info.plist */,
+				DE52C96F1ED8005200FDE643 /* WQBaseUIDemo.xcdatamodeld */,
+				DE52C9631ED8005200FDE643 /* Supporting Files */,
+			);
+			path = WQBaseUIDemo;
+			sourceTree = "<group>";
+		};
+		DE52C9631ED8005200FDE643 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DE52C9641ED8005200FDE643 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DE52C97D1ED8019500FDE643 /* WQBaseUIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				DE52C97E1ED8019500FDE643 /* AnmationViews */,
+				DE52C9821ED8019600FDE643 /* CommonTableView */,
+				DE52C99C1ED8019600FDE643 /* UICustom */,
+				DE52C9B31ED8019600FDE643 /* UIHelp */,
+			);
+			path = WQBaseUIComponents;
+			sourceTree = "<group>";
+		};
+		DE52C97E1ED8019500FDE643 /* AnmationViews */ = {
+			isa = PBXGroup;
+			children = (
+				DE52C97F1ED8019600FDE643 /* Animation */,
+			);
+			path = AnmationViews;
+			sourceTree = "<group>";
+		};
+		DE52C97F1ED8019600FDE643 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				DE52C9801ED8019600FDE643 /* ZHAnimationView.h */,
+				DE52C9811ED8019600FDE643 /* ZHAnimationView.m */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
+		DE52C9821ED8019600FDE643 /* CommonTableView */ = {
+			isa = PBXGroup;
+			children = (
+				DE52C9831ED8019600FDE643 /* Model */,
+				DE52C9921ED8019600FDE643 /* View */,
+				DE52C9951ED8019600FDE643 /* ViewController */,
+				DE52C9981ED8019600FDE643 /* ViewModel */,
+			);
+			path = CommonTableView;
+			sourceTree = "<group>";
+		};
+		DE52C9831ED8019600FDE643 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DE52C9841ED8019600FDE643 /* WQCommonArrowItem.h */,
+				DE52C9851ED8019600FDE643 /* WQCommonArrowItem.m */,
+				DE52C9861ED8019600FDE643 /* WQCommonBaseItem.h */,
+				DE52C9871ED8019600FDE643 /* WQCommonBaseItem.m */,
+				DE52C9881ED8019600FDE643 /* WQCommonCenterItem.h */,
+				DE52C9891ED8019600FDE643 /* WQCommonCenterItem.m */,
+				DE52C98A1ED8019600FDE643 /* WQCommonCustomItem.h */,
+				DE52C98B1ED8019600FDE643 /* WQCommonCustomItem.m */,
+				DE52C98C1ED8019600FDE643 /* WQCommonGroup.h */,
+				DE52C98D1ED8019600FDE643 /* WQCommonGroup.m */,
+				DE52C98E1ED8019600FDE643 /* WQCommonSubtitleItem.h */,
+				DE52C98F1ED8019600FDE643 /* WQCommonSubtitleItem.m */,
+				DE52C9901ED8019600FDE643 /* WQCommonSwitchItem.h */,
+				DE52C9911ED8019600FDE643 /* WQCommonSwitchItem.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DE52C9921ED8019600FDE643 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DE52C9931ED8019600FDE643 /* WQCommonBaseCell.h */,
+				DE52C9941ED8019600FDE643 /* WQCommonBaseCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DE52C9951ED8019600FDE643 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DE52C9961ED8019600FDE643 /* WQCommonBaseTableController.h */,
+				DE52C9971ED8019600FDE643 /* WQCommonBaseTableController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		DE52C9981ED8019600FDE643 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DE52C9991ED8019600FDE643 /* WQCommonCellProtocol.h */,
+				DE52C99A1ED8019600FDE643 /* WQCommonDataResource.h */,
+				DE52C99B1ED8019600FDE643 /* WQCommonDataResource.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DE52C99C1ED8019600FDE643 /* UICustom */ = {
+			isa = PBXGroup;
+			children = (
+				DE52C99D1ED8019600FDE643 /* StarView */,
+				DE52C9A21ED8019600FDE643 /* ViewCustom */,
+			);
+			path = UICustom;
+			sourceTree = "<group>";
+		};
+		DE52C99D1ED8019600FDE643 /* StarView */ = {
+			isa = PBXGroup;
+			children = (
+				DE52C99E1ED8019600FDE643 /* WQStarContainerView.h */,
+				DE52C99F1ED8019600FDE643 /* WQStarContainerView.m */,
+				DE52C9A01ED8019600FDE643 /* WQStarLevel.h */,
+				DE52C9A11ED8019600FDE643 /* WQStarLevel.m */,
+			);
+			path = StarView;
+			sourceTree = "<group>";
+		};
+		DE52C9A21ED8019600FDE643 /* ViewCustom */ = {
+			isa = PBXGroup;
+			children = (
+				DE52C9A31ED8019600FDE643 /* WQEdgeTitleButton.h */,
+				DE52C9A41ED8019600FDE643 /* WQEdgeTitleButton.m */,
+				DE52C9A51ED8019600FDE643 /* WQStepNumberView.h */,
+				DE52C9A61ED8019600FDE643 /* WQStepNumberView.m */,
+				DE52C9A71ED8019600FDE643 /* WQTextView.h */,
+				DE52C9A81ED8019600FDE643 /* WQTextView.m */,
+				DE52C9A91ED8019600FDE643 /* WQTipTextField.h */,
+				DE52C9AA1ED8019600FDE643 /* WQTipTextField.m */,
+			);
+			path = ViewCustom;
+			sourceTree = "<group>";
+		};
+		DE52C9B31ED8019600FDE643 /* UIHelp */ = {
+			isa = PBXGroup;
+			children = (
+				DE52C9D21ED804C800FDE643 /* UIFounctionHelp */,
+				DE52C9DA1ED804C800FDE643 /* UITransitionHelp */,
+			);
+			path = UIHelp;
+			sourceTree = "<group>";
+		};
+		DE52C9D21ED804C800FDE643 /* UIFounctionHelp */ = {
+			isa = PBXGroup;
+			children = (
+				DE52C9D31ED804C800FDE643 /* WQAPPHELP.h */,
+				DE52C9D41ED804C800FDE643 /* WQAPPHELP.m */,
+				DE52C9D51ED804C800FDE643 /* WQBroserController.h */,
+				DE52C9D61ED804C800FDE643 /* WQBroserController.m */,
+				DE52C9D71ED804C800FDE643 /* WQBroserController.xib */,
+				DE52C9D81ED804C800FDE643 /* WQKeyboardAdjustHelp.h */,
+				DE52C9D91ED804C800FDE643 /* WQKeyboardAdjustHelp.m */,
+			);
+			path = UIFounctionHelp;
+			sourceTree = "<group>";
+		};
+		DE52C9DA1ED804C800FDE643 /* UITransitionHelp */ = {
+			isa = PBXGroup;
+			children = (
+				DE52C9DB1ED804C800FDE643 /* WQControllerTransition.h */,
+				DE52C9DC1ED804C800FDE643 /* WQControllerTransition.m */,
+				DE52C9DD1ED804C800FDE643 /* WQPopoverPresentationController.h */,
+				DE52C9DE1ED804C800FDE643 /* WQPopoverPresentationController.m */,
+				DE52C9DF1ED804C800FDE643 /* WQPresentationController.h */,
+				DE52C9E01ED804C800FDE643 /* WQPresentationController.m */,
+			);
+			path = UITransitionHelp;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DE52C95F1ED8005200FDE643 /* WQBaseUIDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DE52C97A1ED8005200FDE643 /* Build configuration list for PBXNativeTarget "WQBaseUIDemo" */;
+			buildPhases = (
+				DE52C95C1ED8005200FDE643 /* Sources */,
+				DE52C95D1ED8005200FDE643 /* Frameworks */,
+				DE52C95E1ED8005200FDE643 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WQBaseUIDemo;
+			productName = WQBaseUIDemo;
+			productReference = DE52C9601ED8005200FDE643 /* WQBaseUIDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DE52C9581ED8005200FDE643 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = WQMapKit;
+				TargetAttributes = {
+					DE52C95F1ED8005200FDE643 = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = DE52C95B1ED8005200FDE643 /* Build configuration list for PBXProject "WQBaseUIDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DE52C9571ED8005200FDE643;
+			productRefGroup = DE52C9611ED8005200FDE643 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DE52C95F1ED8005200FDE643 /* WQBaseUIDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DE52C95E1ED8005200FDE643 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE52C9E31ED804C800FDE643 /* WQBroserController.xib in Resources */,
+				DE52C9761ED8005200FDE643 /* LaunchScreen.storyboard in Resources */,
+				DE52C9731ED8005200FDE643 /* Assets.xcassets in Resources */,
+				DE52C96E1ED8005200FDE643 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DE52C95C1ED8005200FDE643 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE52C9C51ED8019600FDE643 /* WQStarContainerView.m in Sources */,
+				DE52C9C61ED8019600FDE643 /* WQStarLevel.m in Sources */,
+				DE52C9CA1ED8019600FDE643 /* WQTipTextField.m in Sources */,
+				DE52C9C31ED8019600FDE643 /* WQCommonBaseTableController.m in Sources */,
+				DE52C9C91ED8019600FDE643 /* WQTextView.m in Sources */,
+				DE52C9E71ED804C800FDE643 /* WQPresentationController.m in Sources */,
+				DE52C9E61ED804C800FDE643 /* WQPopoverPresentationController.m in Sources */,
+				DE52C9BF1ED8019600FDE643 /* WQCommonGroup.m in Sources */,
+				DE52C9E51ED804C800FDE643 /* WQControllerTransition.m in Sources */,
+				DE52C9C11ED8019600FDE643 /* WQCommonSwitchItem.m in Sources */,
+				DE52C9E21ED804C800FDE643 /* WQBroserController.m in Sources */,
+				DE52C9BD1ED8019600FDE643 /* WQCommonCenterItem.m in Sources */,
+				DE52C96B1ED8005200FDE643 /* ViewController.m in Sources */,
+				DE52C9C71ED8019600FDE643 /* WQEdgeTitleButton.m in Sources */,
+				DE52C9BA1ED8019600FDE643 /* ZHAnimationView.m in Sources */,
+				DE52C9BC1ED8019600FDE643 /* WQCommonBaseItem.m in Sources */,
+				DE52C9681ED8005200FDE643 /* AppDelegate.m in Sources */,
+				DE52C9E41ED804C800FDE643 /* WQKeyboardAdjustHelp.m in Sources */,
+				DE52C9C41ED8019600FDE643 /* WQCommonDataResource.m in Sources */,
+				DE52C9E11ED804C800FDE643 /* WQAPPHELP.m in Sources */,
+				DE52C9C01ED8019600FDE643 /* WQCommonSubtitleItem.m in Sources */,
+				DE52C9C21ED8019600FDE643 /* WQCommonBaseCell.m in Sources */,
+				DE52C9BE1ED8019600FDE643 /* WQCommonCustomItem.m in Sources */,
+				DE52C9BB1ED8019600FDE643 /* WQCommonArrowItem.m in Sources */,
+				DE52C9651ED8005200FDE643 /* main.m in Sources */,
+				DE52C9C81ED8019600FDE643 /* WQStepNumberView.m in Sources */,
+				DE52C9711ED8005200FDE643 /* WQBaseUIDemo.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DE52C96C1ED8005200FDE643 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DE52C96D1ED8005200FDE643 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DE52C9741ED8005200FDE643 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DE52C9751ED8005200FDE643 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DE52C9781ED8005200FDE643 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		DE52C9791ED8005200FDE643 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DE52C97B1ED8005200FDE643 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = WQBaseUIDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = WQ.WQBaseUIDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DE52C97C1ED8005200FDE643 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = WQBaseUIDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = WQ.WQBaseUIDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DE52C95B1ED8005200FDE643 /* Build configuration list for PBXProject "WQBaseUIDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE52C9781ED8005200FDE643 /* Debug */,
+				DE52C9791ED8005200FDE643 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DE52C97A1ED8005200FDE643 /* Build configuration list for PBXNativeTarget "WQBaseUIDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE52C97B1ED8005200FDE643 /* Debug */,
+				DE52C97C1ED8005200FDE643 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DE52C96F1ED8005200FDE643 /* WQBaseUIDemo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DE52C9701ED8005200FDE643 /* WQBaseUIDemo.xcdatamodel */,
+			);
+			currentVersion = DE52C9701ED8005200FDE643 /* WQBaseUIDemo.xcdatamodel */;
+			path = WQBaseUIDemo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = DE52C9581ED8005200FDE643 /* Project object */;
+}
