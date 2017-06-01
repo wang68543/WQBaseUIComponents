@@ -33,7 +33,6 @@
 		DE52C9CA1ED8019600FDE643 /* WQTipTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C9AA1ED8019600FDE643 /* WQTipTextField.m */; };
 		DE52C9E11ED804C800FDE643 /* WQAPPHELP.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C9D41ED804C800FDE643 /* WQAPPHELP.m */; };
 		DE52C9E21ED804C800FDE643 /* WQBroserController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C9D61ED804C800FDE643 /* WQBroserController.m */; };
-		DE52C9E31ED804C800FDE643 /* WQBroserController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE52C9D71ED804C800FDE643 /* WQBroserController.xib */; };
 		DE52C9E41ED804C800FDE643 /* WQKeyboardAdjustHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C9D91ED804C800FDE643 /* WQKeyboardAdjustHelp.m */; };
 		DE52C9E51ED804C800FDE643 /* WQControllerTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C9DC1ED804C800FDE643 /* WQControllerTransition.m */; };
 		DE52C9E61ED804C800FDE643 /* WQPopoverPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C9DE1ED804C800FDE643 /* WQPopoverPresentationController.m */; };
@@ -91,7 +90,6 @@
 		DE52C9D41ED804C800FDE643 /* WQAPPHELP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQAPPHELP.m; sourceTree = "<group>"; };
 		DE52C9D51ED804C800FDE643 /* WQBroserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQBroserController.h; sourceTree = "<group>"; };
 		DE52C9D61ED804C800FDE643 /* WQBroserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQBroserController.m; sourceTree = "<group>"; };
-		DE52C9D71ED804C800FDE643 /* WQBroserController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WQBroserController.xib; sourceTree = "<group>"; };
 		DE52C9D81ED804C800FDE643 /* WQKeyboardAdjustHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQKeyboardAdjustHelp.h; sourceTree = "<group>"; };
 		DE52C9D91ED804C800FDE643 /* WQKeyboardAdjustHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQKeyboardAdjustHelp.m; sourceTree = "<group>"; };
 		DE52C9DB1ED804C800FDE643 /* WQControllerTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQControllerTransition.h; sourceTree = "<group>"; };
@@ -294,7 +292,6 @@
 				DE52C9D41ED804C800FDE643 /* WQAPPHELP.m */,
 				DE52C9D51ED804C800FDE643 /* WQBroserController.h */,
 				DE52C9D61ED804C800FDE643 /* WQBroserController.m */,
-				DE52C9D71ED804C800FDE643 /* WQBroserController.xib */,
 				DE52C9D81ED804C800FDE643 /* WQKeyboardAdjustHelp.h */,
 				DE52C9D91ED804C800FDE643 /* WQKeyboardAdjustHelp.m */,
 			);
@@ -372,7 +369,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE52C9E31ED804C800FDE643 /* WQBroserController.xib in Resources */,
 				DE52C9761ED8005200FDE643 /* LaunchScreen.storyboard in Resources */,
 				DE52C9731ED8005200FDE643 /* Assets.xcassets in Resources */,
 				DE52C96E1ED8005200FDE643 /* Main.storyboard in Resources */,
