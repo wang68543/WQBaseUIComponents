@@ -37,10 +37,10 @@ typedef NS_ENUM(NSInteger,TextType) {
  */
 +(instancetype)keyboardAdjustWithMoveView:(UIView *)moveView gestureRecognizerView:(UIView *)gestureView excludeTag:(NSInteger)excludeTag;
 @property (weak ,nonatomic) id<WQKeyboardAdjustDelegate> delegate;
-/** 键盘距离输入框的距离 */
+/** 键盘距离输入框的距离 (默认10) */
 @property(nonatomic, assign) CGFloat keyboardDistanceFromTextField;
 
-/** To save keyboard animation duration. */
+/** To save keyboard animation duration. (default 0.25) */
 @property(nonatomic, assign) CGFloat    animationDuration;
 
 /** To mimic the keyboard animation */

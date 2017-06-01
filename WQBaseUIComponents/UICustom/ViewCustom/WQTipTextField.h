@@ -17,6 +17,8 @@
 @property (copy ,nonatomic) NSString *tipText;
 
 @property (strong ,nonatomic,readonly) UIImageView *leftImageView;
+/** 图片的分割线 */
+@property (strong ,nonatomic,readonly) UIView *imageLineView;
 @property (strong ,nonatomic,readonly) UILabel *leftLabel;
 
 @end
