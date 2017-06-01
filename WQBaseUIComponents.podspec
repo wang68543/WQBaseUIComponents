@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 
   s.name         = "WQBaseUIComponents"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "基础组件(UI部分)"
 
   s.description  = <<-DESC 
@@ -45,10 +45,10 @@ Pod::Spec.new do |s|
   
   s.subspec 'UIHelp' do |ss|
     ss.subspec 'UIFounctionHelp' do |sss|
+      sss.resource ='WQBaseUIComponents/UIHelp/UIFounctionHelp/*.xib'
       sss.source_files = 'WQBaseUIComponents/UIHelp/UIFounctionHelp/*.{h,m}'
     end 
      ss.subspec 'UITransitionHelp' do |sss|
-      sss.resource ='WQBaseUIComponents/UIHelp/UITransitionHelp/*.xib'
       sss.source_files = 'WQBaseUIComponents/UIHelp/UITransitionHelp/*.{h,m}'
     end 
    end
