@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 
   s.name         = "WQBaseUIComponents"
-  s.version      = "0.0.4"
+  s.version      = "0.0.5"
   s.summary      = "基础组件(UI部分)"
 
   s.description  = <<-DESC 
@@ -28,7 +28,9 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   # s.prefix_header_contents = '#import <UIKit/UIKit.h>', '#import <Foundation/Foundation.h>'
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+  s.source_files  = "WQBaseUIComponents/WQBaseUIComponents.h"
 
+  
    s.subspec 'AnmationViews' do |ss|
     ss.subspec 'Animation' do |sss|
       sss.source_files = 'WQBaseUIComponents/AnmationViews/Animation/*.{h,m}'
@@ -43,6 +45,12 @@ Pod::Spec.new do |s|
     end 
   end
   
+  
+  s.subspec 'UILoading' do |ss|
+  	  ss.dependency 'MBProgressHUD', '~> 1.0.0'
+      ss.resource_bundle = { 'MBProgressHUD' => 'WQBaseUIComponents/UILoading/MBProgressHUD.bundle/*.png' }
+      ss.source_files = 'WQBaseUIComponents/UILoading/*.{h,m}'
+   end
   s.subspec 'UIHelp' do |ss|
     ss.subspec 'UIFounctionHelp' do |sss|
       sss.source_files = 'WQBaseUIComponents/UIHelp/UIFounctionHelp/*.{h,m}'

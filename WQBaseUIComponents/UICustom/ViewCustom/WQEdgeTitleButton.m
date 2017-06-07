@@ -21,6 +21,7 @@
 //         _textPadding = 3.0;//文字与图片之间的间距
         self.titleLabel.numberOfLines = 0;
         self.titleEdgeInsets = UIEdgeInsetsMake(5.0, 5.0, 5.0, 5.0);
+        self.imageView.backgroundColor = [UIColor clearColor];
     }
     return self;
 }
@@ -392,6 +393,12 @@
 }
 -(CGSize)imageSize{
     return self.currentImage.size;
+}
+
+-(void)addImageViewBorder:(CGFloat)with cornerRadius:(CGFloat)cornerRadius borderColor:(UIColor *)borderColor{
+    self.imageView.layer.borderWidth = with;
+    self.imageView.layer.borderColor = borderColor.CGColor;
+    self.imageView.layer.cornerRadius = cornerRadius;
 }
 //-(void)setAttributedTitle:(NSAttributedString *)title forState:(UIControlState)state{
 //    [super setAttributedTitle:title forState:state];

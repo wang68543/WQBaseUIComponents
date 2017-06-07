@@ -19,4 +19,6 @@ typedef NS_ENUM(NSInteger , ButtonTitleAliment){
 @interface WQEdgeTitleButton : UIButton
 @property (assign ,nonatomic) ButtonTitleAliment  titleAliment;
 @property (assign ,nonatomic) CGSize imageSize;
+
+- (void)addImageViewBorder:(CGFloat)with cornerRadius:(CGFloat)cornerRadius borderColor:(UIColor *)borderColor;
 @end

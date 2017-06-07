@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7FEC3802ECA5AB44ED030086 /* libPods-WQBaseUIDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4206F76108FE8DCD190650FF /* libPods-WQBaseUIDemo.a */; };
+		DE4F88C51EE2984A00C33ABA /* WQUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F88C41EE2984A00C33ABA /* WQUtils.m */; };
 		DE52C9651ED8005200FDE643 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C9641ED8005200FDE643 /* main.m */; };
 		DE52C9681ED8005200FDE643 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C9671ED8005200FDE643 /* AppDelegate.m */; };
 		DE52C96B1ED8005200FDE643 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C96A1ED8005200FDE643 /* ViewController.m */; };
@@ -37,9 +39,17 @@
 		DE52C9E51ED804C800FDE643 /* WQControllerTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C9DC1ED804C800FDE643 /* WQControllerTransition.m */; };
 		DE52C9E61ED804C800FDE643 /* WQPopoverPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C9DE1ED804C800FDE643 /* WQPopoverPresentationController.m */; };
 		DE52C9E71ED804C800FDE643 /* WQPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C9E01ED804C800FDE643 /* WQPresentationController.m */; };
+		DE5387D91EE809C000FDBE8C /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DE5387D81EE809C000FDBE8C /* MBProgressHUD.bundle */; };
+		DE67294A1EE68A18000D9C45 /* WQHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6729491EE68A18000D9C45 /* WQHUD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3878E90AA25713C18017F98C /* Pods-WQBaseUIDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WQBaseUIDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WQBaseUIDemo/Pods-WQBaseUIDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		4206F76108FE8DCD190650FF /* libPods-WQBaseUIDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WQBaseUIDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F355AF01F0123EB3911390B /* Pods-WQBaseUIDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WQBaseUIDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-WQBaseUIDemo/Pods-WQBaseUIDemo.release.xcconfig"; sourceTree = "<group>"; };
+		DE4F88C31EE2984A00C33ABA /* WQUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQUtils.h; sourceTree = "<group>"; };
+		DE4F88C41EE2984A00C33ABA /* WQUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQUtils.m; sourceTree = "<group>"; };
+		DE4F88C71EE29AE900C33ABA /* WQBaseUIComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQBaseUIComponents.h; sourceTree = "<group>"; };
 		DE52C9601ED8005200FDE643 /* WQBaseUIDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WQBaseUIDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE52C9641ED8005200FDE643 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DE52C9661ED8005200FDE643 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -98,6 +108,9 @@
 		DE52C9DE1ED804C800FDE643 /* WQPopoverPresentationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQPopoverPresentationController.m; sourceTree = "<group>"; };
 		DE52C9DF1ED804C800FDE643 /* WQPresentationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQPresentationController.h; sourceTree = "<group>"; };
 		DE52C9E01ED804C800FDE643 /* WQPresentationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQPresentationController.m; sourceTree = "<group>"; };
+		DE5387D81EE809C000FDBE8C /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
+		DE6729481EE68A18000D9C45 /* WQHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQHUD.h; sourceTree = "<group>"; };
+		DE6729491EE68A18000D9C45 /* WQHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQHUD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,18 +118,45 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FEC3802ECA5AB44ED030086 /* libPods-WQBaseUIDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8283E75A87DAE86D2DBFBDD0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4206F76108FE8DCD190650FF /* libPods-WQBaseUIDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D75FA004301E1FEBBD0F3C2C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3878E90AA25713C18017F98C /* Pods-WQBaseUIDemo.debug.xcconfig */,
+				7F355AF01F0123EB3911390B /* Pods-WQBaseUIDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DE4F88C21EE297C200C33ABA /* SelectionTabBar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SelectionTabBar;
+			sourceTree = "<group>";
+		};
 		DE52C9571ED8005200FDE643 = {
 			isa = PBXGroup;
 			children = (
 				DE52C97D1ED8019500FDE643 /* WQBaseUIComponents */,
 				DE52C9621ED8005200FDE643 /* WQBaseUIDemo */,
 				DE52C9611ED8005200FDE643 /* Products */,
+				D75FA004301E1FEBBD0F3C2C /* Pods */,
+				8283E75A87DAE86D2DBFBDD0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -158,8 +198,10 @@
 			children = (
 				DE52C97E1ED8019500FDE643 /* AnmationViews */,
 				DE52C9821ED8019600FDE643 /* CommonTableView */,
+				DE6729471EE689E4000D9C45 /* UILoading */,
 				DE52C99C1ED8019600FDE643 /* UICustom */,
 				DE52C9B31ED8019600FDE643 /* UIHelp */,
+				DE4F88C71EE29AE900C33ABA /* WQBaseUIComponents.h */,
 			);
 			path = WQBaseUIComponents;
 			sourceTree = "<group>";
@@ -244,6 +286,7 @@
 		DE52C99C1ED8019600FDE643 /* UICustom */ = {
 			isa = PBXGroup;
 			children = (
+				DE4F88C21EE297C200C33ABA /* SelectionTabBar */,
 				DE52C99D1ED8019600FDE643 /* StarView */,
 				DE52C9A21ED8019600FDE643 /* ViewCustom */,
 			);
@@ -294,6 +337,8 @@
 				DE52C9D61ED804C800FDE643 /* WQBroserController.m */,
 				DE52C9D81ED804C800FDE643 /* WQKeyboardAdjustHelp.h */,
 				DE52C9D91ED804C800FDE643 /* WQKeyboardAdjustHelp.m */,
+				DE4F88C31EE2984A00C33ABA /* WQUtils.h */,
+				DE4F88C41EE2984A00C33ABA /* WQUtils.m */,
 			);
 			path = UIFounctionHelp;
 			sourceTree = "<group>";
@@ -311,6 +356,16 @@
 			path = UITransitionHelp;
 			sourceTree = "<group>";
 		};
+		DE6729471EE689E4000D9C45 /* UILoading */ = {
+			isa = PBXGroup;
+			children = (
+				DE5387D81EE809C000FDBE8C /* MBProgressHUD.bundle */,
+				DE6729481EE68A18000D9C45 /* WQHUD.h */,
+				DE6729491EE68A18000D9C45 /* WQHUD.m */,
+			);
+			path = UILoading;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -318,9 +373,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DE52C97A1ED8005200FDE643 /* Build configuration list for PBXNativeTarget "WQBaseUIDemo" */;
 			buildPhases = (
+				6ED9CE2C773CE30C17BB7660 /* [CP] Check Pods Manifest.lock */,
 				DE52C95C1ED8005200FDE643 /* Sources */,
 				DE52C95D1ED8005200FDE643 /* Frameworks */,
 				DE52C95E1ED8005200FDE643 /* Resources */,
+				91256382283C39ABAC737B96 /* [CP] Embed Pods Frameworks */,
+				219E2D398D2581BDF2DB18DD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -370,12 +428,61 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE52C9761ED8005200FDE643 /* LaunchScreen.storyboard in Resources */,
+				DE5387D91EE809C000FDBE8C /* MBProgressHUD.bundle in Resources */,
 				DE52C9731ED8005200FDE643 /* Assets.xcassets in Resources */,
 				DE52C96E1ED8005200FDE643 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		219E2D398D2581BDF2DB18DD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WQBaseUIDemo/Pods-WQBaseUIDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6ED9CE2C773CE30C17BB7660 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		91256382283C39ABAC737B96 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WQBaseUIDemo/Pods-WQBaseUIDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DE52C95C1ED8005200FDE643 /* Sources */ = {
@@ -402,7 +509,9 @@
 				DE52C9E41ED804C800FDE643 /* WQKeyboardAdjustHelp.m in Sources */,
 				DE52C9C41ED8019600FDE643 /* WQCommonDataResource.m in Sources */,
 				DE52C9E11ED804C800FDE643 /* WQAPPHELP.m in Sources */,
+				DE67294A1EE68A18000D9C45 /* WQHUD.m in Sources */,
 				DE52C9C01ED8019600FDE643 /* WQCommonSubtitleItem.m in Sources */,
+				DE4F88C51EE2984A00C33ABA /* WQUtils.m in Sources */,
 				DE52C9C21ED8019600FDE643 /* WQCommonBaseCell.m in Sources */,
 				DE52C9BE1ED8019600FDE643 /* WQCommonCustomItem.m in Sources */,
 				DE52C9BB1ED8019600FDE643 /* WQCommonArrowItem.m in Sources */,
@@ -526,9 +635,11 @@
 		};
 		DE52C97B1ED8005200FDE643 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3878E90AA25713C18017F98C /* Pods-WQBaseUIDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = WQBaseUIDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = WQ.WQBaseUIDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -537,9 +648,11 @@
 		};
 		DE52C97C1ED8005200FDE643 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F355AF01F0123EB3911390B /* Pods-WQBaseUIDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = WQBaseUIDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = WQ.WQBaseUIDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
