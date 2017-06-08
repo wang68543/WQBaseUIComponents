@@ -47,7 +47,6 @@
 		DEFBEC4D1EE8ED9B006FDADC /* UIGestureRecognizer+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = DEFBEC441EE8ED9B006FDADC /* UIGestureRecognizer+Block.m */; };
 		DEFBEC5B1EE8EE36006FDADC /* UIBarButtonItem+WQInitHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = DEFBEC521EE8EE36006FDADC /* UIBarButtonItem+WQInitHelp.m */; };
 		DEFBEC5C1EE8EE36006FDADC /* UIColor+WQColor.m in Sources */ = {isa = PBXBuildFile; fileRef = DEFBEC541EE8EE36006FDADC /* UIColor+WQColor.m */; };
-		DEFBEC5D1EE8EE36006FDADC /* UIImage+WQHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = DEFBEC561EE8EE36006FDADC /* UIImage+WQHelp.m */; };
 		DEFBEC5E1EE8EE36006FDADC /* UIImageView+WQAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = DEFBEC581EE8EE36006FDADC /* UIImageView+WQAnimation.m */; };
 		DEFBEC5F1EE8EE36006FDADC /* UIView+WQLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DEFBEC5A1EE8EE36006FDADC /* UIView+WQLayout.m */; };
 /* End PBXBuildFile section */
@@ -132,8 +131,6 @@
 		DEFBEC521EE8EE36006FDADC /* UIBarButtonItem+WQInitHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+WQInitHelp.m"; sourceTree = "<group>"; };
 		DEFBEC531EE8EE36006FDADC /* UIColor+WQColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+WQColor.h"; sourceTree = "<group>"; };
 		DEFBEC541EE8EE36006FDADC /* UIColor+WQColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+WQColor.m"; sourceTree = "<group>"; };
-		DEFBEC551EE8EE36006FDADC /* UIImage+WQHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WQHelp.h"; sourceTree = "<group>"; };
-		DEFBEC561EE8EE36006FDADC /* UIImage+WQHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WQHelp.m"; sourceTree = "<group>"; };
 		DEFBEC571EE8EE36006FDADC /* UIImageView+WQAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WQAnimation.h"; sourceTree = "<group>"; };
 		DEFBEC581EE8EE36006FDADC /* UIImageView+WQAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WQAnimation.m"; sourceTree = "<group>"; };
 		DEFBEC591EE8EE36006FDADC /* UIView+WQLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WQLayout.h"; sourceTree = "<group>"; };
@@ -425,8 +422,6 @@
 				DEFBEC521EE8EE36006FDADC /* UIBarButtonItem+WQInitHelp.m */,
 				DEFBEC531EE8EE36006FDADC /* UIColor+WQColor.h */,
 				DEFBEC541EE8EE36006FDADC /* UIColor+WQColor.m */,
-				DEFBEC551EE8EE36006FDADC /* UIImage+WQHelp.h */,
-				DEFBEC561EE8EE36006FDADC /* UIImage+WQHelp.m */,
 				DEFBEC571EE8EE36006FDADC /* UIImageView+WQAnimation.h */,
 				DEFBEC581EE8EE36006FDADC /* UIImageView+WQAnimation.m */,
 				DEFBEC591EE8EE36006FDADC /* UIView+WQLayout.h */,
@@ -566,7 +561,6 @@
 				DE52C9C31ED8019600FDE643 /* WQCommonBaseTableController.m in Sources */,
 				DE52C9C91ED8019600FDE643 /* WQTextView.m in Sources */,
 				DEFBEC4B1EE8ED9B006FDADC /* UIBarButtonItem+Badge.m in Sources */,
-				DEFBEC5D1EE8EE36006FDADC /* UIImage+WQHelp.m in Sources */,
 				DE52C9E71ED804C800FDE643 /* WQPresentationController.m in Sources */,
 				DE52C9E61ED804C800FDE643 /* WQPopoverPresentationController.m in Sources */,
 				DEFBEC4A1EE8ED9B006FDADC /* Colours.m in Sources */,
