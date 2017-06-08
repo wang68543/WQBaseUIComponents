@@ -41,6 +41,15 @@
 		DE52C9E71ED804C800FDE643 /* WQPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C9E01ED804C800FDE643 /* WQPresentationController.m */; };
 		DE5387D91EE809C000FDBE8C /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DE5387D81EE809C000FDBE8C /* MBProgressHUD.bundle */; };
 		DE67294A1EE68A18000D9C45 /* WQHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6729491EE68A18000D9C45 /* WQHUD.m */; };
+		DEFBEC4A1EE8ED9B006FDADC /* Colours.m in Sources */ = {isa = PBXBuildFile; fileRef = DEFBEC3E1EE8ED9B006FDADC /* Colours.m */; };
+		DEFBEC4B1EE8ED9B006FDADC /* UIBarButtonItem+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = DEFBEC401EE8ED9B006FDADC /* UIBarButtonItem+Badge.m */; };
+		DEFBEC4C1EE8ED9B006FDADC /* UIButton+countDown.m in Sources */ = {isa = PBXBuildFile; fileRef = DEFBEC421EE8ED9B006FDADC /* UIButton+countDown.m */; };
+		DEFBEC4D1EE8ED9B006FDADC /* UIGestureRecognizer+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = DEFBEC441EE8ED9B006FDADC /* UIGestureRecognizer+Block.m */; };
+		DEFBEC5B1EE8EE36006FDADC /* UIBarButtonItem+WQInitHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = DEFBEC521EE8EE36006FDADC /* UIBarButtonItem+WQInitHelp.m */; };
+		DEFBEC5C1EE8EE36006FDADC /* UIColor+WQColor.m in Sources */ = {isa = PBXBuildFile; fileRef = DEFBEC541EE8EE36006FDADC /* UIColor+WQColor.m */; };
+		DEFBEC5D1EE8EE36006FDADC /* UIImage+WQHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = DEFBEC561EE8EE36006FDADC /* UIImage+WQHelp.m */; };
+		DEFBEC5E1EE8EE36006FDADC /* UIImageView+WQAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = DEFBEC581EE8EE36006FDADC /* UIImageView+WQAnimation.m */; };
+		DEFBEC5F1EE8EE36006FDADC /* UIView+WQLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DEFBEC5A1EE8EE36006FDADC /* UIView+WQLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +120,24 @@
 		DE5387D81EE809C000FDBE8C /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		DE6729481EE68A18000D9C45 /* WQHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQHUD.h; sourceTree = "<group>"; };
 		DE6729491EE68A18000D9C45 /* WQHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQHUD.m; sourceTree = "<group>"; };
+		DEFBEC3D1EE8ED9B006FDADC /* Colours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colours.h; sourceTree = "<group>"; };
+		DEFBEC3E1EE8ED9B006FDADC /* Colours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colours.m; sourceTree = "<group>"; };
+		DEFBEC3F1EE8ED9B006FDADC /* UIBarButtonItem+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Badge.h"; sourceTree = "<group>"; };
+		DEFBEC401EE8ED9B006FDADC /* UIBarButtonItem+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Badge.m"; sourceTree = "<group>"; };
+		DEFBEC411EE8ED9B006FDADC /* UIButton+countDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+countDown.h"; sourceTree = "<group>"; };
+		DEFBEC421EE8ED9B006FDADC /* UIButton+countDown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+countDown.m"; sourceTree = "<group>"; };
+		DEFBEC431EE8ED9B006FDADC /* UIGestureRecognizer+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+Block.h"; sourceTree = "<group>"; };
+		DEFBEC441EE8ED9B006FDADC /* UIGestureRecognizer+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIGestureRecognizer+Block.m"; sourceTree = "<group>"; };
+		DEFBEC511EE8EE36006FDADC /* UIBarButtonItem+WQInitHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+WQInitHelp.h"; sourceTree = "<group>"; };
+		DEFBEC521EE8EE36006FDADC /* UIBarButtonItem+WQInitHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+WQInitHelp.m"; sourceTree = "<group>"; };
+		DEFBEC531EE8EE36006FDADC /* UIColor+WQColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+WQColor.h"; sourceTree = "<group>"; };
+		DEFBEC541EE8EE36006FDADC /* UIColor+WQColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+WQColor.m"; sourceTree = "<group>"; };
+		DEFBEC551EE8EE36006FDADC /* UIImage+WQHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WQHelp.h"; sourceTree = "<group>"; };
+		DEFBEC561EE8EE36006FDADC /* UIImage+WQHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WQHelp.m"; sourceTree = "<group>"; };
+		DEFBEC571EE8EE36006FDADC /* UIImageView+WQAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WQAnimation.h"; sourceTree = "<group>"; };
+		DEFBEC581EE8EE36006FDADC /* UIImageView+WQAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WQAnimation.m"; sourceTree = "<group>"; };
+		DEFBEC591EE8EE36006FDADC /* UIView+WQLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WQLayout.h"; sourceTree = "<group>"; };
+		DEFBEC5A1EE8EE36006FDADC /* UIView+WQLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WQLayout.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +225,7 @@
 			children = (
 				DE52C97E1ED8019500FDE643 /* AnmationViews */,
 				DE52C9821ED8019600FDE643 /* CommonTableView */,
+				DEFBEC301EE8ED9B006FDADC /* UICategory */,
 				DE6729471EE689E4000D9C45 /* UILoading */,
 				DE52C99C1ED8019600FDE643 /* UICustom */,
 				DE52C9B31ED8019600FDE643 /* UIHelp */,
@@ -366,6 +394,47 @@
 			path = UILoading;
 			sourceTree = "<group>";
 		};
+		DEFBEC301EE8ED9B006FDADC /* UICategory */ = {
+			isa = PBXGroup;
+			children = (
+				DEFBEC501EE8EE36006FDADC /* UICategory_UIKit */,
+				DEFBEC3C1EE8ED9B006FDADC /* UICategory_Vendor */,
+			);
+			path = UICategory;
+			sourceTree = "<group>";
+		};
+		DEFBEC3C1EE8ED9B006FDADC /* UICategory_Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				DEFBEC3D1EE8ED9B006FDADC /* Colours.h */,
+				DEFBEC3E1EE8ED9B006FDADC /* Colours.m */,
+				DEFBEC3F1EE8ED9B006FDADC /* UIBarButtonItem+Badge.h */,
+				DEFBEC401EE8ED9B006FDADC /* UIBarButtonItem+Badge.m */,
+				DEFBEC411EE8ED9B006FDADC /* UIButton+countDown.h */,
+				DEFBEC421EE8ED9B006FDADC /* UIButton+countDown.m */,
+				DEFBEC431EE8ED9B006FDADC /* UIGestureRecognizer+Block.h */,
+				DEFBEC441EE8ED9B006FDADC /* UIGestureRecognizer+Block.m */,
+			);
+			path = UICategory_Vendor;
+			sourceTree = "<group>";
+		};
+		DEFBEC501EE8EE36006FDADC /* UICategory_UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				DEFBEC511EE8EE36006FDADC /* UIBarButtonItem+WQInitHelp.h */,
+				DEFBEC521EE8EE36006FDADC /* UIBarButtonItem+WQInitHelp.m */,
+				DEFBEC531EE8EE36006FDADC /* UIColor+WQColor.h */,
+				DEFBEC541EE8EE36006FDADC /* UIColor+WQColor.m */,
+				DEFBEC551EE8EE36006FDADC /* UIImage+WQHelp.h */,
+				DEFBEC561EE8EE36006FDADC /* UIImage+WQHelp.m */,
+				DEFBEC571EE8EE36006FDADC /* UIImageView+WQAnimation.h */,
+				DEFBEC581EE8EE36006FDADC /* UIImageView+WQAnimation.m */,
+				DEFBEC591EE8EE36006FDADC /* UIView+WQLayout.h */,
+				DEFBEC5A1EE8EE36006FDADC /* UIView+WQLayout.m */,
+			);
+			path = UICategory_UIKit;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -489,14 +558,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEFBEC5C1EE8EE36006FDADC /* UIColor+WQColor.m in Sources */,
 				DE52C9C51ED8019600FDE643 /* WQStarContainerView.m in Sources */,
+				DEFBEC5B1EE8EE36006FDADC /* UIBarButtonItem+WQInitHelp.m in Sources */,
 				DE52C9C61ED8019600FDE643 /* WQStarLevel.m in Sources */,
 				DE52C9CA1ED8019600FDE643 /* WQTipTextField.m in Sources */,
 				DE52C9C31ED8019600FDE643 /* WQCommonBaseTableController.m in Sources */,
 				DE52C9C91ED8019600FDE643 /* WQTextView.m in Sources */,
+				DEFBEC4B1EE8ED9B006FDADC /* UIBarButtonItem+Badge.m in Sources */,
+				DEFBEC5D1EE8EE36006FDADC /* UIImage+WQHelp.m in Sources */,
 				DE52C9E71ED804C800FDE643 /* WQPresentationController.m in Sources */,
 				DE52C9E61ED804C800FDE643 /* WQPopoverPresentationController.m in Sources */,
+				DEFBEC4A1EE8ED9B006FDADC /* Colours.m in Sources */,
 				DE52C9BF1ED8019600FDE643 /* WQCommonGroup.m in Sources */,
+				DEFBEC4D1EE8ED9B006FDADC /* UIGestureRecognizer+Block.m in Sources */,
+				DEFBEC5E1EE8EE36006FDADC /* UIImageView+WQAnimation.m in Sources */,
 				DE52C9E51ED804C800FDE643 /* WQControllerTransition.m in Sources */,
 				DE52C9C11ED8019600FDE643 /* WQCommonSwitchItem.m in Sources */,
 				DE52C9E21ED804C800FDE643 /* WQBroserController.m in Sources */,
@@ -504,12 +580,14 @@
 				DE52C96B1ED8005200FDE643 /* ViewController.m in Sources */,
 				DE52C9C71ED8019600FDE643 /* WQEdgeTitleButton.m in Sources */,
 				DE52C9BA1ED8019600FDE643 /* ZHAnimationView.m in Sources */,
+				DEFBEC5F1EE8EE36006FDADC /* UIView+WQLayout.m in Sources */,
 				DE52C9BC1ED8019600FDE643 /* WQCommonBaseItem.m in Sources */,
 				DE52C9681ED8005200FDE643 /* AppDelegate.m in Sources */,
 				DE52C9E41ED804C800FDE643 /* WQKeyboardAdjustHelp.m in Sources */,
 				DE52C9C41ED8019600FDE643 /* WQCommonDataResource.m in Sources */,
 				DE52C9E11ED804C800FDE643 /* WQAPPHELP.m in Sources */,
 				DE67294A1EE68A18000D9C45 /* WQHUD.m in Sources */,
+				DEFBEC4C1EE8ED9B006FDADC /* UIButton+countDown.m in Sources */,
 				DE52C9C01ED8019600FDE643 /* WQCommonSubtitleItem.m in Sources */,
 				DE4F88C51EE2984A00C33ABA /* WQUtils.m in Sources */,
 				DE52C9C21ED8019600FDE643 /* WQCommonBaseCell.m in Sources */,

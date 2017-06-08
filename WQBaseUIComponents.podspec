@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 
   s.name         = "WQBaseUIComponents"
-  s.version      = "0.0.5"
+  s.version      = "0.0.6"
   s.summary      = "基础组件(UI部分)"
 
   s.description  = <<-DESC 
@@ -45,7 +45,17 @@ Pod::Spec.new do |s|
     end 
   end
   
-  
+  s.subspec 'UICategory' do |ss|
+     ss.subspec 'UICategory_Vendor' do |sss|
+      sss.source_files = 'WQBaseUIComponents/UICategory/UICategory_Vendor/*.{h,m}'
+    end 
+    ss.subspec 'UICategory_UIKit' do |sss|
+      sss.dependency 'WQBaseUIComponents/UICategory/UICategory_Vendor'
+      sss.source_files = 'WQBaseUIComponents/UICategory/UICategory_UIKit/*.{h,m}'
+    end 
+   end
+
+
   s.subspec 'UILoading' do |ss|
   	  ss.dependency 'MBProgressHUD', '~> 1.0.0'
       ss.resource_bundle = { 'MBProgressHUD' => 'WQBaseUIComponents/UILoading/MBProgressHUD.bundle/*.png' }

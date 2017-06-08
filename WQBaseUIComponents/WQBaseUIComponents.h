@@ -11,4 +11,8 @@
 #import "WQAPPHELP.h"
 #import "WQUtils.h"
 #import "WQHUD.h"
+
+#import "UIView+WQLayout.h"
+#import "UIColor+WQColor.h"
+#import "UIGestureRecognizer+Block.h"
 #endif /* WQBaseUIComponents_h */
