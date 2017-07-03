@@ -43,6 +43,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.webView];
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.URLString]]];
+    if(self.URLString.length > 0){
+      [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.URLString]]];
+    }else{
+        [self.webView loadHTMLString:self.htmlString baseURL:nil];
+    }
+    
 }
 @end

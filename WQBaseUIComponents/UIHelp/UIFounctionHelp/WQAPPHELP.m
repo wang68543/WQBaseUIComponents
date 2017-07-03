@@ -22,6 +22,13 @@
     broser.title = title;
     [nav pushViewController:broser animated:YES];
 }
++(void)openBroserWithRoute:(UINavigationController *)nav
+                htmlString:(NSString *)htmlStr title:(NSString *)title{
+    WQBroserController *broser = [[WQBroserController alloc] init];
+    broser.htmlString = htmlStr;
+    broser.title = title;
+    [nav pushViewController:broser animated:YES];
+}
 #pragma amrk -- 拨打电话
 +(void)callNumber:(NSString *)phoneNumber{
     [[WQAPPHELP sharedAPP].webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",phoneNumber]]]];

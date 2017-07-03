@@ -10,7 +10,7 @@
 
 
 typedef NS_ENUM(NSInteger , ButtonTitleAliment){
-    ButtonTitleAlimentRight,
+    ButtonTitleAlimentRight,//默认样式
     ButtonTitleAlimentLeft,//标题在左边
     ButtonTitleAlimentTop,
     ButtonTitleAlimentBottom,

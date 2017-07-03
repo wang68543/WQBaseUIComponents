@@ -14,6 +14,7 @@
 
 +(WQHUD *)wq_showHUDAnimated:(BOOL)animated;
 +(WQHUD *)wq_showHUD:(NSString *)message toView:(UIView *)view;
+-(void)wq_hideHUDAnimated:(BOOL)animated;
 
 +(void)wq_showTipError:(NSError *)error;
 +(void)wq_showTipMessage:(NSString *)message;

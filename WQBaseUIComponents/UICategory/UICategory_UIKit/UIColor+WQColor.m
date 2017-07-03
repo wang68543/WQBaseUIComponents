@@ -14,6 +14,7 @@
 }
 //MARK: 主题颜色 主要是navBar的颜色
 +(instancetype)themeColor{
+    //#2FC0BB
     return [UIColor colorWithR:47 G:192 B:187];
 }
 //MARK: 导航栏上标题的颜色
@@ -26,7 +27,7 @@
 }
 //MARK: 通用控制器 颜色背景
 +(instancetype)viewControllerNormalBackgroundColor{
-    return [UIColor whiteColor] ;
+    return [UIColor colorFromHexString:@"F5F5F5"] ;
 }
 //MARK: 控制器 灰色背景
 +(instancetype)viewControllerGrayBackgroundColor{
@@ -35,6 +36,14 @@
 //MARK: 分割线颜色
 +(instancetype)separatorLineColor{
     return [UIColor colorWithR:238 G:238 B:238];
+}
+//MARK: 边框线条的颜色
++(instancetype)lineBorderColor{
+    return [UIColor colorWithR:221 G:221 B:221];
+}
+//MARK: 按钮失效的时候的颜色
++(instancetype)disableButtonColor{
+    return [[self themeColor] colorWithAlphaComponent:0.6];
 }
 +(instancetype)textTitle1{
     return [UIColor colorWithR:12 G:12 B:13];

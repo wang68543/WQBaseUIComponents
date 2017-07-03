@@ -9,8 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 @interface WQUtils : NSObject
-
+/** 横线 */
 + (CALayer *)lineWithLength:(CGFloat)length atPoint:(CGPoint)point;
+/** 竖线 */
++ (CALayer *)verticalLineHeight:(CGFloat)height atPoint:(CGPoint)point;
 /** 给线条添加阴影 */
 + (void)layerAddLineShadow:(CALayer *)lineLayer;
 

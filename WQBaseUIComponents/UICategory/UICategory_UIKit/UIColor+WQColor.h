@@ -22,6 +22,11 @@
 +(instancetype)viewControllerGrayBackgroundColor;
 /** 分割线颜色 */
 +(instancetype)separatorLineColor;
+/** 边框线条的颜色 */
++(instancetype)lineBorderColor;
+
+/** 按钮失效的时候的颜色 */
++(instancetype)disableButtonColor;
 
 +(instancetype)textTitle1;
 +(instancetype)textTitle2;

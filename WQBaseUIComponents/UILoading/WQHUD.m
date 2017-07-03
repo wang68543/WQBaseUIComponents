@@ -40,6 +40,9 @@ static CGFloat const kHUDShowTime = 2.0;
     
     return hud;
 }
+-(void)wq_hideHUDAnimated:(BOOL)animated{
+    [self hideAnimated:animated];
+}
 
 +(void)wq_showTipError:(NSError *)error{
     [self wq_showTipMessage:[self errorDescription:error]];

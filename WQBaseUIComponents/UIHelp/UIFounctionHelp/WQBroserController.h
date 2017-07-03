@@ -10,4 +10,6 @@
 
 @interface WQBroserController : UIViewController
 @property (copy ,nonatomic) NSString *URLString;
+
+@property (copy ,nonatomic) NSString *htmlString;
 @end

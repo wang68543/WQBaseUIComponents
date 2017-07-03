@@ -20,6 +20,11 @@
 +(void)openBroserWithRoute:(UINavigationController *)nav
                        url:(NSString *)url title:(NSString *)title ;
 /**
+ *  打开网页(以htmlStr的形式)
+ */
++(void)openBroserWithRoute:(UINavigationController *)nav
+                       htmlString:(NSString *)htmlStr title:(NSString *)title ;
+/**
  *  拨打电话
  */
 +(void)callNumber:(NSString *)phoneNumber;
@@ -40,4 +45,5 @@
 
 /** 查找一个View中所有的输入框 */
 +(NSArray<UIView<UITextInput> *> *)deepInputTextViews:(UIView *)view;
+
 @end

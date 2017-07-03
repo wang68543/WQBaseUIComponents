@@ -7,64 +7,80 @@
 //
 
 #import "WQEdgeTitleButton.h"
+#import <objc/runtime.h>
+
 @interface WQEdgeTitleButton(){
-//    UIEdgeInsets _edge;
-//    CGFloat _textPadding;
+    UIFont *_labelFont;
 }
-@property (assign ,nonatomic) CGSize titleSize;
 @end
 @implementation WQEdgeTitleButton
+static char *const kLabelFontContext = "labelFont";
+
 -(instancetype)init{
     if(self = [super init]){
-        //图片与文字之前的最小间隔
-//        _edge = UIEdgeInsetsMake(5.0, 5.0, 5.0, 5.0);
-//         _textPadding = 3.0;//文字与图片之间的间距
-        self.titleLabel.numberOfLines = 0;
-        self.titleEdgeInsets = UIEdgeInsetsMake(5.0, 5.0, 5.0, 5.0);
-        self.imageView.backgroundColor = [UIColor clearColor];
+        [self commonInit];
     }
     return self;
 }
-/**
- *  设置内部图标的frame 在调这个方法之前会调用-(void)setImage:(UIImage *)image forState:(UIControlState)state
- */
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
+        [self commonInit];
+    }
+    return self;
+}
+- (void)commonInit{
+    //MARK: 如果控件是代码创建的 此时titleLabel 已创建好 不存在以下问题
+    //MARK: 如果控件是通过xib创建的 titleLabel 是通过懒加载方式创建的 而titleLabel 懒加载的时候又会titleRectForContentRect 来确定尺寸 所以如果在titleLabel还未懒加载完成的时候 就访问self.titleLabel 会造成死循环
+//    self.contentEdgeInsets = UIEdgeInsetsMake(5.0, 5.0, 5.0, 5.0);
+    self.titleLabel.numberOfLines = 0;
+    _titleAliment = ButtonTitleAlimentRight;
+    
+}
+
+//TODO: contentRect不包含self.contentEdgeInsets  contentRect是frame与contentEdgeInsets的交集部分 返回的rect不包含imageEdgeInsets
 - (CGRect)imageRectForContentRect:(CGRect)contentRect
 {
-//    NSLog(@"%s == %@",__func__,NSStringFromCGRect(contentRect));
-    //这里是用来防止图片过大的
-    
-//    BOOL hasImage = [self imageForState:UIControlStateNormal] || [self imageForState:UIControlStateSelected] || [self imageForState:UIControlStateHighlighted];
-    BOOL hasImage ;
-    if(self.currentImage){
-        hasImage = YES;
-    }else{
-        hasImage = NO;
-    }
-    if(!hasImage){
+
+    if(!self.currentImage || CGRectEqualToRect(contentRect, CGRectZero)){
         return CGRectZero;
     }
     
-    BOOL hasText = [self titleForState:UIControlStateNormal] || [self titleForState:UIControlStateSelected] || [self titleForState:UIControlStateHighlighted];
+    BOOL hasText = self.currentTitle.length > 0 ?YES:NO;
     
-    CGFloat imageW ;
-    CGFloat imageH ;
-    imageW = MIN(self.imageSize.width, contentRect.size.width);
-    imageH = MIN(self.imageSize.height, contentRect.size.width);
-
+    CGSize imageSize = [self imageSizeWithContentRect:contentRect];
+    CGFloat imageW = imageSize.width;
+    CGFloat imageH = imageSize.height;
     
     CGFloat imageY = 0;
     CGFloat imageX = 0;
-   
-    CGFloat titleH =  self.titleSize.height ;
-    CGFloat titleW =  self.titleSize.width;
+    CGFloat imageContentW = imageW + self.imageEdgeInsets.left + self.imageEdgeInsets.right;
+    CGFloat imageContentH = imageH + self.imageEdgeInsets.top + self.imageEdgeInsets.bottom;
     
-//    CGFloat contentH = hasText ? (imageH + titleH + _textPadding):imageH;
+    CGSize titleSize = [self titleSizeWithContentRect:contentRect];
+    //内容的单独高度
+    CGFloat titleH =  titleSize.height;
+    CGFloat titleW =  titleSize.width;
     
+    CGFloat titleContentH =  titleH + self.titleEdgeInsets.bottom + self.titleEdgeInsets.top;
+    CGFloat titleContentW =  titleW + self.titleEdgeInsets.left + self.titleEdgeInsets.right;
+    if(!hasText){
+        titleContentH = 0.0;
+        titleContentW = 0.0;
+    }
+    //内容的最大宽高
+    CGFloat contentMaxH = contentRect.size.height + self.contentEdgeInsets.top + self.contentEdgeInsets.bottom;
+    CGFloat contentMaxW = contentRect.size.width + self.contentEdgeInsets.left + self.contentEdgeInsets.right;
+    
+    //当title与image垂直排列的时候
+    CGFloat imageCenterY = (contentMaxH - imageContentH)*0.5 - self.imageEdgeInsets.top;
+ 
     switch (self.contentVerticalAlignment) {//垂直
         case UIControlContentVerticalAlignmentTop:
             switch (self.titleAliment) {
                 case ButtonTitleAlimentTop:
-                    imageY = hasText ? self.titleEdgeInsets.bottom+self.imageEdgeInsets.top+titleH+self.contentEdgeInsets.top :self.imageEdgeInsets.top+self.contentEdgeInsets.top;
+                    imageY = titleContentH+self.imageEdgeInsets.top+self.contentEdgeInsets.top;
                     break;
                 case ButtonTitleAlimentLeft:
                 case ButtonTitleAlimentBottom:
@@ -77,95 +93,98 @@
         case UIControlContentVerticalAlignmentBottom:
             switch (self.titleAliment) {
                 case ButtonTitleAlimentBottom:
-                    imageY = contentRect.size.height - titleH - imageH - self.titleEdgeInsets.bottom - (self.imageEdgeInsets.bottom + self.titleEdgeInsets.top)+contentRect.origin.y;
+                    imageY = contentMaxH - titleContentH - imageH - self.imageEdgeInsets.bottom - self.contentEdgeInsets.bottom;
                     break;
                     
                 case ButtonTitleAlimentTop:
                 case ButtonTitleAlimentLeft:
                 case ButtonTitleAlimentRight:
                 default:
-                    imageY = contentRect.size.height - self.imageEdgeInsets.bottom - imageH+contentRect.origin.y;
+                    imageY = contentMaxH - imageH - self.imageEdgeInsets.bottom - self.contentEdgeInsets.bottom;
                     break;
             }
             break;
-            
-            
+        
+          //TODO:--  如果图片与文字同时存在且竖直排列则按照上下边距(contentEdgeInsets + 各自的EdgeInsets)排列 否则就y轴居中
         case UIControlContentVerticalAlignmentFill:
             switch (self.titleAliment) {
                 case ButtonTitleAlimentTop:
-                    imageY =  contentRect.origin.y + contentRect.size.height - imageH - self.imageEdgeInsets.bottom;
+                    imageY = hasText ? contentMaxH - self.contentEdgeInsets.bottom - imageContentH + self.imageEdgeInsets.top :imageCenterY;
                     break;
                     
                 case ButtonTitleAlimentBottom:
-                    imageY = contentRect.origin.y + self.imageEdgeInsets.top;
+                    imageY = hasText ? self.imageEdgeInsets.top + self.contentEdgeInsets.top :imageCenterY;
                     break;
                 case ButtonTitleAlimentLeft:
                 case ButtonTitleAlimentRight:
                 default:
-                    imageY = (contentRect.size.height - imageH)*0.5+contentRect.origin.y;
+                    imageY = imageCenterY;
                     break;
             }
             break;
+            //TODO:-- 
         case UIControlContentVerticalAlignmentCenter:
         default:
             switch (self.titleAliment) {
                 case ButtonTitleAlimentTop:
-                    imageY =  contentRect.size.height - (contentRect.size.height - titleH - imageH - self.titleEdgeInsets.bottom - self.imageEdgeInsets.top)*0.5 - imageH ;
+                    imageY = hasText?contentMaxH -  (contentMaxH - titleContentH - imageContentH)*0.5 - imageContentH + self.imageEdgeInsets.top:imageCenterY;
                     break;
                     
                 case ButtonTitleAlimentBottom:
-                    imageY =  (contentRect.size.height - titleH - imageH - self.titleEdgeInsets.top - self.imageEdgeInsets.bottom)*0.5;
+                    imageY = hasText? (contentMaxH - titleContentH - imageContentH)*0.5 + self.imageEdgeInsets.top:imageCenterY;
                     break;
                 case ButtonTitleAlimentLeft:
                 case ButtonTitleAlimentRight:
                 default:
-                    imageY = (contentRect.size.height - imageH)*0.5;
+                    imageY = imageCenterY;;
                     break;
             }
             break;
     }
-//    CGFloat imageCenterX = (contentRect.size.width - titleW)*0.5;
-//    CGFloat contentW = hasText ? (imageW + titleW + _textPadding):imageW;
+
     
+    //当title与image并排排列的时候
+    CGFloat imageCenterX = (contentMaxW - imageContentW)*0.5 + self.imageEdgeInsets.left;
     switch (self.contentHorizontalAlignment) {
         case UIControlContentHorizontalAlignmentLeft:
             switch (self.titleAliment) {
                 case ButtonTitleAlimentLeft:
-                    imageX = self.titleEdgeInsets.left + titleW + self.imageEdgeInsets.left + contentRect.origin.x;
+                    imageX = self.contentEdgeInsets.left + titleContentW + self.imageEdgeInsets.left;
                     break;
                 case ButtonTitleAlimentBottom:
                 case ButtonTitleAlimentRight:
                 case ButtonTitleAlimentTop:
                 default:
-                    imageX = self.imageEdgeInsets.left + contentRect.origin.x;
+                    imageX = self.imageEdgeInsets.left + self.contentEdgeInsets.left;
                     break;
             }
             break;
         case UIControlContentHorizontalAlignmentRight:
             switch (self.titleAliment) {
                 case ButtonTitleAlimentRight:
-                    imageX = contentRect.origin.x + contentRect.size.width - titleW - imageW - self.titleEdgeInsets.left - self.titleEdgeInsets.right - self.imageEdgeInsets.right;
+                    imageX = contentMaxW - titleContentW -imageContentW + self.imageEdgeInsets.left - self.contentEdgeInsets.right;
                     break;
                 case ButtonTitleAlimentBottom:
                 case ButtonTitleAlimentLeft:
                 case ButtonTitleAlimentTop:
                 default:
-                    imageX = contentRect.origin.x + contentRect.size.width - self.imageEdgeInsets.right - imageW;
+                    imageX = contentMaxW - imageContentW + self.imageEdgeInsets.left  - self.contentEdgeInsets.right;
                     break;
             }
             break;
+         //TODO:--  如果图片与文字同时存在且并排排列则按照左右边距排列 否则就x轴居中
         case UIControlContentHorizontalAlignmentFill:
             switch (self.titleAliment) {
                 case ButtonTitleAlimentLeft:
-                    imageX =contentRect.origin.x + (contentRect.size.width - imageW - self.imageEdgeInsets.right);
+                    imageX = hasText? contentMaxW - imageContentW + self.imageEdgeInsets.left - self.contentEdgeInsets.right:imageCenterX;
                     break;
                 case ButtonTitleAlimentRight:
-                    imageX = contentRect.origin.x +  self.imageEdgeInsets.left;
+                    imageX = hasText?  self.imageEdgeInsets.left + self.contentEdgeInsets.left:imageCenterX ;
                     break;
                 case ButtonTitleAlimentBottom:
                 case ButtonTitleAlimentTop:
                 default:
-                    imageX = contentRect.origin.x + (contentRect.size.width - imageW) * 0.5 ;
+                    imageX = imageCenterX;
                     break;
             }
             break;
@@ -173,15 +192,15 @@
         default:
             switch (self.titleAliment) {
                 case ButtonTitleAlimentLeft:
-                    imageX = (contentRect.size.width - imageW - titleW - self.imageEdgeInsets.left - self.titleEdgeInsets.right) * 0.5 + titleW +self.imageEdgeInsets.left + self.titleEdgeInsets.right;
+                    imageX = hasText?contentMaxW - (contentMaxW - imageContentW - titleContentW)*0.5 - imageContentW + self.imageEdgeInsets.right:imageCenterX;
                     break;
                 case ButtonTitleAlimentRight:
-                    imageX = (contentRect.size.width  - imageW - titleW - self.imageEdgeInsets.left - self.titleEdgeInsets.right) * 0.5 ;
+                    imageX = hasText?(contentMaxW - imageContentW  - titleContentW)*0.5 + self.imageEdgeInsets.left:imageCenterX ;
                     break;
                 case ButtonTitleAlimentBottom:
                 case ButtonTitleAlimentTop:
                 default:
-                    imageX = (contentRect.size.width - imageW) * 0.5 ;
+                    imageX = imageCenterX;
                     break;
             }
             break;
@@ -191,17 +210,10 @@
     return CGRectMake(imageX, imageY, imageW, imageH);
 }
 
-/**
- *  设置内部文字的frame 在调这个方法之前会调用- (void)setTitle:(NSString *)title forState:(UIControlState)state
- */
+//TODO: contentRect 与imageRectForContentRect的contentRect是相同的 返回的rect不包含imageEdgeInsets
 - (CGRect)titleRectForContentRect:(CGRect)contentRect
 {
-//    NSLog(@"%s == %@",__func__,NSStringFromCGRect(contentRect));
-    
-    //文字的布局依赖于图片的布局完成
-//    BOOL hasText = [self titleForState:UIControlStateNormal] || [self titleForState:UIControlStateSelected] || [self titleForState:UIControlStateHighlighted];
-     BOOL hasText = self.currentTitle.length > 0;
-    if(!hasText){
+    if(self.currentTitle.length <= 0 || CGRectEqualToRect(contentRect, CGRectZero)){
         return CGRectZero;
     }
     
@@ -209,56 +221,72 @@
     
     CGFloat titleX = 0;
     
-    CGFloat titleH = self.titleSize.height;
+    CGSize titleSize = [self titleSizeWithContentRect:contentRect];
     
-    CGFloat titleW = self.titleSize.width;
+    CGFloat titleH = titleSize.height;
     
-  
+    CGFloat titleW = titleSize.width;
     
-    CGRect imageFrame = [self imageRectForContentRect:contentRect];
-    //是否有图片
-    BOOL hasImage = [self imageForState:UIControlStateNormal] || [self imageForState:UIControlStateSelected] || [self imageForState:UIControlStateHighlighted];
+    
+    
+    CGFloat titleContentH =  titleH + self.titleEdgeInsets.bottom + self.titleEdgeInsets.top;
+    CGFloat titleContentW =  titleW + self.titleEdgeInsets.left + self.titleEdgeInsets.right;
    
+    //内容的最大宽高
+    CGFloat contentMaxH = contentRect.size.height + self.contentEdgeInsets.top + self.contentEdgeInsets.bottom;
+    CGFloat contentMaxW = contentRect.size.width + self.contentEdgeInsets.left + self.contentEdgeInsets.right;
     
-      CGFloat titleCenterY = (contentRect.size.height - titleH)*0.5;
+    CGSize imageSize = [self imageSizeWithContentRect:contentRect];
     
+    CGFloat imageContentW = imageSize.width + self.imageEdgeInsets.left + self.imageEdgeInsets.right;
+    CGFloat imageContentH = imageSize.height + self.imageEdgeInsets.top + self.imageEdgeInsets.bottom;
+
+    //是否有图片
+    BOOL hasImage = self.currentImage?YES:NO;
+    if(!hasImage){
+        imageContentW = 0.0;
+        imageContentH = 0.0;
+    }
+    //并排排列的时候
+      CGFloat titleCenterY = (contentMaxH - titleContentH)*0.5 + self.titleEdgeInsets.top;
+
         switch (self.contentVerticalAlignment) {//垂直
             case UIControlContentVerticalAlignmentTop:
                 switch (self.titleAliment) {
                     case ButtonTitleAlimentBottom:
-                        titleY = hasImage ? CGRectGetMaxY(imageFrame) + self.imageEdgeInsets.bottom + self.titleEdgeInsets.top  : self.titleEdgeInsets.top;
+                        titleY =self.contentEdgeInsets.top + imageContentH +self.titleEdgeInsets.top ;
                         break;
                         
                     case ButtonTitleAlimentLeft:
                     case ButtonTitleAlimentTop:
                     case ButtonTitleAlimentRight:
                     default:
-                        titleY = self.titleEdgeInsets.top + contentRect.origin.y;
+                        titleY = self.titleEdgeInsets.top + self.contentEdgeInsets.top;
                         break;
                 }
                 break;
             case UIControlContentVerticalAlignmentBottom:
                 switch (self.titleAliment) {
                     case ButtonTitleAlimentTop:
-                        titleY = hasImage? contentRect.size.height - CGRectGetMinY(imageFrame)- self.titleEdgeInsets.bottom - self.imageEdgeInsets.top - titleH : contentRect.size.height  - titleH - self.titleEdgeInsets.bottom;
+                        titleY = contentMaxH  - self.contentEdgeInsets.bottom- imageContentH -titleContentH + self.titleEdgeInsets.top;
                         break;
                         
                     case ButtonTitleAlimentBottom:
                     case ButtonTitleAlimentLeft:
                     case ButtonTitleAlimentRight:
                     default:
-                        titleY = CGRectGetMaxY(contentRect) - self.titleEdgeInsets.bottom - titleH;
+                        titleY = contentMaxH - self.contentEdgeInsets.bottom - titleContentH +self.titleEdgeInsets.top;
                         break;
                 }
                 break;
+            
             case UIControlContentVerticalAlignmentFill:
                 switch (self.titleAliment) {
                     case ButtonTitleAlimentTop:
-                        titleY = hasImage? (contentRect.size.height - CGRectGetMinY(imageFrame) - titleH)*0.5 :titleCenterY ;
+                        titleY = hasImage ? self.titleEdgeInsets.top + self.contentEdgeInsets.top:titleCenterY;
                         break;
-                        
                     case ButtonTitleAlimentBottom:
-                        titleY = hasImage?(contentRect.size.height - CGRectGetMaxY(imageFrame) - titleH)*0.5 + CGRectGetMaxY(imageFrame):titleCenterY;
+                        titleY = hasImage?contentMaxH - self.contentEdgeInsets.bottom - titleContentH + self.titleEdgeInsets.top :titleCenterY;
                         break;
                     case ButtonTitleAlimentLeft:
                     case ButtonTitleAlimentRight:
@@ -271,11 +299,11 @@
             default:
                 switch (self.titleAliment) {
                     case ButtonTitleAlimentTop:
-                        titleY = hasImage ? CGRectGetMinY(imageFrame)-self.imageEdgeInsets.top - self.titleEdgeInsets.bottom - titleH : titleCenterY;
+                        titleY = hasImage ? (contentMaxH - titleContentH - imageContentH)*0.5 + self.titleEdgeInsets.top : titleCenterY;
                         break;
                         
                     case ButtonTitleAlimentBottom:
-                        titleY = hasImage ?CGRectGetMaxY(imageFrame) + self.imageEdgeInsets.top + self.titleEdgeInsets.bottom : titleCenterY;
+                        titleY = hasImage ? contentMaxH - (contentMaxH - titleContentH - imageContentH)*0.5 - titleContentH + self.titleEdgeInsets.top :titleCenterY;
                         break;
                     case ButtonTitleAlimentLeft:
                     case ButtonTitleAlimentRight:
@@ -285,41 +313,42 @@
                 }
                 break;
         }
-    CGFloat titleCenterX = (contentRect.size.width - titleW)*0.5;
+    CGFloat titleCenterX = (contentMaxW - titleContentW)*0.5 + self.titleEdgeInsets.left;
     switch (self.contentHorizontalAlignment) {
         case UIControlContentHorizontalAlignmentLeft:
             switch (self.titleAliment) {
                 case ButtonTitleAlimentRight:
-                    titleX = hasImage?CGRectGetMaxX(imageFrame)+self.imageEdgeInsets.right + self.titleEdgeInsets.left:contentRect.origin.x + self.titleEdgeInsets.left;
+                    titleX = self.contentEdgeInsets.left + imageContentW + self.titleEdgeInsets.left;
                     break;
                 case ButtonTitleAlimentBottom:
                 case ButtonTitleAlimentLeft:
                 case ButtonTitleAlimentTop:
                 default:
-                titleX = contentRect.origin.x + self.titleEdgeInsets.left;
+                titleX = self.contentEdgeInsets.left + self.titleEdgeInsets.left;
                     break;
             }
             break;
         case UIControlContentHorizontalAlignmentRight:
             switch (self.titleAliment) {
                 case ButtonTitleAlimentLeft:
-                    titleX = hasImage?CGRectGetMinX(imageFrame)-self.titleEdgeInsets.right - self.imageEdgeInsets.left - titleW :contentRect.origin.x + (contentRect.size.width - titleW - self.titleEdgeInsets.right);
+                    titleX = contentMaxW - self.contentEdgeInsets.right - imageContentW - titleContentW+self.titleEdgeInsets.left;
                     break;
                 case ButtonTitleAlimentBottom:
                 case ButtonTitleAlimentRight:
                 case ButtonTitleAlimentTop:
                 default:
-                    titleX = contentRect.origin.x + contentRect.size.width - self.titleEdgeInsets.right - titleW;
+                    titleX = contentMaxW - self.contentEdgeInsets.right - titleContentW + self.titleEdgeInsets.left;
                     break;
             }
             break;
+            
         case UIControlContentHorizontalAlignmentFill:
             switch (self.titleAliment) {
                 case ButtonTitleAlimentLeft:
-                    titleX = contentRect.origin.x + self.titleEdgeInsets.left;
+                    titleX = hasImage ?self.contentEdgeInsets.left + self.titleEdgeInsets.left:titleCenterX;
                     break;
                 case ButtonTitleAlimentRight:
-                    titleX = contentRect.origin.x + (contentRect.size.width - titleW - self.titleEdgeInsets.right);
+                    titleX = contentMaxW  - self.contentEdgeInsets.right  - titleContentW + self.titleEdgeInsets.left;
                     break;
                 case ButtonTitleAlimentBottom:
                 case ButtonTitleAlimentTop:
@@ -332,10 +361,10 @@
         default:
             switch (self.titleAliment) {
                 case ButtonTitleAlimentLeft:
-                    titleX = hasImage?CGRectGetMinX(imageFrame)-self.titleEdgeInsets.right - self.imageEdgeInsets.left - titleW :titleCenterX;
+                    titleX = (contentMaxW - imageContentW - titleContentW)*0.5 + self.titleEdgeInsets.left ;
                     break;
                 case ButtonTitleAlimentRight:
-                    titleX = hasImage ? CGRectGetMaxX(imageFrame)+self.titleEdgeInsets.left + self.imageEdgeInsets.right:titleCenterX;
+                    titleX = hasImage ?contentMaxW -  (contentMaxW - imageContentW - titleContentW)*0.5 - titleContentW + self.titleEdgeInsets.left:titleCenterX;
                     break;
                 case ButtonTitleAlimentBottom:
                 case ButtonTitleAlimentTop:
@@ -348,9 +377,10 @@
 
     return CGRectMake(titleX, titleY, titleW, titleH);
 }
-- (CGFloat)titleMaxWidth{
-    CGFloat maxWidth = 0.0;
-    maxWidth = CGRectGetWidth(self.frame);
+//TODO: 实时计算当前的标题的尺寸
+-(CGSize)titleSizeWithContentRect:(CGRect)contentRect{
+    
+    CGFloat maxWidth = CGRectGetWidth(contentRect);
     if(self.imageSize.width > 0 && maxWidth > 0 && (self.titleAliment == ButtonTitleAlimentLeft || self.titleAliment == ButtonTitleAlimentRight)){
         maxWidth = maxWidth - self.imageSize.width;
         if(self.titleAliment == ButtonTitleAlimentLeft){
@@ -362,37 +392,64 @@
     if(maxWidth <= 0.0){
         maxWidth = 100.0;
     }
-    return maxWidth;
-}
-
-- (CGFloat)titleMaxHeight{
-    CGFloat maxHeight = 0.0;
-    maxHeight = CGRectGetHeight(self.frame);
+    
+    CGFloat maxHeight = CGRectGetHeight(contentRect);
     if(self.imageSize.height > 0 && maxHeight > 0 &&(self.titleAliment == ButtonTitleAlimentBottom || self.titleAliment == ButtonTitleAlimentTop)){
         maxHeight = maxHeight - self.imageSize.height;
         if(self.titleAliment == ButtonTitleAlimentBottom){
             maxHeight -= (self.titleEdgeInsets.top + self.imageEdgeInsets.bottom);
         }else{
-           maxHeight -= (self.titleEdgeInsets.bottom + self.imageEdgeInsets.top);
+            maxHeight -= (self.titleEdgeInsets.bottom + self.imageEdgeInsets.top);
         }
     }
     if(maxHeight <= 0.0){
-        maxHeight = 50.0;
+        maxHeight = 100.0;
     }
-    return maxHeight;
-}
--(CGSize)titleSize{
+    
+    
+    CGSize maxContentSize = CGSizeMake(maxWidth, maxHeight);
+    
+    CGSize titleSize = CGSizeZero;
     if(self.currentAttributedTitle){
-        _titleSize = [self.currentAttributedTitle boundingRectWithSize:CGSizeMake( [self titleMaxWidth],[self titleMaxHeight]) options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
-    }else if(self.currentTitle){
-         _titleSize = [self.currentTitle boundingRectWithSize:CGSizeMake([self titleMaxWidth],[self titleMaxHeight]) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.titleLabel.font} context:nil].size;
-    }else{
-        _titleSize = CGSizeZero;
+        titleSize = [self.currentAttributedTitle boundingRectWithSize:maxContentSize options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
+    }else if(self.currentTitle && _labelFont){
+        titleSize = [self.currentTitle boundingRectWithSize:maxContentSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:_labelFont} context:nil].size;
     }
-    return _titleSize;
+    return titleSize;
 }
--(CGSize)imageSize{
-    return self.currentImage.size;
+
+//TODO: 实时计算当前的imageView的尺寸
+-(CGSize)imageSizeWithContentRect:(CGRect)contentRect{
+    CGSize imageSize = self.imageSize;
+    if(CGSizeEqualToSize(imageSize, CGSizeZero)){
+        imageSize = self.currentImage.size;
+    }
+    
+    CGFloat imageW = imageSize.width;
+    CGFloat imageH = imageSize.height;
+    if(imageW > contentRect.size.width || imageH > contentRect.size.height){
+        if(imageW > contentRect.size.width){
+            imageH *= (contentRect.size.width/imageW);
+            imageW = contentRect.size.width;
+            
+        }
+        if(imageH > contentRect.size.height){
+            imageW *= (contentRect.size.width/imageH);
+            imageH = contentRect.size.height;
+        }
+    }
+
+    
+    return CGSizeMake(imageW, imageH);
+}
+-(void)willMoveToSuperview:(UIView *)newSuperview{
+    if(newSuperview){
+        _labelFont = self.titleLabel.font;
+        //用于解决xib创建titleSize里面访问self.titleLabel 造成死循环问题
+        [self.titleLabel addObserver:self forKeyPath:@"font" options:NSKeyValueObservingOptionNew context:kLabelFontContext];
+    }else{
+        [self.titleLabel removeObserver:self forKeyPath:@"font"];
+    }
 }
 
 -(void)addImageViewBorder:(CGFloat)with cornerRadius:(CGFloat)cornerRadius borderColor:(UIColor *)borderColor{
@@ -400,16 +457,5 @@
     self.imageView.layer.borderColor = borderColor.CGColor;
     self.imageView.layer.cornerRadius = cornerRadius;
 }
-//-(void)setAttributedTitle:(NSAttributedString *)title forState:(UIControlState)state{
-//    [super setAttributedTitle:title forState:state];
-//    // 1.计算文字的尺寸
-//    self.titleSize = [title boundingRectWithSize:CGSizeMake( [self titleMaxWidth],[self titleMaxHeight]) options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
-//}
-//-(void)setImage:(UIImage *)image forState:(UIControlState)state{
-//    [super setImage:image forState:state];
-//    //没有主观限制图片的尺寸的时候 默认按照图片的实际尺寸
-//    if(CGSizeEqualToSize(self.imageSize, CGSizeZero))
-//    self.imageSize = image.size;
-//}
 
 @end

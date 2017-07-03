@@ -37,7 +37,7 @@
             int seconds = timeOut % allTime;
             NSString *timeStr = [NSString stringWithFormat:@"%02d", seconds];
             dispatch_async(dispatch_get_main_queue(), ^{
-                NSString *leftTime = [NSString stringWithFormat:@"%@s",timeStr];
+                NSString *leftTime = [NSString stringWithFormat:@"%@%@s",subTitle,timeStr];
                 [weakSelf setTitle:leftTime forState:UIControlStateNormal];
             });
             timeOut--;

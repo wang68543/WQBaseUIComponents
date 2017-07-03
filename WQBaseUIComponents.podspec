@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 
   s.name         = "WQBaseUIComponents"
-  s.version      = "0.0.7"
+  s.version      = "0.0.8"
   s.summary      = "基础组件(UI部分)"
 
   s.description  = <<-DESC 
@@ -18,7 +18,6 @@ Pod::Spec.new do |s|
   s.author             = { "王强" => "wang68543@163.com" }
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 
-  s.platform     = :ios
   s.platform     = :ios, "8.0"
 
 
@@ -43,10 +42,18 @@ Pod::Spec.new do |s|
      ss.subspec 'StarView' do |sss|
       sss.source_files = 'WQBaseUIComponents/UICustom/StarView/*.{h,m}'
     end 
+    # ss.subspec 'ViewInherit' do |sss|
+    #   sss.dependency 'WQBaseUIComponents/UICustom/ViewCustom'
+    #   sss.source_files = 'WQBaseUIComponents/UICustom/ViewInherit/*.{h,m}'
+    # end 
+    
   end
   
   s.subspec 'UICategory' do |ss|
      ss.subspec 'UICategory_Vendor' do |sss|
+      sss.subspec 'UIImage_Category' do |ssss| 
+      	ssss.source_files = 'WQBaseUIComponents/UICategory/UICategory_Vendor/UIImage_Category/*.{h,m}'
+      end
       sss.source_files = 'WQBaseUIComponents/UICategory/UICategory_Vendor/*.{h,m}'
     end 
     ss.subspec 'UICategory_UIKit' do |sss|
@@ -58,7 +65,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'UILoading' do |ss|
   	  ss.dependency 'MBProgressHUD', '~> 1.0.0'
-      ss.resource_bundle = { 'MBProgressHUD' => 'WQBaseUIComponents/UILoading/MBProgressHUD.bundle/*.png' }
+      ss.resource = 'WQBaseUIComponents/UILoading/MBProgressHUD.bundle'
       ss.source_files = 'WQBaseUIComponents/UILoading/*.{h,m}'
    end
   s.subspec 'UIHelp' do |ss|

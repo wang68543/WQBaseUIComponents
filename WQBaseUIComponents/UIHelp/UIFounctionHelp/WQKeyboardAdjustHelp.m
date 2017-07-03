@@ -7,13 +7,53 @@
 //
 
 #import "WQKeyboardAdjustHelp.h"
+#import <objc/message.h>
+@implementation UIView(WQTextInput)
+
+static char *const kBindKey = "bidnKey";
+
+-(void)setDataKey:(NSString *)dataKey{
+    if(dataKey){
+        objc_setAssociatedObject(self, kBindKey, dataKey, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    }
+}
+-(NSString *)dataKey{
+    return objc_getAssociatedObject(self,kBindKey);
+}
+
+-(void)setWq_text:(NSString *)wq_text{
+    if([self isKindOfClass:[UITextField class]]){
+        UITextField *tf = (UITextField *)self;
+        tf.text = wq_text;
+    }else if([self isKindOfClass:[UITextView class]]){
+        UITextView *tv = (UITextView *)self;
+        tv.text = wq_text;
+    }
+}
+-(NSString *)wq_text{
+    NSString * _wq_text;
+    if([self isKindOfClass:[UITextField class]]){
+        UITextField *tf = (UITextField *)self;
+        _wq_text = tf.text;
+    }else if([self isKindOfClass:[UITextView class]]){
+        UITextView *tv = (UITextView *)self;
+        _wq_text = tv.text;
+    }
+    if(!_wq_text){
+        _wq_text = @"";
+    }
+    return _wq_text;
+}
+
+@end
+
 @interface WQKeyboardAdjustHelp()<UITextViewDelegate,UITextFieldDelegate>
 //@property (assign ,nonatomic) BOOL keyboardChangeing;
 @property (strong ,nonatomic) UITapGestureRecognizer *tapGR;
 
 @end
 @implementation WQKeyboardAdjustHelp{
-    NSInteger _excludeTag;
+//    NSInteger _excludeTag;
     NSArray <WQTextFiledView *> *_textFieldViews;//从上到下依次排列
     WQTextFiledView* _firstTextFieldView;//第一响应者
 //    BOOL hasConfigDelegates;
@@ -22,17 +62,17 @@
     UIScrollView *_adjustScrollView;
     CGPoint _preContentOffset;//记录scollView初始的offset
     CGAffineTransform _preTransform;
-    
+   
     UIView *_gestureView;
     
 }
-+(instancetype)keyboardAdjustHelpWithView:(UIView *)view excludeTag:(NSInteger)excludeTag{
-    return [self keyboardAdjustWithMoveView:view gestureRecognizerView:view excludeTag:excludeTag];
++(instancetype)keyboardAdjustHelpWithView:(UIView *)view{
+    return [self keyboardAdjustWithMoveView:view gestureRecognizerView:view];
 }
-+(instancetype)keyboardAdjustWithMoveView:(UIView *)moveView gestureRecognizerView:(UIView *)gestureView excludeTag:(NSInteger)excludeTag{
-    return [[self alloc] initWithMoveView:moveView gestureRecognizerView:gestureView excludeTag:excludeTag];
++(instancetype)keyboardAdjustWithMoveView:(UIView *)moveView gestureRecognizerView:(UIView *)gestureView{
+    return [[self alloc] initWithMoveView:moveView gestureRecognizerView:gestureView];
 }
--(instancetype)initWithMoveView:(UIView *)moveView gestureRecognizerView:(UIView *)gestureView excludeTag:(NSInteger)excludeTag{
+-(instancetype)initWithMoveView:(UIView *)moveView gestureRecognizerView:(UIView *)gestureView{
     if(self = [super init]){
         _lastView = moveView;
         if([moveView isKindOfClass:[UIScrollView class]]){
@@ -43,7 +83,6 @@
             _preContentOffset = CGPointZero;
         }
         _preTransform = moveView.transform;
-        _excludeTag = excludeTag;
         _animationCurve = UIViewAnimationCurveEaseInOut;
         _animationDuration = 0.25;
         _keyboardDistanceFromTextField = 10.0;
@@ -62,6 +101,38 @@
     }
     return self;
 }
+//TODO: 最后确认提交的按钮
+-(void)setLastConfirmButton:(UIButton *)lastConfirmButton{
+    _lastConfirmButton = lastConfirmButton;
+    lastConfirmButton.enabled = [self canEnableLastConfirmButton];
+}
+//TODO: 决定最后提交的按钮是否能够提交
+- (BOOL)canEnableLastConfirmButton{
+    if(!self.lastConfirmButton){
+        return NO;
+    }
+      BOOL canEnableBtn = YES;
+    if([self.delegate respondsToSelector:@selector(canEnableConfirmButtonInView)]){
+        canEnableBtn = [self.delegate canEnableConfirmButtonInView];
+    }
+    //如果代理不让启用 就直接返回
+    if (!canEnableBtn) return canEnableBtn;
+
+    canEnableBtn = [self textFieldViewsHasText];
+    return canEnableBtn;
+}
+
+//TODO: 当前所有输入框是否有内容
+- (BOOL)textFieldViewsHasText{
+     __block BOOL hasText = YES;
+    [_textFieldViews enumerateObjectsUsingBlock:^(WQTextFiledView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if(![obj hasText]){
+            hasText = NO;
+            *stop = YES;
+        }
+    }];
+    return hasText;
+}
 
 -(void)tapBackground:(UITapGestureRecognizer *)tapGR{
 //    self.keyboardChangeing = NO;
@@ -76,9 +147,8 @@
 -(void)setDelegates{
     __weak typeof(self) weakSelf = self;
     [_textFieldViews enumerateObjectsUsingBlock:^(WQTextFiledView *_Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if(obj.tag < _excludeTag || _excludeTag != NSNotFound){
-           [obj setValue:weakSelf forKey:@"delegate"];
-        }
+         [obj setValue:weakSelf forKey:@"delegate"];
+        
         if(obj.keyboardType != UIKeyboardTypeNumberPad || obj.keyboardType != UIKeyboardTypePhonePad || obj.keyboardType != UIKeyboardTypeDecimalPad){
             if(idx != _textFieldViews.count - 1){
                 obj.returnKeyType = UIReturnKeyNext;
@@ -91,63 +161,80 @@
 
 //MARK: -- 输入框代理
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wincompatible-pointer-types"
     [self changeFirstResponder:textField];
+#pragma clang diagnostic pop
     return NO;
 }
--(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
-    if([text isEqualToString:@"\n"]){
-        [self changeFirstResponder:textView];
-        return NO;
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    if([self.delegate respondsToSelector:@selector(adjustShouldBeignEditing:)]){
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wincompatible-pointer-types"
+        return  [self.delegate adjustShouldBeignEditing:textField];
+#pragma clang diagnostic pop
     }else{
         return YES;
     }
 }
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    if(self.lastConfirmButton){
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.lastConfirmButton.enabled = [self canEnableLastConfirmButton];
+        });
+    }
+    return YES;
+}
+-(BOOL)textViewShouldBeginEditing:(UITextView *)textView{
+    if([self.delegate respondsToSelector:@selector(adjustShouldBeignEditing:)]){
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wincompatible-pointer-types"
+        return  [self.delegate adjustShouldBeignEditing:textView];
+#pragma clang diagnostic pop
+    }else{
+        return YES;
+    }
+}
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    if([text isEqualToString:@"\n"]){
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wincompatible-pointer-types"
+        [self changeFirstResponder:textView];
+#pragma clang diagnostic pop
+        return NO;
+    }else{
+       
+        return YES;
+    }
+}
+-(void)textViewDidChange:(UITextView *)textView{
+    self.lastConfirmButton.enabled = [self canEnableLastConfirmButton];
+    
+}
 
 -(void)changeFirstResponder:(WQTextFiledView *)textFiledView{
-    
-    //  [_inputView reloadInputViews];  从别的inputView切换为系统键盘
-    
     NSInteger index = [_textFieldViews indexOfObject:textFiledView];
+   
     if(index < _textFieldViews.count -1 && index >= 0){
         WQTextFiledView* inputView = _textFieldViews[index + 1];
-        if(_excludeTag != NSNotFound){
-            if(inputView.tag < _excludeTag){
-//                self.keyboardChangeing = YES;
-//                if((textFiledView.keyboardType != inputView.keyboardType)|| textFiledView.inputView != inputView.inputView){
-//                    self.keyboardChangeing = YES;
-//                    [textFiledView resignFirstResponder];
-//                }
-                [inputView becomeFirstResponder];
-            }else{
-//                self.keyboardChangeing = NO;
-//                [textFiledView resignFirstResponder];
+           BOOL canBecomFirst = YES;
+            if([self.delegate respondsToSelector:@selector(adjustShouldNext:preTFView:)]){
+               canBecomFirst = [self.delegate adjustShouldNext:inputView preTFView:textFiledView];
             }
+        if(canBecomFirst){
+           [inputView becomeFirstResponder];
         }else{
-//            self.keyboardChangeing = YES;
-//            [textFiledView resignFirstResponder];
-//            if((textFiledView.keyboardType != inputView.keyboardType)|| textFiledView.inputView != inputView.inputView){
-//                self.keyboardChangeing = YES;
-//                [textFiledView resignFirstResponder];
-//            }
-            [inputView becomeFirstResponder];
+          [textFiledView resignFirstResponder];
         }
     }else{
-//        self.keyboardChangeing = NO;
        [textFiledView resignFirstResponder];
-        
+        if([self.delegate respondsToSelector:@selector(adjustShouldDone:content:)]){
+            [self.delegate adjustShouldDone:textFiledView content:[textFiledView valueForKey:@"text"]];
+        }
     }
     
     
-    TextType textType = TextTypeView;
-    if([textFiledView isKindOfClass:[UITextField class]]){
-        textType = TextTypeFiled;
-    }
-    if([self.delegate respondsToSelector:@selector(keyboardAdjustShouldNext:textType:content:)]){
-        [self.delegate keyboardAdjustShouldNext:textFiledView textType:textType content:[textFiledView valueForKey:@"text"]];
-    }
-    if([self.delegate respondsToSelector:@selector(keyboardAdjustShouldDone:textType:content:)]){
-        [self.delegate keyboardAdjustShouldDone:textFiledView textType:textType content:[textFiledView valueForKey:@"text"]];
-    }
+    
 }
 //MARK: -- 注册键盘相关的通知
 -(void)rigisterNotification{
@@ -160,7 +247,7 @@
 
 #pragma mark - UIKeyboad Notification methods
 
-//MARK: --找出所有的输入框 并排序
+//MARK: --找出所有的输入框 并按照坐标排序
 -(void)findAllTextFileds{
     if(_textFieldViews) return;
     NSArray *tfViews = [self deepInputTextViews:_lastView];
@@ -198,7 +285,10 @@
         NSMutableArray *textFiledViews = [NSMutableArray array];
         for (UIView *subView in view.subviews) {
             if([subView  conformsToProtocol:@protocol(UITextInput)]){
-                [textFiledViews addObject:subView];
+                if(([subView isKindOfClass:[UITextField class]] && [(UITextField *)subView isEnabled]) ||([subView isKindOfClass:[UITextView class]] && [(UITextView *)subView isEditable]) ){//可编辑的编辑框才加入数组中
+                     [textFiledViews addObject:subView];
+                }
+               
             }else{
                 [textFiledViews addObjectsFromArray:[self deepInputTextViews:subView]];
             }
@@ -328,6 +418,57 @@
     }
     
 }
+#pragma mark -- 外界工具方法 
+/** 按照顺序配置绑定的key */
+- (void)configTFViewsKey:(NSArray *)dataKeys{
+    if(![dataKeys isKindOfClass:[NSArray class]] || dataKeys.count != _textFieldViews.count) return;
+    [_textFieldViews enumerateObjectsUsingBlock:^(WQTextFiledView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        obj.dataKey = [dataKeys objectAtIndex:idx];
+    }];
+}
+/** 获取当前代理里面所有输入框的值 (键值为绑定的key) */
+-(NSDictionary *)allTFViewsValue{
+    NSMutableDictionary *values = [NSMutableDictionary dictionary];
+    [_textFieldViews enumerateObjectsUsingBlock:^(WQTextFiledView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if(obj.dataKey.length > 0){
+            [values setValue:obj.wq_text forKey:obj.dataKey];
+        }
+    }];
+    return [values copy];
+}
+/** 设置 输入框的值 按照绑定的键值 */
+-(void)setAllTFViewsValueWithDic:(NSDictionary *)dic{
+    if(![dic isKindOfClass:[NSDictionary class]]) return;
+    [_textFieldViews enumerateObjectsUsingBlock:^(WQTextFiledView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if(obj.dataKey.length > 0){
+             [self setTFView:obj value:[dic objectForKey:obj.dataKey]];
+        }
+    }];
+}
+/** 设置 输入框的值 按坐标的排列顺序 */
+-(void)setAllTFViewsValueWithArray:(NSArray *)values{
+    if(![values isKindOfClass:[NSArray class]] || values.count != _textFieldViews.count) return;
+    [_textFieldViews enumerateObjectsUsingBlock:^(WQTextFiledView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [self setTFView:obj value:values[idx]];
+    }];
+}
+/** 设置 输入框的值 按按照模型来获取 */
+-(void)setAllTFViewsValueWithModel:(id)instance{
+    [_textFieldViews enumerateObjectsUsingBlock:^(WQTextFiledView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if(obj.dataKey.length > 0){
+            [self setTFView:obj value:[instance valueForKey:obj.dataKey]];
+        }
+
+    }];
+}
+- (void)setTFView:(WQTextFiledView *)tfView value:(NSString *)value{
+    NSString *textValue = value;
+    if([self.delegate respondsToSelector:@selector(shouldSetTFView:value:)]){
+        textValue = [self.delegate shouldSetTFView:tfView value:value];
+    }
+    tfView.wq_text = textValue;
+}
+#pragma mark --
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }

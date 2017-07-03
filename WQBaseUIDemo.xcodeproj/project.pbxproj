@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7FEC3802ECA5AB44ED030086 /* libPods-WQBaseUIDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4206F76108FE8DCD190650FF /* libPods-WQBaseUIDemo.a */; };
+		DE1346051EEE63B6006A3474 /* WQRadioGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = DE1346041EEE63B6006A3474 /* WQRadioGroup.m */; };
+		DE1346091EEE6B26006A3474 /* WQSexRadioGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = DE1346081EEE6B26006A3474 /* WQSexRadioGroup.m */; };
 		DE4F88C51EE2984A00C33ABA /* WQUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F88C41EE2984A00C33ABA /* WQUtils.m */; };
 		DE52C9651ED8005200FDE643 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C9641ED8005200FDE643 /* main.m */; };
 		DE52C9681ED8005200FDE643 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C9671ED8005200FDE643 /* AppDelegate.m */; };
@@ -41,6 +43,11 @@
 		DE52C9E71ED804C800FDE643 /* WQPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C9E01ED804C800FDE643 /* WQPresentationController.m */; };
 		DE5387D91EE809C000FDBE8C /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DE5387D81EE809C000FDBE8C /* MBProgressHUD.bundle */; };
 		DE67294A1EE68A18000D9C45 /* WQHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6729491EE68A18000D9C45 /* WQHUD.m */; };
+		DEC0B5811EF3D2C600519F58 /* ButtonTitleImageLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC0B5801EF3D2C600519F58 /* ButtonTitleImageLayoutViewController.m */; };
+		DEF5FE9C1EF43849004A9DDB /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = DEF5FE951EF43849004A9DDB /* UIImage+Color.m */; };
+		DEF5FE9D1EF43849004A9DDB /* UIImage+Gif.m in Sources */ = {isa = PBXBuildFile; fileRef = DEF5FE971EF43849004A9DDB /* UIImage+Gif.m */; };
+		DEF5FE9E1EF43849004A9DDB /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = DEF5FE991EF43849004A9DDB /* UIImage+Rotate.m */; };
+		DEF5FE9F1EF43849004A9DDB /* UIImage+SubImage.m in Sources */ = {isa = PBXBuildFile; fileRef = DEF5FE9B1EF43849004A9DDB /* UIImage+SubImage.m */; };
 		DEFBEC4A1EE8ED9B006FDADC /* Colours.m in Sources */ = {isa = PBXBuildFile; fileRef = DEFBEC3E1EE8ED9B006FDADC /* Colours.m */; };
 		DEFBEC4B1EE8ED9B006FDADC /* UIBarButtonItem+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = DEFBEC401EE8ED9B006FDADC /* UIBarButtonItem+Badge.m */; };
 		DEFBEC4C1EE8ED9B006FDADC /* UIButton+countDown.m in Sources */ = {isa = PBXBuildFile; fileRef = DEFBEC421EE8ED9B006FDADC /* UIButton+countDown.m */; };
@@ -55,6 +62,10 @@
 		3878E90AA25713C18017F98C /* Pods-WQBaseUIDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WQBaseUIDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WQBaseUIDemo/Pods-WQBaseUIDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		4206F76108FE8DCD190650FF /* libPods-WQBaseUIDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WQBaseUIDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F355AF01F0123EB3911390B /* Pods-WQBaseUIDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WQBaseUIDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-WQBaseUIDemo/Pods-WQBaseUIDemo.release.xcconfig"; sourceTree = "<group>"; };
+		DE1346031EEE63B6006A3474 /* WQRadioGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQRadioGroup.h; sourceTree = "<group>"; };
+		DE1346041EEE63B6006A3474 /* WQRadioGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQRadioGroup.m; sourceTree = "<group>"; };
+		DE1346071EEE6B26006A3474 /* WQSexRadioGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQSexRadioGroup.h; sourceTree = "<group>"; };
+		DE1346081EEE6B26006A3474 /* WQSexRadioGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQSexRadioGroup.m; sourceTree = "<group>"; };
 		DE4F88C31EE2984A00C33ABA /* WQUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQUtils.h; sourceTree = "<group>"; };
 		DE4F88C41EE2984A00C33ABA /* WQUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQUtils.m; sourceTree = "<group>"; };
 		DE4F88C71EE29AE900C33ABA /* WQBaseUIComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQBaseUIComponents.h; sourceTree = "<group>"; };
@@ -119,6 +130,16 @@
 		DE5387D81EE809C000FDBE8C /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		DE6729481EE68A18000D9C45 /* WQHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQHUD.h; sourceTree = "<group>"; };
 		DE6729491EE68A18000D9C45 /* WQHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQHUD.m; sourceTree = "<group>"; };
+		DEC0B57F1EF3D2C600519F58 /* ButtonTitleImageLayoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonTitleImageLayoutViewController.h; sourceTree = "<group>"; };
+		DEC0B5801EF3D2C600519F58 /* ButtonTitleImageLayoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonTitleImageLayoutViewController.m; sourceTree = "<group>"; };
+		DEF5FE941EF43849004A9DDB /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
+		DEF5FE951EF43849004A9DDB /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
+		DEF5FE961EF43849004A9DDB /* UIImage+Gif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Gif.h"; sourceTree = "<group>"; };
+		DEF5FE971EF43849004A9DDB /* UIImage+Gif.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Gif.m"; sourceTree = "<group>"; };
+		DEF5FE981EF43849004A9DDB /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Rotate.h"; sourceTree = "<group>"; };
+		DEF5FE991EF43849004A9DDB /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Rotate.m"; sourceTree = "<group>"; };
+		DEF5FE9A1EF43849004A9DDB /* UIImage+SubImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SubImage.h"; sourceTree = "<group>"; };
+		DEF5FE9B1EF43849004A9DDB /* UIImage+SubImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SubImage.m"; sourceTree = "<group>"; };
 		DEFBEC3D1EE8ED9B006FDADC /* Colours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colours.h; sourceTree = "<group>"; };
 		DEFBEC3E1EE8ED9B006FDADC /* Colours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colours.m; sourceTree = "<group>"; };
 		DEFBEC3F1EE8ED9B006FDADC /* UIBarButtonItem+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Badge.h"; sourceTree = "<group>"; };
@@ -166,6 +187,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		DE1346061EEE6B09006A3474 /* ViewInherit */ = {
+			isa = PBXGroup;
+			children = (
+				DE1346071EEE6B26006A3474 /* WQSexRadioGroup.h */,
+				DE1346081EEE6B26006A3474 /* WQSexRadioGroup.m */,
+			);
+			path = ViewInherit;
+			sourceTree = "<group>";
+		};
 		DE4F88C21EE297C200C33ABA /* SelectionTabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +225,7 @@
 		DE52C9621ED8005200FDE643 /* WQBaseUIDemo */ = {
 			isa = PBXGroup;
 			children = (
+				DEC0B57E1EF3D2C600519F58 /* Example */,
 				DE52C9661ED8005200FDE643 /* AppDelegate.h */,
 				DE52C9671ED8005200FDE643 /* AppDelegate.m */,
 				DE52C9691ED8005200FDE643 /* ViewController.h */,
@@ -311,6 +342,7 @@
 		DE52C99C1ED8019600FDE643 /* UICustom */ = {
 			isa = PBXGroup;
 			children = (
+				DE1346061EEE6B09006A3474 /* ViewInherit */,
 				DE4F88C21EE297C200C33ABA /* SelectionTabBar */,
 				DE52C99D1ED8019600FDE643 /* StarView */,
 				DE52C9A21ED8019600FDE643 /* ViewCustom */,
@@ -340,6 +372,8 @@
 				DE52C9A81ED8019600FDE643 /* WQTextView.m */,
 				DE52C9A91ED8019600FDE643 /* WQTipTextField.h */,
 				DE52C9AA1ED8019600FDE643 /* WQTipTextField.m */,
+				DE1346031EEE63B6006A3474 /* WQRadioGroup.h */,
+				DE1346041EEE63B6006A3474 /* WQRadioGroup.m */,
 			);
 			path = ViewCustom;
 			sourceTree = "<group>";
@@ -391,6 +425,30 @@
 			path = UILoading;
 			sourceTree = "<group>";
 		};
+		DEC0B57E1EF3D2C600519F58 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				DEC0B57F1EF3D2C600519F58 /* ButtonTitleImageLayoutViewController.h */,
+				DEC0B5801EF3D2C600519F58 /* ButtonTitleImageLayoutViewController.m */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
+		DEF5FE931EF43849004A9DDB /* UIImage_Category */ = {
+			isa = PBXGroup;
+			children = (
+				DEF5FE941EF43849004A9DDB /* UIImage+Color.h */,
+				DEF5FE951EF43849004A9DDB /* UIImage+Color.m */,
+				DEF5FE961EF43849004A9DDB /* UIImage+Gif.h */,
+				DEF5FE971EF43849004A9DDB /* UIImage+Gif.m */,
+				DEF5FE981EF43849004A9DDB /* UIImage+Rotate.h */,
+				DEF5FE991EF43849004A9DDB /* UIImage+Rotate.m */,
+				DEF5FE9A1EF43849004A9DDB /* UIImage+SubImage.h */,
+				DEF5FE9B1EF43849004A9DDB /* UIImage+SubImage.m */,
+			);
+			path = UIImage_Category;
+			sourceTree = "<group>";
+		};
 		DEFBEC301EE8ED9B006FDADC /* UICategory */ = {
 			isa = PBXGroup;
 			children = (
@@ -403,6 +461,7 @@
 		DEFBEC3C1EE8ED9B006FDADC /* UICategory_Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				DEF5FE931EF43849004A9DDB /* UIImage_Category */,
 				DEFBEC3D1EE8ED9B006FDADC /* Colours.h */,
 				DEFBEC3E1EE8ED9B006FDADC /* Colours.m */,
 				DEFBEC3F1EE8ED9B006FDADC /* UIBarButtonItem+Badge.h */,
@@ -555,10 +614,14 @@
 			files = (
 				DEFBEC5C1EE8EE36006FDADC /* UIColor+WQColor.m in Sources */,
 				DE52C9C51ED8019600FDE643 /* WQStarContainerView.m in Sources */,
+				DEF5FE9F1EF43849004A9DDB /* UIImage+SubImage.m in Sources */,
+				DE1346091EEE6B26006A3474 /* WQSexRadioGroup.m in Sources */,
 				DEFBEC5B1EE8EE36006FDADC /* UIBarButtonItem+WQInitHelp.m in Sources */,
 				DE52C9C61ED8019600FDE643 /* WQStarLevel.m in Sources */,
 				DE52C9CA1ED8019600FDE643 /* WQTipTextField.m in Sources */,
+				DEF5FE9D1EF43849004A9DDB /* UIImage+Gif.m in Sources */,
 				DE52C9C31ED8019600FDE643 /* WQCommonBaseTableController.m in Sources */,
+				DEF5FE9E1EF43849004A9DDB /* UIImage+Rotate.m in Sources */,
 				DE52C9C91ED8019600FDE643 /* WQTextView.m in Sources */,
 				DEFBEC4B1EE8ED9B006FDADC /* UIBarButtonItem+Badge.m in Sources */,
 				DE52C9E71ED804C800FDE643 /* WQPresentationController.m in Sources */,
@@ -567,6 +630,8 @@
 				DE52C9BF1ED8019600FDE643 /* WQCommonGroup.m in Sources */,
 				DEFBEC4D1EE8ED9B006FDADC /* UIGestureRecognizer+Block.m in Sources */,
 				DEFBEC5E1EE8EE36006FDADC /* UIImageView+WQAnimation.m in Sources */,
+				DEC0B5811EF3D2C600519F58 /* ButtonTitleImageLayoutViewController.m in Sources */,
+				DEF5FE9C1EF43849004A9DDB /* UIImage+Color.m in Sources */,
 				DE52C9E51ED804C800FDE643 /* WQControllerTransition.m in Sources */,
 				DE52C9C11ED8019600FDE643 /* WQCommonSwitchItem.m in Sources */,
 				DE52C9E21ED804C800FDE643 /* WQBroserController.m in Sources */,
@@ -582,6 +647,7 @@
 				DE52C9E11ED804C800FDE643 /* WQAPPHELP.m in Sources */,
 				DE67294A1EE68A18000D9C45 /* WQHUD.m in Sources */,
 				DEFBEC4C1EE8ED9B006FDADC /* UIButton+countDown.m in Sources */,
+				DE1346051EEE63B6006A3474 /* WQRadioGroup.m in Sources */,
 				DE52C9C01ED8019600FDE643 /* WQCommonSubtitleItem.m in Sources */,
 				DE4F88C51EE2984A00C33ABA /* WQUtils.m in Sources */,
 				DE52C9C21ED8019600FDE643 /* WQCommonBaseCell.m in Sources */,
