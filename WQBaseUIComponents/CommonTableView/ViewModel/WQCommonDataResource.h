@@ -10,10 +10,10 @@
 #import <UIKit/UIKit.h>
 #import "WQCommonGroup.h"
 
-
 @interface WQCommonDataResource : NSObject<UITableViewDataSource,UITableViewDelegate>
 +(instancetype)configTableViewDelegateAndDataSource:(UITableView *)tableView;
 @property (strong ,nonatomic,readonly) NSArray<WQCommonGroup *> *groups;
+
 
 -(void)addGroups:(NSArray <WQCommonGroup *>*)groups;
 @end

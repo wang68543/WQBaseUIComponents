@@ -20,6 +20,8 @@ typedef NS_ENUM(NSInteger,SubtitleAlignment) {
 @property (assign ,nonatomic) SubtitleAlignment subtitleAlignment;
 @property (copy ,nonatomic) NSString *subtitle;
 @property (strong ,nonatomic) UIColor *subtitleColor;
-/**是否需要指示箭头*/
+/** 子标题字体 */
+@property (strong ,nonatomic) UIFont *subTitleFont;
+/**是否需要指示箭头 默认NO */
 @property (assign ,nonatomic) BOOL needArrow;
 @end

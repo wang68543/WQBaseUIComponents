@@ -13,6 +13,8 @@
 + (CALayer *)lineWithLength:(CGFloat)length atPoint:(CGPoint)point;
 /** 竖线 */
 + (CALayer *)verticalLineHeight:(CGFloat)height atPoint:(CGPoint)point;
+/** 自定义尺寸线条 */
++ (CALayer *)layerLineWithFrame:(CGRect)lineFrame;
 /** 给线条添加阴影 */
 + (void)layerAddLineShadow:(CALayer *)lineLayer;
 

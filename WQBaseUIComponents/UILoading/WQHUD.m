@@ -22,30 +22,41 @@ static CGFloat const kHUDShowTime = 2.0;
     return view;
 }
 +(WQHUD *)wq_showHUDAnimated:(BOOL)animated{
-    UIView *view = [self getTopView];
+    return [self wq_showHUDAnimated:animated toView:nil];
+}
++(WQHUD *)wq_showHUDAnimated:(BOOL)animated toView:(UIView *)view{
+    if(!view){
+        view = [self getTopView];
+    }
     WQHUD *hud = [[self alloc] initWithView:view];
     hud.removeFromSuperViewOnHide = YES;
     [view addSubview:hud];
     [hud showAnimated:animated];
     return hud;
 }
-
 +(WQHUD *)wq_showHUD:(NSString *)message toView:(UIView *)view{
     if(!view){
         view = [self getTopView];
     }
     WQHUD *hud = [WQHUD showHUDAddedTo:view animated:YES];
+    if(message && message.length > 0)
     hud.label.text = message;
     hud.removeFromSuperViewOnHide = YES;
     
     return hud;
+}
+-(void)wq_hideHUD{
+    [self wq_hideHUDAnimated:NO];
 }
 -(void)wq_hideHUDAnimated:(BOOL)animated{
     [self hideAnimated:animated];
 }
 
 +(void)wq_showTipError:(NSError *)error{
-    [self wq_showTipMessage:[self errorDescription:error]];
+    [self wq_showTipError:error toView:nil];
+}
++(void)wq_showTipError:(NSError *)error toView:(UIView *)view{
+    [self wq_showTipMessage:[self errorDescription:error] toView:view];
 }
 +(void)wq_showTipMessage:(NSString *)message{
     [self wq_showTipMessage:message toView:nil];

@@ -8,6 +8,11 @@
 
 #import "WQCommonBaseItem.h"
 
+/** 设置控制器View的背景颜色 */
+static NSString *const kViewBackgroundColor = @"view.backgroundColor";
+/** 标题 */
+static NSString *const kTitle = @"title";
+
 @interface WQCommonArrowItem : WQCommonBaseItem
 /**红色提示数字 值为NSNotFound的时候显示为小红点 */
 @property (assign ,nonatomic) NSInteger bageValue;

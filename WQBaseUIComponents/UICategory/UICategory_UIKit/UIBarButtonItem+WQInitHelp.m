@@ -17,6 +17,12 @@
     btn.frame = CGRectMake(0, 0, 80, 44);
     return [[UIBarButtonItem alloc] initWithCustomView:btn];
 }
++(instancetype)presentBackItemWithTarget:(id)target action:(SEL)action{
+    UIButton *btn = [self buttonWithImage:@"back" target:target action:action];
+    btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    btn.frame = CGRectMake(0, 0, 80, 44);
+    return [[UIBarButtonItem alloc] initWithCustomView:btn];
+}
 +(instancetype)itemWithImage:(NSString *)image target:(id)target action:(SEL)action{
     return [[UIBarButtonItem alloc] initWithCustomView:[self buttonWithImage:image target:target action:action]];
 }

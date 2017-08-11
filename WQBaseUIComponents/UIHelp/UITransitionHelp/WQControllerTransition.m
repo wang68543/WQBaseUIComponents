@@ -730,6 +730,6 @@ typedef void(^AnmationCompeletion)(BOOL finished);
 //    
 //}
 -(void)dealloc{
-    NSLog(@"转场调度器销毁了");
+//    NSLog(@"转场调度器销毁了");
 }
 @end

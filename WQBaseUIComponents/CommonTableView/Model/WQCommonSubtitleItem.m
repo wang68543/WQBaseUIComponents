@@ -14,7 +14,6 @@
 }
 -(void)commonInit{
     [super commonInit];
-    _needArrow = YES;
     _subtitleAlignment = SubtitleAlignmentRightCenter;
 }
 -(instancetype)init{

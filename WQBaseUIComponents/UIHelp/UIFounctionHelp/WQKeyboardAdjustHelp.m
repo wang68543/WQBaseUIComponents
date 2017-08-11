@@ -54,7 +54,7 @@ static char *const kBindKey = "bidnKey";
 @end
 @implementation WQKeyboardAdjustHelp{
 //    NSInteger _excludeTag;
-    NSArray <WQTextFiledView *> *_textFieldViews;//从上到下依次排列
+//    NSArray <WQTextFiledView *> *_textFieldViews;
     WQTextFiledView* _firstTextFieldView;//第一响应者
 //    BOOL hasConfigDelegates;
     UIView *_lastView;
@@ -277,7 +277,7 @@ static char *const kBindKey = "bidnKey";
    
 }
 
-//MARK: -- 查找一个View中所有的输入框
+//MARK: -- 查找一个View中所有的输入框 
 -(NSArray<UIView<UITextInput> *> *)deepInputTextViews:(UIView *)view{
     if(view.subviews.count <= 0){
         return [NSArray array];
@@ -313,7 +313,21 @@ static char *const kBindKey = "bidnKey";
     }
    
 }
-//MARK:找出当前输入框所在的window
+//MARK: -- -实时查找当前的 第一响应者
+- (UIView *)dynamicFindCurrentFirstReponder:(UIView *)view{
+    if ([view conformsToProtocol:@protocol(UITextInput)] && view.isFirstResponder) {//(UITextField *)
+        return view;
+    }
+    for (UIView *subview in view.subviews) {
+        UIView  *tf = [self dynamicFindCurrentFirstReponder:subview];
+        if (tf) {
+            return tf;
+        }
+    }
+    return nil;
+
+}
+//MARK:-- -找出当前输入框所在的window
 -(UIWindow *)keyWindow
 {
     if (_firstTextFieldView.window)
@@ -344,7 +358,10 @@ static char *const kBindKey = "bidnKey";
     
     CGRect kbFrame = [[aNotification userInfo][UIKeyboardFrameEndUserInfoKey] CGRectValue];
     [self findFirstResponderTextFiledView];
-    if(!_firstTextFieldView) return;
+    if(!_firstTextFieldView) {//后来添加上去的
+        _firstTextFieldView = (WQTextFiledView *)[self dynamicFindCurrentFirstReponder:_lastView];
+        if (!_firstTextFieldView) return;
+    }
     
     NSInteger curve = [[aNotification userInfo][UIKeyboardAnimationCurveUserInfoKey] integerValue];
     _animationCurve = curve<<16;

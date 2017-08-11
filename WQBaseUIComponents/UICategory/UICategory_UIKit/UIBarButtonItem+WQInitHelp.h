@@ -10,6 +10,8 @@
 
 @interface UIBarButtonItem (WQInitHelp)
 +(instancetype)backBarButtonItemWithTarget:(id)target action:(SEL)action;
++(instancetype)presentBackItemWithTarget:(id)target action:(SEL)action;
+
 +(instancetype)itemWithImage:(NSString *)image target:(id)target action:(SEL)action;
 +(instancetype)itemWithTitle:(NSString *)title target:(id)target action:(SEL)action;
 /**

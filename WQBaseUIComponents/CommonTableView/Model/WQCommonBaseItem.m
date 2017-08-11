@@ -23,7 +23,7 @@
     return self;
 }
 -(void)commonInit{
-     _cellHeight = 44.0;
+//     _cellHeight = 44.0;
 }
 +(instancetype)baseItemWithTitle:(NSString *)title{
     return [self baseItemWithIcon:nil title:title];

@@ -43,8 +43,6 @@ typedef UIView<UITextInput,UIContentSizeCategoryAdjusting,NSCoding> WQTextFiledV
 @end
 
 @interface WQKeyboardAdjustHelp : NSObject
-
-
 /**
  初始化键盘弹出时页面的辅助工具(需要在界面所有的输入框都被加入到父View之后在初始化)点击此View会放弃键盘
  */
@@ -52,12 +50,15 @@ typedef UIView<UITextInput,UIContentSizeCategoryAdjusting,NSCoding> WQTextFiledV
 /**
  点击背景放弃键盘,键盘弹出的时候自身上移
 
- @param moveView 键盘弹出时需要移动的View
+ @param moveView 键盘弹出时需要移动的View (响应此View上的输入框)
  @param gestureView 点击时需要隐藏键盘的View
  @return view需要Strong此工具
  */
 +(instancetype)keyboardAdjustWithMoveView:(UIView *)moveView gestureRecognizerView:(UIView *)gestureView;
 @property (weak ,nonatomic) id<WQKeyboardAdjustDelegate> delegate;
+/** 当前页面的所有可编辑输入框 从上到下从左到右一次排列 */
+@property (strong ,nonatomic ,readonly) NSArray <WQTextFiledView *> *textFieldViews;
+
 /** 键盘距离输入框的距离 (默认10) */
 @property(nonatomic, assign) CGFloat keyboardDistanceFromTextField;
 

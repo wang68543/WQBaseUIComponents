@@ -13,6 +13,7 @@
 
 @interface WQCommonDataResource ()
 @property (weak ,nonatomic) UITableView *tableView;
+@property (weak  ,nonatomic) UINavigationController *topNav;
 @end
 @implementation WQCommonDataResource
 static NSString *const identifier = @"commonCell";
@@ -25,11 +26,12 @@ static NSString *const identifier = @"commonCell";
         tableView.delegate = self;
         tableView.dataSource = self;
         [self.tableView registerClass:[WQCommonBaseCell class] forCellReuseIdentifier:identifier];
+        tableView.tableFooterView = [[UIView alloc] init];
     }
     return self;
 }
 -(void)addGroups:(NSArray<WQCommonGroup *> *)groups{
-    _groups = groups;
+    _groups = [groups copy];
     [self.tableView reloadData];
 }
 #pragma mark - Table view data source
@@ -47,15 +49,18 @@ static NSString *const identifier = @"commonCell";
     if(baseItem.itemType == CommonItemTypeCustom){
         WQCommonCustomItem *customItem = (WQCommonCustomItem *)baseItem;
         
-        UITableViewCell<WQCommonCellProtocol> *cell = [tableView dequeueReusableCellWithIdentifier:[WQCommonCustomItem customIdentifire]];
+        UITableViewCell<WQCommonCellProtocol> *cell = [tableView dequeueReusableCellWithIdentifier:[[customItem class] customIdentifire]];
         if(!cell){
-            cell = [[customItem.cellClass alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:[WQCommonCustomItem customIdentifire]];
+            cell = [[customItem.cellClass alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:[[customItem class] customIdentifire]];
         }
         cell.baseItem = customItem;
         return cell;
     }else{
         WQCommonBaseCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-        
+   
+        if(self.tableView.separatorStyle != UITableViewCellSeparatorStyleNone){
+           [cell setSeparatorInset:UIEdgeInsetsZero];
+        }
         cell.baseItem = self.groups[indexPath.section].items[indexPath.row];
         return cell;
     }
@@ -77,7 +82,11 @@ static NSString *const identifier = @"commonCell";
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *headerView = [[UIView alloc] init];
-    headerView.backgroundColor = [UIColor lightGrayColor];
+    if(tableView.separatorColor){
+        headerView.backgroundColor = tableView.separatorColor;
+    }else{
+        headerView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    }
     WQCommonGroup *group = self.groups[section];
     headerView.frame = CGRectMake(0, 0, CGRectGetWidth(self.tableView.frame), group.commonHeight.headerHeight);
     UILabel *headerLabel = [[UILabel alloc] init];
@@ -90,7 +99,12 @@ static NSString *const identifier = @"commonCell";
 }
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     UIView *footerView = [[UIView alloc] init];
-    footerView.backgroundColor = [UIColor lightGrayColor];
+    if(tableView.separatorColor){
+       footerView.backgroundColor = tableView.separatorColor;
+    }else{
+       footerView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    }
+    
     WQCommonGroup *group = self.groups[section];
     footerView.frame = CGRectMake(0, 0, CGRectGetWidth(self.tableView.frame), group.commonHeight.headerHeight);
     UILabel *footerLabel = [[UILabel alloc] init];
@@ -111,8 +125,19 @@ static NSString *const identifier = @"commonCell";
             WQCommonArrowItem *item = (WQCommonArrowItem *)baseItem;
             if(item.destClass){
                 UIViewController *destVc = [[item.destClass alloc] init];
-                [WQAPPHELP setPropertyValue:destVc values:item.destPropertyParams];
-                [[WQAPPHELP currentNavgationController] pushViewController:destVc animated:YES];
+                UIColor *viewBackground = [item.destPropertyParams valueForKey:kViewBackgroundColor];
+                if(viewBackground){//确保viewDidLoad在设置完属性之后加载
+                    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:item.destPropertyParams];
+                    [params removeObjectForKey:kViewBackgroundColor];
+                    [WQAPPHELP setPropertyValue:destVc values:params];
+                    destVc.view.backgroundColor = viewBackground;
+                }else{
+                    [WQAPPHELP setPropertyValue:destVc values:item.destPropertyParams];
+                }
+                if(!self.topNav){
+                  self.topNav = [WQAPPHELP currentNavgationController];
+                }
+                [self.topNav pushViewController:destVc animated:YES];
             }
             if(item.operation){
                 item.operation();

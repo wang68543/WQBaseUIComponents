@@ -12,4 +12,9 @@
 -(CommonItemType)itemType{
     return CommonItemTypeSwitch;
 }
+
+-(void)commonInit{
+    [super commonInit];
+    _switchEnabled = YES;
+}
 @end

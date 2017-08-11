@@ -111,6 +111,9 @@
                 //kvc给属性赋值
                 [instance setValue:obj forKey:key];
             }else {
+                if([key rangeOfString:@"."].location != NSNotFound){
+                    [instance setValue:obj forKeyPath:key];
+                }
                 NSLog(@"不包含key=%@的属性",key);
             }
         }];

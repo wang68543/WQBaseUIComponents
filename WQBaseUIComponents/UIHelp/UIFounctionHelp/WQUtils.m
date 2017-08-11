@@ -11,17 +11,16 @@
 @implementation WQUtils
 //TODO: 横线
 + (CALayer *)lineWithLength:(CGFloat)length atPoint:(CGPoint)point {
-    CALayer *line = [CALayer layer];
-    line.backgroundColor = [UIColor colorWithRed:221.0/255.0 green:221.0/255.0 blue:221.0/255.0 alpha:1.0].CGColor;
-    line.frame = CGRectMake(point.x, point.y, length, 1/[UIScreen mainScreen].scale);
-    
-    return line;
+     return [self layerLineWithFrame:CGRectMake(point.x, point.y, length, 1/[UIScreen mainScreen].scale)];
 }
 //TODO: 竖线
 + (CALayer *)verticalLineHeight:(CGFloat)height atPoint:(CGPoint)point{
+    return [self layerLineWithFrame:CGRectMake(point.x, point.y, 1/[UIScreen mainScreen].scale,height)];
+}
++(CALayer *)layerLineWithFrame:(CGRect)lineFrame{
     CALayer *line = [CALayer layer];
     line.backgroundColor = [UIColor colorWithRed:221.0/255.0 green:221.0/255.0 blue:221.0/255.0 alpha:1.0].CGColor;
-    line.frame = CGRectMake(point.x, point.y, 1/[UIScreen mainScreen].scale,height);
+    line.frame = lineFrame;
     return line;
 }
 + (void)layerAddLineShadow:(CALayer *)lineLayer{
@@ -29,6 +28,7 @@
     lineLayer.shadowColor = [[UIColor blackColor] colorWithAlphaComponent:0.5].CGColor;
     lineLayer.shadowOpacity = 0.2;
 }
+
 +(CALayer *)shadowLineWithLength:(CGFloat)length atPoint:(CGPoint)point{
     CALayer *line = [self lineWithLength:length atPoint:point];
     [self layerAddLineShadow:line];

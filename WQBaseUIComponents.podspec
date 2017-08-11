@@ -5,7 +5,8 @@ Pod::Spec.new do |s|
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 
   s.name         = "WQBaseUIComponents"
-  s.version      = "0.0.8"
+  #弄错了 版本号
+  s.version      = "0.1.3"
   s.summary      = "基础组件(UI部分)"
 
   s.description  = <<-DESC 
@@ -79,6 +80,7 @@ Pod::Spec.new do |s|
    
     s.subspec 'WQCommonTableView' do |ss|
      ss.dependency 'WQBaseUIComponents/UIHelp'
+     ss.dependency 'Masonry'
      ss.source_files = 'WQBaseUIComponents/CommonTableView/**/*.{h,m}'
   end
 end

@@ -13,10 +13,14 @@
 
 
 +(WQHUD *)wq_showHUDAnimated:(BOOL)animated;
++(WQHUD *)wq_showHUDAnimated:(BOOL)animated toView:(UIView *)view;
 +(WQHUD *)wq_showHUD:(NSString *)message toView:(UIView *)view;
+/** 隐藏 没有动画 */
+-(void)wq_hideHUD;
 -(void)wq_hideHUDAnimated:(BOOL)animated;
 
 +(void)wq_showTipError:(NSError *)error;
++(void)wq_showTipError:(NSError *)error toView:(UIView *)view;
 +(void)wq_showTipMessage:(NSString *)message;
 +(void)wq_showTipMessage:(NSString *)message toView:(UIView *)view;
 

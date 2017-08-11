@@ -9,5 +9,8 @@
 #import "WQCommonBaseItem.h"
 
 @interface WQCommonSwitchItem : WQCommonBaseItem
-@property (assign ,nonatomic) BOOL switchOn;
+@property (assign ,nonatomic,getter=isSwitchOn) BOOL switchOn;
+
+/** 默认YES */
+@property (assign ,nonatomic) BOOL switchEnabled;
 @end
