@@ -18,7 +18,8 @@
 #import "UIGestureRecognizer+Block.h"
 
 #import "UIImageView+WQAnimation.h"
-
+#import "UIButton+WQSDWebImage.h"
+#import "UIImageView+WQSDWebImage.h"
 
 #import "UIBarButtonItem+WQInitHelp.h"
 #endif /* WQBaseUIComponents_h */

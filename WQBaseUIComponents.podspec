@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
 
   s.name         = "WQBaseUIComponents"
   #弄错了 版本号
-  s.version      = "0.1.4"
+  s.version      = "0.1.5"
   s.summary      = "基础组件(UI部分)"
 
   s.description  = <<-DESC 
@@ -61,6 +61,11 @@ Pod::Spec.new do |s|
       sss.dependency 'WQBaseUIComponents/UICategory/UICategory_Vendor'
       sss.source_files = 'WQBaseUIComponents/UICategory/UICategory_UIKit/*.{h,m}'
     end 
+    ss.subspec 'UICategory_NetWork' do |sss|
+      sss.dependency 'SDWebImage'
+      sss.source_files = 'WQBaseUIComponents/UICategory/UICategory_NetWork/*.{h,m}'
+    end 
+    
    end
 
 
@@ -81,6 +86,7 @@ Pod::Spec.new do |s|
     s.subspec 'WQCommonTableView' do |ss|
      ss.dependency 'WQBaseUIComponents/UIHelp'
      ss.dependency 'Masonry'
+     ss.dependency 'SDWebImage'
      ss.source_files = 'WQBaseUIComponents/CommonTableView/**/*.{h,m}'
   end
 end

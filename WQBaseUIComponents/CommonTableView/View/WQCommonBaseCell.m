@@ -8,6 +8,7 @@
 
 #import "WQCommonBaseCell.h"
 #import <Masonry/Masonry.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface WQCommonBaseCell()
 @property (strong ,nonatomic) UILabel *subtitleLabel;
@@ -66,20 +67,8 @@
     if(self.baseItem.operation){
         self.baseItem.operation();
     }
-//    if([self.delegate respondsToSelector:@selector(commonBaseCellDidSwitchChange:switchState:)]){
-//        [self.delegate commonBaseCellDidSwitchChange:self switchState:sender.isOn];
-//    }
 }
-//-(void)resetCommonInit{
-//    self.subtitleLabel.text = nil;
-//    self.subtitleLabel.frame = CGRectZero;
-//    if(self.imageView){
-//        self.imageView.image = nil;
-//        self.imageView.frame = CGRectZero;
-//    }
-//    self.textLabel.backgroundColor = [UIColor clearColor];
-//    self.backgroundColor = [UIColor clearColor];
-//}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
@@ -123,20 +112,29 @@
      CGFloat firstIconPadding = leftPadding;
     
     __weak typeof(self) weakSelf = self;
-    if(baseItem.icon){
-         _iconView.image = [UIImage imageNamed:baseItem.icon];
+    if(baseItem.iconURL || baseItem.icon){
         CGFloat imageW = baseItem.iconSize.width;
         CGFloat imageH = baseItem.iconSize.height;
-        if(imageW <= 0){
-            imageH = MIN(cellHeight - topPading*2, _iconView.image.size.height);
-            imageW = _iconView.image.size.width;
+        
+        UIImage *iconImage = [UIImage imageNamed:baseItem.icon];
+        
+        if(baseItem.iconURL){
+            NSAssert(!CGSizeEqualToSize(baseItem.iconSize, CGSizeZero), @"加载网络图片的时候必须设置iconSize属性");
+    
+            [_iconView sd_setImageWithURL:baseItem.iconURL placeholderImage:iconImage];
+        }else{
+           _iconView.image = iconImage;
+            if(CGSizeEqualToSize(baseItem.iconSize, CGSizeZero)){
+                imageH = MIN(cellHeight - topPading*2, _iconView.image.size.height);
+                imageW = _iconView.image.size.width;
+            }
         }
-      [_iconView mas_makeConstraints:^(MASConstraintMaker *make) {
-          make.centerY.equalTo(weakSelf.contentView);
-          make.left.equalTo(leftMaxXAttribute).with.offset(leftPadding);
-          make.width.mas_equalTo(imageW);
-          make.height.mas_equalTo(imageH);
-      }];
+        [_iconView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(weakSelf.contentView);
+            make.left.equalTo(leftMaxXAttribute).with.offset(leftPadding);
+            make.width.mas_equalTo(imageW);
+            make.height.mas_equalTo(imageH);
+        }];
         leftMaxXAttribute = _iconView.mas_right;
         firstIconPadding  = sectionH;
     }

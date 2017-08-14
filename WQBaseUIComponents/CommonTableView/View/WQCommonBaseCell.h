@@ -11,14 +11,8 @@
 
 @class WQCommonBaseCell;
 
-//@protocol WQCommonBaseCellDelegate<NSObject>
-//@optional
-//-(void)commonBaseCellDidSwitchChange:(WQCommonBaseCell *)baseCell switchState:(BOOL)state;
-//@end
-
 @interface WQCommonBaseCell : UITableViewCell<WQCommonCellProtocol>
 
-//@property (weak ,nonatomic) id<WQCommonBaseCellDelegate> delegate;
 @property (strong ,nonatomic) WQCommonBaseItem *baseItem;
 
 @end

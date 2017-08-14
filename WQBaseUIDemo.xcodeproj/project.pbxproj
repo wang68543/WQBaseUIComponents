@@ -43,6 +43,8 @@
 		DE52C9E71ED804C800FDE643 /* WQPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE52C9E01ED804C800FDE643 /* WQPresentationController.m */; };
 		DE5387D91EE809C000FDBE8C /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DE5387D81EE809C000FDBE8C /* MBProgressHUD.bundle */; };
 		DE67294A1EE68A18000D9C45 /* WQHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6729491EE68A18000D9C45 /* WQHUD.m */; };
+		DE7B785C1F41A0200073A674 /* UIButton+WQSDWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B78591F41A0200073A674 /* UIButton+WQSDWebImage.m */; };
+		DE7B785D1F41A0200073A674 /* UIImageView+WQSDWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7B785B1F41A0200073A674 /* UIImageView+WQSDWebImage.m */; };
 		DEC0B5811EF3D2C600519F58 /* ButtonTitleImageLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC0B5801EF3D2C600519F58 /* ButtonTitleImageLayoutViewController.m */; };
 		DEF5FE9C1EF43849004A9DDB /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = DEF5FE951EF43849004A9DDB /* UIImage+Color.m */; };
 		DEF5FE9D1EF43849004A9DDB /* UIImage+Gif.m in Sources */ = {isa = PBXBuildFile; fileRef = DEF5FE971EF43849004A9DDB /* UIImage+Gif.m */; };
@@ -130,6 +132,10 @@
 		DE5387D81EE809C000FDBE8C /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		DE6729481EE68A18000D9C45 /* WQHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQHUD.h; sourceTree = "<group>"; };
 		DE6729491EE68A18000D9C45 /* WQHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQHUD.m; sourceTree = "<group>"; };
+		DE7B78581F41A0200073A674 /* UIButton+WQSDWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+WQSDWebImage.h"; sourceTree = "<group>"; };
+		DE7B78591F41A0200073A674 /* UIButton+WQSDWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WQSDWebImage.m"; sourceTree = "<group>"; };
+		DE7B785A1F41A0200073A674 /* UIImageView+WQSDWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WQSDWebImage.h"; sourceTree = "<group>"; };
+		DE7B785B1F41A0200073A674 /* UIImageView+WQSDWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WQSDWebImage.m"; sourceTree = "<group>"; };
 		DEC0B57F1EF3D2C600519F58 /* ButtonTitleImageLayoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonTitleImageLayoutViewController.h; sourceTree = "<group>"; };
 		DEC0B5801EF3D2C600519F58 /* ButtonTitleImageLayoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonTitleImageLayoutViewController.m; sourceTree = "<group>"; };
 		DEF5FE941EF43849004A9DDB /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
@@ -425,6 +431,17 @@
 			path = UILoading;
 			sourceTree = "<group>";
 		};
+		DE7B78571F41A0200073A674 /* UICategory_NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				DE7B78581F41A0200073A674 /* UIButton+WQSDWebImage.h */,
+				DE7B78591F41A0200073A674 /* UIButton+WQSDWebImage.m */,
+				DE7B785A1F41A0200073A674 /* UIImageView+WQSDWebImage.h */,
+				DE7B785B1F41A0200073A674 /* UIImageView+WQSDWebImage.m */,
+			);
+			path = UICategory_NetWork;
+			sourceTree = "<group>";
+		};
 		DEC0B57E1EF3D2C600519F58 /* Example */ = {
 			isa = PBXGroup;
 			children = (
@@ -452,6 +469,7 @@
 		DEFBEC301EE8ED9B006FDADC /* UICategory */ = {
 			isa = PBXGroup;
 			children = (
+				DE7B78571F41A0200073A674 /* UICategory_NetWork */,
 				DEFBEC501EE8EE36006FDADC /* UICategory_UIKit */,
 				DEFBEC3C1EE8ED9B006FDADC /* UICategory_Vendor */,
 			);
@@ -641,6 +659,7 @@
 				DE52C9BA1ED8019600FDE643 /* ZHAnimationView.m in Sources */,
 				DEFBEC5F1EE8EE36006FDADC /* UIView+WQLayout.m in Sources */,
 				DE52C9BC1ED8019600FDE643 /* WQCommonBaseItem.m in Sources */,
+				DE7B785C1F41A0200073A674 /* UIButton+WQSDWebImage.m in Sources */,
 				DE52C9681ED8005200FDE643 /* AppDelegate.m in Sources */,
 				DE52C9E41ED804C800FDE643 /* WQKeyboardAdjustHelp.m in Sources */,
 				DE52C9C41ED8019600FDE643 /* WQCommonDataResource.m in Sources */,
@@ -649,6 +668,7 @@
 				DEFBEC4C1EE8ED9B006FDADC /* UIButton+countDown.m in Sources */,
 				DE1346051EEE63B6006A3474 /* WQRadioGroup.m in Sources */,
 				DE52C9C01ED8019600FDE643 /* WQCommonSubtitleItem.m in Sources */,
+				DE7B785D1F41A0200073A674 /* UIImageView+WQSDWebImage.m in Sources */,
 				DE4F88C51EE2984A00C33ABA /* WQUtils.m in Sources */,
 				DE52C9C21ED8019600FDE643 /* WQCommonBaseCell.m in Sources */,
 				DE52C9BE1ED8019600FDE643 /* WQCommonCustomItem.m in Sources */,

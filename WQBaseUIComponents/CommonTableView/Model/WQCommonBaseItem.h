@@ -29,7 +29,12 @@ typedef NS_ENUM(NSInteger ,CommonItemType) {
 @property (assign ,nonatomic) CGSize iconSize;
 
 @property (assign ,nonatomic,readonly) CommonItemType itemType;
+/** 本地图片 */
 @property (copy ,nonatomic) NSString *icon;
+
+/** 加载网络图片 设置此属性必须同时设置iconSize (若设置了此属性同时设置了icon属性 则icon作为placeholder) */
+@property (strong ,nonatomic) NSURL *iconURL;
+
 @property (copy ,nonatomic) NSString *title;
 
 @property (copy ,nonatomic) CommonOperation operation;

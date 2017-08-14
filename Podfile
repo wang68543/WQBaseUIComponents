@@ -4,4 +4,5 @@
 target 'WQBaseUIDemo' do
     pod 'MBProgressHUD', '~> 1.0.0'
     pod 'Masonry'
+    pod 'SDWebImage'
 end

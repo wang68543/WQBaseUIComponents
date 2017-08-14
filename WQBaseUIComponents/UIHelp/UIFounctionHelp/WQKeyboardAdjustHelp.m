@@ -379,16 +379,17 @@ static char *const kBindKey = "bidnKey";
     
     if(_adjustScrollView){
         if(offsetY <= 0){
-            [UIView animateWithDuration:_animationDuration delay:0 options:(_animationCurve|UIViewAnimationOptionBeginFromCurrentState) animations:^{
-                _adjustScrollView.contentOffset =CGPointMake(_adjustScrollView.contentOffset.x, _adjustScrollView.contentOffset.y - offsetY);
-                //         [_adjustScrollView setContentOffset:CGPointMake(_adjustScrollView.contentOffset.x, _adjustScrollView.contentOffset.y - offsetY) animated:YES];
-            } completion:NULL];
+            [_adjustScrollView setContentOffset:CGPointMake(_adjustScrollView.contentOffset.x, _adjustScrollView.contentOffset.y - offsetY) animated:YES];
+            
+//            [UIView animateWithDuration:_animationDuration delay:0 options:(_animationCurve|UIViewAnimationOptionBeginFromCurrentState) animations:^{
+//                _adjustScrollView.contentOffset =CGPointMake(_adjustScrollView.contentOffset.x, _adjustScrollView.contentOffset.y - offsetY);
+//            } completion:NULL];
         }else{
             if(_adjustScrollView.contentOffset.y <= 0) return;
-            [UIView animateWithDuration:_animationDuration delay:0 options:(_animationCurve|UIViewAnimationOptionBeginFromCurrentState) animations:^{
-                _adjustScrollView.contentOffset = CGPointMake(_adjustScrollView.contentOffset.x, MAX(_adjustScrollView.contentOffset.y - offsetY, 0));
-//                [_adjustScrollView setContentOffset:CGPointMake(_adjustScrollView.contentOffset.x, MAX(_adjustScrollView.contentOffset.y - offsetY, 0))];
-            } completion:NULL];
+             [_adjustScrollView setContentOffset:CGPointMake(_adjustScrollView.contentOffset.x, MAX(_adjustScrollView.contentOffset.y - offsetY, 0))];
+//            [UIView animateWithDuration:_animationDuration delay:0 options:(_animationCurve|UIViewAnimationOptionBeginFromCurrentState) animations:^{
+//                _adjustScrollView.contentOffset = CGPointMake(_adjustScrollView.contentOffset.x, MAX(_adjustScrollView.contentOffset.y - offsetY, 0));
+//            } completion:NULL];
             
         }
     }else{
