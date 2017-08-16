@@ -19,7 +19,7 @@ typedef UIView<UITextInput,UIContentSizeCategoryAdjusting,NSCoding> WQTextFiledV
 @optional
 
 /**
- 将要开始编辑下一个输入框
+ 将要开始编辑下一个输入框 (textFiled的Return 和textView的'\n'都会触发)
  
  @param nextTextFiledView 即将开始输入的输入框
  @param preTextFiledView 当前正在输入的输入框
