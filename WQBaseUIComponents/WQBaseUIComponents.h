@@ -21,5 +21,8 @@
 #import "UIButton+WQSDWebImage.h"
 #import "UIImageView+WQSDWebImage.h"
 
+
+#import "UIImage+WQHelp.h"
+
 #import "UIBarButtonItem+WQInitHelp.h"
 #endif /* WQBaseUIComponents_h */

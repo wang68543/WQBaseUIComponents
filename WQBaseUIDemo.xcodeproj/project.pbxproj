@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7FEC3802ECA5AB44ED030086 /* libPods-WQBaseUIDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4206F76108FE8DCD190650FF /* libPods-WQBaseUIDemo.a */; };
+		DE1272FC1F467B1100CB7D19 /* UIImage+WQHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = DE1272FB1F467B1100CB7D19 /* UIImage+WQHelp.m */; };
 		DE1346051EEE63B6006A3474 /* WQRadioGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = DE1346041EEE63B6006A3474 /* WQRadioGroup.m */; };
 		DE1346091EEE6B26006A3474 /* WQSexRadioGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = DE1346081EEE6B26006A3474 /* WQSexRadioGroup.m */; };
 		DE4F88C51EE2984A00C33ABA /* WQUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F88C41EE2984A00C33ABA /* WQUtils.m */; };
@@ -64,6 +65,8 @@
 		3878E90AA25713C18017F98C /* Pods-WQBaseUIDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WQBaseUIDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WQBaseUIDemo/Pods-WQBaseUIDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		4206F76108FE8DCD190650FF /* libPods-WQBaseUIDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WQBaseUIDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F355AF01F0123EB3911390B /* Pods-WQBaseUIDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WQBaseUIDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-WQBaseUIDemo/Pods-WQBaseUIDemo.release.xcconfig"; sourceTree = "<group>"; };
+		DE1272FA1F467B1100CB7D19 /* UIImage+WQHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WQHelp.h"; sourceTree = "<group>"; };
+		DE1272FB1F467B1100CB7D19 /* UIImage+WQHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WQHelp.m"; sourceTree = "<group>"; };
 		DE1346031EEE63B6006A3474 /* WQRadioGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQRadioGroup.h; sourceTree = "<group>"; };
 		DE1346041EEE63B6006A3474 /* WQRadioGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQRadioGroup.m; sourceTree = "<group>"; };
 		DE1346071EEE6B26006A3474 /* WQSexRadioGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQSexRadioGroup.h; sourceTree = "<group>"; };
@@ -495,6 +498,8 @@
 		DEFBEC501EE8EE36006FDADC /* UICategory_UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				DE1272FA1F467B1100CB7D19 /* UIImage+WQHelp.h */,
+				DE1272FB1F467B1100CB7D19 /* UIImage+WQHelp.m */,
 				DEFBEC511EE8EE36006FDADC /* UIBarButtonItem+WQInitHelp.h */,
 				DEFBEC521EE8EE36006FDADC /* UIBarButtonItem+WQInitHelp.m */,
 				DEFBEC531EE8EE36006FDADC /* UIColor+WQColor.h */,
@@ -631,6 +636,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DEFBEC5C1EE8EE36006FDADC /* UIColor+WQColor.m in Sources */,
+				DE1272FC1F467B1100CB7D19 /* UIImage+WQHelp.m in Sources */,
 				DE52C9C51ED8019600FDE643 /* WQStarContainerView.m in Sources */,
 				DEF5FE9F1EF43849004A9DDB /* UIImage+SubImage.m in Sources */,
 				DE1346091EEE6B26006A3474 /* WQSexRadioGroup.m in Sources */,
