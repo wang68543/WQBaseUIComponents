@@ -8,9 +8,10 @@
 
 #import "ButtonTitleImageLayoutViewController.h"
 #import "WQEdgeTitleButton.h"
+#import "UIButton+countDown.h"
 
 @interface ButtonTitleImageLayoutViewController ()
-
+@property (weak    ,nonatomic) UIButton *btn;
 @end
 
 @implementation ButtonTitleImageLayoutViewController
@@ -63,8 +64,32 @@
     RightContent.frame = CGRectMake(20, CGRectGetMaxY(leftContent.frame)+10.0, 280 , 120);
 //
 //    [self.view setValue:[NSValue valueWithCGSize:CGSizeMake([[UIScreen mainScreen] bounds].size.width, CGRectGetMaxY(RightContent.frame) + 20)] forKeyPath:@"contentSize"];
+    UIButton *btn = [[UIButton alloc] init];
+    [btn setTitle:@"倒计时" forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(countDown:) forControlEvents:UIControlEventTouchUpInside];
+    btn.frame = CGRectMake(10, 10, 60, 40);
+    [self.view addSubview:btn];
+    _btn = btn;
+    UIButton *btn1 = [[UIButton alloc] init];
+    [btn1 setTitle:@"取消倒计时" forState:UIControlStateNormal];
+    [btn1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [btn1 addTarget:self action:@selector(cancelDown:) forControlEvents:UIControlEventTouchUpInside];
+    btn1.frame = CGRectMake(10, 100, 60, 40);
+    [self.view addSubview:btn1];
+    
 }
-
+- (void)cancelDown:(UIButton *)sender{
+    [_btn stopCountDown];
+}
+- (void)countDown:(UIButton *)sender{
+  
+    NSNumberFormatter *formater = [[NSNumberFormatter alloc] init];
+    formater.positiveSuffix = @"s";
+    
+    [sender startWithTime:60 numberFormatter:formater countColor:[UIColor redColor]];
+    
+}
 -(WQEdgeTitleButton *)commonContentTitle{
     WQEdgeTitleButton *edgeBtn = [[WQEdgeTitleButton  alloc] init];
     [edgeBtn setTitle:@"标题" forState:UIControlStateNormal];

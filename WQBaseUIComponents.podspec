@@ -62,7 +62,6 @@ Pod::Spec.new do |s|
       sss.source_files = 'WQBaseUIComponents/UICategory/UICategory_UIKit/*.{h,m}'
     end 
     ss.subspec 'UICategory_NetWork' do |sss|
-      sss.dependency 'SDWebImage'
       sss.source_files = 'WQBaseUIComponents/UICategory/UICategory_NetWork/*.{h,m}'
     end 
     
@@ -85,8 +84,8 @@ Pod::Spec.new do |s|
    
     s.subspec 'WQCommonTableView' do |ss|
      ss.dependency 'WQBaseUIComponents/UIHelp'
-     ss.dependency 'Masonry'
-     ss.dependency 'SDWebImage'
+     ss.dependency 'Masonry', '>= 1.0.2'
      ss.source_files = 'WQBaseUIComponents/CommonTableView/**/*.{h,m}'
   end
+     s.dependency 'SDWebImage','>= 4.0.0'
 end

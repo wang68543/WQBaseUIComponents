@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface UIButton (countDown)
-/**如果出现界面闪烁的问题就把button类型改为Custom 默认的是System类型 */
+//TODO: --  如果出现界面闪烁的问题就把button类型改为Custom 默认的是System类型 
+/** 倒计时timer */
+@property (assign  ,nonatomic) dispatch_source_t waitTime;
+
 /**
  *  倒计时按钮
  *
@@ -20,9 +23,16 @@
  *  @param color    倒计时中的颜色
  */
 - (void)startWithTime:(NSInteger)timeLine title:(NSString *)title countDownTitle:(NSString *)subTitle mainColor:(UIColor *)mColor countColor:(UIColor *)color;
+
 /**
- *  停止倒计时
+ 倒计时
+
+ @param timeOut 倒计时时间
+ @param formatter 格式化显示
+ @param color 倒计时时候的颜色 
  */
+- (void)startWithTime:(NSUInteger)timeOut numberFormatter:(NSNumberFormatter *)formatter countColor:(UIColor *)color;
+/** 停止倒计时*/
 -(void)stopCountDown;
 
 @end
