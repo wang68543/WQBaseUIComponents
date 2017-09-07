@@ -48,19 +48,23 @@ static const char * kWaitTime = "waitTime";
 
     dispatch_source_set_event_handler(_timer, ^{
         //倒计时结束，关闭
+        
         if (timeLine <= 0) {
             dispatch_source_cancel(_timer);
         } else {
             dispatch_async(dispatch_get_main_queue(), ^{
-        
+                 timeLine --;
                 [weakSelf setTitle:[formatter stringFromNumber:@(timeLine)] forState:currentState];
             });
-            timeLine --;
         }
     });
-    //设置倒计时文字的颜色
-    [self setTitleColor:color forState:currentState];
     
+    if (color) {
+        //设置倒计时文字的颜色
+        [self setTitleColor:color forState:currentState];
+    }
+    //设置初始值
+     [self setTitle:[formatter stringFromNumber:@(timeLine)] forState:currentState];
     //取消倒计时回调
     dispatch_source_set_cancel_handler(_timer, ^{
 
@@ -117,5 +121,11 @@ static const char * kWaitTime = "waitTime";
         self.waitTime = nil;
     }
     self.enabled = YES;
+}
+-(void)dealloc{
+    if (self.waitTime) {
+        dispatch_source_cancel(self.waitTime);
+        self.waitTime = nil;
+    }
 }
 @end
