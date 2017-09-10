@@ -22,7 +22,7 @@
  *  @param mColor   还没倒计时的颜色
  *  @param color    倒计时中的颜色
  */
-- (void)startWithTime:(NSInteger)timeLine title:(NSString *)title countDownTitle:(NSString *)subTitle mainColor:(UIColor *)mColor countColor:(UIColor *)color;
+- (void)startWithTime:(NSInteger)timeLine title:(NSString *)title countDownTitle:(NSString *)subTitle mainColor:(UIColor *)mColor countColor:(UIColor *)color __deprecated_msg("请使用 startWithTime:numberFormatter:countColor:");
 
 /**
  倒计时
@@ -31,7 +31,7 @@
  @param formatter 格式化显示
  @param color 倒计时时候的颜色 
  */
-- (void)startWithTime:(NSUInteger)timeOut numberFormatter:(NSNumberFormatter *)formatter countColor:(UIColor *)color;
+- (void)startWithTime:(NSUInteger)timeOut numberFormatter:(NSNumberFormatter *)formatter countColor:(UIColor *)color ;
 /** 停止倒计时*/
 -(void)stopCountDown;
 

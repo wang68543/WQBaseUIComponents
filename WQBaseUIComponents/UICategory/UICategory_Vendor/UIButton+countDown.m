@@ -54,6 +54,9 @@ static const char * kWaitTime = "waitTime";
         } else {
             dispatch_async(dispatch_get_main_queue(), ^{
                  timeLine --;
+                //当控件销毁之后 如果还在计时的话 就取消计时 因为c语言assign类型的timer取消计时之后内存释放为野指针 再访问就出错 如果在dealloc里面判断释放的话 由于只能通过属性来判断timer是否存在 所以容易崩溃
+                //另一种解决方法是 将timer 设置为retain属性
+
                 [weakSelf setTitle:[formatter stringFromNumber:@(timeLine)] forState:currentState];
             });
         }
@@ -67,17 +70,17 @@ static const char * kWaitTime = "waitTime";
      [self setTitle:[formatter stringFromNumber:@(timeLine)] forState:currentState];
     //取消倒计时回调
     dispatch_source_set_cancel_handler(_timer, ^{
-
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (currentAttibutedString) {
-                [weakSelf setAttributedTitle:currentAttibutedString forState:currentState];
-            }else{
-                [weakSelf setTitle:currentText forState:currentState];
-                [weakSelf setTitleColor:currentColor forState:currentState];
-            }
-            weakSelf.enabled = YES;
-        });
-
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (currentAttibutedString) {
+                    [weakSelf setAttributedTitle:currentAttibutedString forState:currentState];
+                }else{
+                    [weakSelf setTitle:currentText forState:currentState];
+                    [weakSelf setTitleColor:currentColor forState:currentState];
+                }
+                weakSelf.enabled = YES;
+            });
+        //防止dealloc释放的时候野指针错误
+        weakSelf.waitTime = nil;
     });
     dispatch_resume(_timer);
 }
@@ -118,14 +121,16 @@ static const char * kWaitTime = "waitTime";
 -(void)stopCountDown{
     if (self.waitTime) {
         dispatch_source_cancel(self.waitTime);
-        self.waitTime = nil;
+//        self.waitTime = nil;
     }
     self.enabled = YES;
 }
+    
 -(void)dealloc{
+    
     if (self.waitTime) {
         dispatch_source_cancel(self.waitTime);
-        self.waitTime = nil;
+//        self.waitTime = nil;
     }
 }
 @end
