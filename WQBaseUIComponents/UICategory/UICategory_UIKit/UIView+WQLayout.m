@@ -116,21 +116,4 @@
     self.layer.cornerRadius = radius;
 }
 
-- (UIImage *)snapshot {
-    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, self.window.screen.scale);
-    
-    if ([self respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)]) {
-        // iOS7 API
-        [self drawViewHierarchyInRect:self.frame afterScreenUpdates:NO];
-    } else {
-        CGContextRef context = UIGraphicsGetCurrentContext();
-        [self.layer renderInContext:context];
-    }
-    
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    
-    UIGraphicsEndImageContext();
-    
-    return image;
-}
 @end

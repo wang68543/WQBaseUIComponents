@@ -17,7 +17,8 @@
 #import "UIColor+WQColor.h"
 #import "UIGestureRecognizer+Block.h"
 
-#import "UIImageView+WQAnimation.h"
+//#import "UIImageView+WQAnimation.h"
+#import "UIView+WQBasicAnimation.h"
 #import "UIButton+WQSDWebImage.h"
 #import "UIImageView+WQSDWebImage.h"
 
