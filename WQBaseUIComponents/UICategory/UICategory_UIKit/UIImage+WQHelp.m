@@ -118,15 +118,16 @@
 
 //TODO: -- -图片裁剪
 - (UIImage *)wq_syncCornerImage:(CGSize)size fillColor:(UIColor *)fillColor clipPath:(UIBezierPath *)path{
-    // 1. 利用绘图，建立上下文
-    UIGraphicsBeginImageContextWithOptions(size, YES, 0);
+    // 1. 利用绘图，建立上下文 (这里需要设置为透明 裁剪之后才不会有黑底)
+    UIGraphicsBeginImageContextWithOptions(size, NO, 0);
     
     CGRect rect = CGRectMake(0, 0, size.width, size.height);
-    
+
     // 2. 设置填充颜色
     [fillColor setFill];
+
     UIRectFill(rect);
-    
+
     // 3. 利用 贝赛尔路径 `裁切 效果
     [path addClip];
     
@@ -142,7 +143,9 @@
     return result;
 
 }
-
+-(UIImage *)wq_circleWithRadius:(CGFloat)redius{
+    return [self wq_circleImage:CGSizeMake(redius*2, redius*2) fillColor:[UIColor clearColor]];
+}
 //TODO: -- -绘制一个圆形的图片
 -(UIImage *)wq_circleImage:(CGSize)size fillColor:(UIColor *)fillColor{
     CGRect rect = CGRectMake(0, 0, size.width, size.height);

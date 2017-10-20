@@ -131,7 +131,7 @@ static CGFloat const kHUDShowTime = 2.0;
 //    }
     else{
          return [NSString stringWithFormat:@"%@", [error localizedDescription]];
-//        return [NSString stringWithFormat:@"%@:\n%@",NSLocalizedString(@"错误", nil), [error localizedDescription]];
+//        return [NSString stringWithFormat:@"%@:\n%@",NSLocalizedString(@"错误"), [error localizedDescription]];
     }
 }
 @end

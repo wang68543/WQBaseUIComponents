@@ -19,5 +19,8 @@
 
 - (void)addRoundedCorners:(UIRectCorner)corners withRadii:(CGSize)radii;
 - (void)addCornerRadius:(CGFloat)radius;
-- (UIImage *)snapshot;
+
+
+
+
 @end

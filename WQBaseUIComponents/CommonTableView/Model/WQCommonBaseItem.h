@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-typedef void (^CommonOperation)();
+typedef void (^CommonOperation)(void);
 
 typedef NS_ENUM(NSInteger ,CommonItemType) {
     CommonItemTypeBase,

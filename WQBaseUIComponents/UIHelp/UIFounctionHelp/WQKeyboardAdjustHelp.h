@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-typedef UIView<UITextInput,UIContentSizeCategoryAdjusting,NSCoding> WQTextFiledView;
+typedef UIView<UITextInput,NSCoding> WQTextFiledView;
 @interface  UIView(WQTextInput)
 @property (copy ,nonatomic) NSString * wq_text;
 /** 用于网络数据获取配置值 以及返回为字典 */
@@ -68,6 +68,8 @@ typedef UIView<UITextInput,UIContentSizeCategoryAdjusting,NSCoding> WQTextFiledV
 /** To mimic the keyboard animation */
 @property(nonatomic, assign) NSInteger  animationCurve;
 
+/** 自动为每个tf配置tag 从上到下 从左到右的顺序 */
+- (void)autoConfigTags;
 /** 按照顺序配置绑定的key */
 - (void)configTFViewsKey:(NSArray *)dataKeys;
 

@@ -14,11 +14,11 @@
  */
 @property (strong ,nonatomic) UIImage *fadeImage;
 
-/**
- 旋转图片
- */
--(void)startRotationImage;
--(void)stopRotationImage;
-@property (assign ,nonatomic,readonly,getter=isRunning) BOOL running;
+///**
+// 旋转图片
+// */
+//-(void)startRotationImage;
+//-(void)stopRotationImage;
+//@property (assign ,nonatomic,readonly,getter=isRunning) BOOL running;
 
 @end

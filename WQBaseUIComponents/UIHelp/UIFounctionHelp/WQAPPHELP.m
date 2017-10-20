@@ -72,7 +72,7 @@
     } else if ([vc isKindOfClass:[UITabBarController class]]) {
         return [self getVisibleViewControllerFrom:[((UITabBarController *) vc) selectedViewController]];
     } else {
-        if (vc.presentedViewController) {
+        if (vc.presentedViewController) {//被弹出来的
             return [self getVisibleViewControllerFrom:vc.presentedViewController];
         } else {
             return vc;

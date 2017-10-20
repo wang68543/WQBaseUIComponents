@@ -31,7 +31,7 @@
 /** 获取View所在的控制器 */
 -(UIViewController*)viewController:(UIView *)view;
 /**
- 获取当前正在显示的控制器
+ 获取当前正在显示的控制器(最上面一层的)
  */
 + (UIViewController*)visibleViewController;
 /**

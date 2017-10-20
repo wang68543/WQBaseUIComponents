@@ -158,7 +158,12 @@ static char *const kBindKey = "bidnKey";
         }
     }];
 }
-
+//MARK: =========== 自动为每个tf配置tag  ===========
+- (void)autoConfigTags{
+    [_textFieldViews enumerateObjectsUsingBlock:^(WQTextFiledView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        obj.tag = idx;
+    }];
+}
 //MARK: -- 输入框代理
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
 #pragma clang diagnostic push

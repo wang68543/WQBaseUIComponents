@@ -7,14 +7,9 @@
 //
 
 #import "UIImageView+WQAnimation.h"
-#import <objc/runtime.h>
-
 @implementation UIImageView (WQAnimation)
 @dynamic fadeImage;
-@dynamic running;
-//@synthesize running = _running;
-static char *const kLoadingKey = "running";
-static NSString *const kRotation = @"WQRotationAnimation";
+
 
 -(void)setFadeImage:(UIImage *)fadeImage{
     CATransition *transtion = [CATransition animation];
@@ -28,30 +23,5 @@ static NSString *const kRotation = @"WQRotationAnimation";
 -(UIImage *)fadeImage{
     NSAssert(NO, @"fadeImage只能设置不能读");
     return nil;
-}
--(void)startRotationImage{
-    self.running = YES;
-    CAAnimation *anmiation = [self.layer animationForKey:kRotation];
-    if(!anmiation){
-        CABasicAnimation* rotationAnimation;
-        rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
-        rotationAnimation.toValue = [NSNumber numberWithFloat:M_PI * 2.0];
-        rotationAnimation.duration = 1.0f;
-        rotationAnimation.cumulative = YES;
-        rotationAnimation.repeatCount = NSIntegerMax;
-        rotationAnimation.removedOnCompletion = NO;
-        anmiation = rotationAnimation;
-    }
-    [self.layer addAnimation:anmiation forKey:kRotation];
-}
--(void)stopRotationImage{
-    [self.layer removeAnimationForKey:kRotation];
-    self.running = NO;
-}
--(void)setRunning:(BOOL)running{
-    objc_setAssociatedObject(self, &kLoadingKey, @(running), OBJC_ASSOCIATION_ASSIGN);
-}
--(BOOL)isRunning{
-    return [objc_getAssociatedObject(self, &kLoadingKey) boolValue];
 }
 @end
