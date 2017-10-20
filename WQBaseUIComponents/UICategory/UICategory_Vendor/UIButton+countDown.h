@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@interface NSNumberFormatter (CountDown)
++(instancetype)numberFormatterWithPre:(NSString *)prefix suf:(NSString *)suffix;
+@end
+
 @interface UIButton (countDown)
 //TODO: --  如果出现界面闪烁的问题就把button类型改为Custom 默认的是System类型 
 /** 倒计时timer */
@@ -22,16 +26,17 @@
  *  @param mColor   还没倒计时的颜色
  *  @param color    倒计时中的颜色
  */
-- (void)startWithTime:(NSInteger)timeLine title:(NSString *)title countDownTitle:(NSString *)subTitle mainColor:(UIColor *)mColor countColor:(UIColor *)color __deprecated_msg("请使用 startWithTime:numberFormatter:countColor:");
+- (void)startWithTime:(NSInteger)timeLine title:(NSString *)title countDownTitle:(NSString *)subTitle mainColor:(UIColor *)mColor countColor:(UIColor *)color OBJC_DEPRECATED("请使用 startWithTime:numberFormatter:countColor:");
 
 /**
  倒计时
 
  @param timeOut 倒计时时间
  @param formatter 格式化显示
- @param color 倒计时时候的颜色 
+ @param color 倒计时时候的颜色
  */
-- (void)startWithTime:(NSUInteger)timeOut numberFormatter:(NSNumberFormatter *)formatter countColor:(UIColor *)color ;
+- (void)startWithTime:(NSUInteger)timeOut numberFormatter:(NSNumberFormatter *)formatter countColor:(UIColor *)color;
+
 /** 停止倒计时*/
 -(void)stopCountDown;
 

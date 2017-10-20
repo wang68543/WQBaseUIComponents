@@ -97,15 +97,16 @@
 
 
 - (void)addRoundedCorners:(UIRectCorner)corners withRadii:(CGSize)radii {
-    CAShapeLayer *maskLayer = [CAShapeLayer layer];
-    maskLayer.frame = self.frame;
-    
-    maskLayer.masksToBounds = YES;
-    
+   
     UIBezierPath *roundedPath = [UIBezierPath bezierPathWithRoundedRect:
-                                 maskLayer.bounds byRoundingCorners:corners cornerRadii:radii];
-    maskLayer.fillColor = [[UIColor whiteColor] CGColor];
-    maskLayer.backgroundColor = [[UIColor clearColor] CGColor];
+                                 self.bounds byRoundingCorners:corners cornerRadii:radii];
+    
+    CAShapeLayer *maskLayer = [CAShapeLayer layer];
+    maskLayer.frame = self.bounds;
+    
+    //会覆盖原本的颜色 
+//    maskLayer.fillColor = [[UIColor clearColor] CGColor];
+//    maskLayer.backgroundColor = [[UIColor clearColor] CGColor];
     maskLayer.path = [roundedPath CGPath];
     
     self.layer.mask = maskLayer;

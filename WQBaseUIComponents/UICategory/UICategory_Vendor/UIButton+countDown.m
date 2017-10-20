@@ -9,7 +9,15 @@
 #import "UIButton+countDown.h"
 
 #import <objc/runtime.h>
-
+@implementation NSNumberFormatter (CountDown)
++(instancetype)numberFormatterWithPre:(NSString *)prefix suf:(NSString *)suffix{
+    NSNumberFormatter *numFormatter = [[NSNumberFormatter alloc] init];
+    numFormatter.positivePrefix = prefix;
+    numFormatter.positiveSuffix = suffix;
+    numFormatter.formatWidth = 2;
+    return numFormatter;
+}
+@end
 @implementation UIButton (countDown)
 static const char * kWaitTime = "waitTime";
 -(void)setWaitTime:(dispatch_source_t)waitTime{
@@ -19,7 +27,7 @@ static const char * kWaitTime = "waitTime";
     return objc_getAssociatedObject(self, kWaitTime);
 }
 
-
+//MARK: - -- formater
 -(void)startWithTime:(NSUInteger)timeOut numberFormatter:(NSNumberFormatter *)formatter countColor:(UIColor *)color{
     NSAttributedString *currentAttibutedString = [self currentAttributedTitle];
     UIControlState currentState = UIControlStateNormal;

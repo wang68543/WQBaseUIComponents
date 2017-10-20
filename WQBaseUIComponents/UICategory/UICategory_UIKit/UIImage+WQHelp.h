@@ -29,6 +29,23 @@
 //生成二维码图片
 + (UIImage *)createQRCodeWithText:(NSString*)text length:(CGFloat)length;
 
+
+
+/**
+ 绘制一个圆形的图片
+
+ @param redius 圆半径
+ */
+-(UIImage *)wq_circleWithRadius:(CGFloat)redius;
+
+
+/**
+ 绘制一个椭圆形的图片
+
+ @param size 椭圆形外切长方形
+ @param fillColor 空白地方填充半径
+ */
+-(UIImage *)wq_circleImage:(CGSize)size fillColor:(UIColor *)fillColor;
 /**
  同步图片裁剪
 
@@ -39,10 +56,6 @@
  */
 - (UIImage *)wq_syncCornerImage:(CGSize)size fillColor:(UIColor *)fillColor clipPath:(UIBezierPath *)path;
 
-/**
- 绘制一个圆形的图片
- */
--(UIImage *)wq_circleImage:(CGSize)size fillColor:(UIColor *)fillColor;
 /** 异步绘制一个圆形图片 */
 - (void)wq_asyncCicleImage:(CGSize)size fillColor:(UIColor *)fillColor compeletion:(void (^)(UIImage *))completion;
 

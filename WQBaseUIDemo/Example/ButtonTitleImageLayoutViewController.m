@@ -86,7 +86,13 @@
   
     NSNumberFormatter *formater = [[NSNumberFormatter alloc] init];
     formater.positiveSuffix = @"s";
+    formater.textAttributesForPositiveValues = @{NSForegroundColorAttributeName : [UIColor blueColor]};
+    NSLog(@"====%@",formater.textAttributesForPositiveValues);
+    NSAttributedString *attr = [formater attributedStringForObjectValue:@"60" withDefaultAttributes:@{NSForegroundColorAttributeName : [UIColor redColor]}];
     
+    
+    
+//    formater.textAttributesForPositiveInfinity = @{NSForegroundColorAttributeName : [UIColor yellowColor]};
     [sender startWithTime:60 numberFormatter:formater countColor:[UIColor redColor]];
     
 }

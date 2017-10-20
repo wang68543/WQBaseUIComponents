@@ -34,7 +34,7 @@
 }
 -(void)commonInit{
     _iconView = [[UIImageView alloc] init];
-    _iconView.contentMode = UIViewContentModeScaleAspectFill;
+//    _iconView.contentMode = UIViewContentModeScaleToFill;
     [self.contentView addSubview:_iconView];
     
     _titleLbale = [[UILabel alloc] init];
