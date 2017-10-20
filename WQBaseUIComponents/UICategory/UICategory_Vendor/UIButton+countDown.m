@@ -87,7 +87,7 @@ static const char * kWaitTime = "waitTime";
 - (void)startWithTime:(NSInteger)timeLine title:(NSString *)title countDownTitle:(NSString *)subTitle mainColor:(UIColor *)mColor countColor:(UIColor *)color {
 
     self.enabled = NO;
-   
+  
     __weak typeof(self) weakSelf = self;
     //倒计时时间
     __block NSInteger timeOut = timeLine;
