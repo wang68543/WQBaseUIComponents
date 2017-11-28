@@ -83,7 +83,9 @@ typedef UIView<UITextInput,NSCoding> WQTextFiledView;
 -(void)setAllTFViewsValueWithModel:(id)instance;
 /** 当所有输入框有文字的时候 才有效 */
 @property (weak ,nonatomic) UIButton *lastConfirmButton;
-/** 当前所有输入框是否有内容 */
+/** 当前是否有输入框没有内容 (必须所有输入框有值才行; 可判断全部输入框有内容) */
 - (BOOL)textFieldViewsHasText;
+/** 当前是否有输入框有内容 (只需一个输入框有内容就返回YES ; 可用来检测全空 )*/
+- (BOOL)textFieldViewsHasValue;
 
 @end

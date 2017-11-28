@@ -87,5 +87,5 @@ Pod::Spec.new do |s|
      ss.dependency 'Masonry', '>= 1.0.2'
      ss.source_files = 'WQBaseUIComponents/CommonTableView/**/*.{h,m}'
   end
-     s.dependency 'SDWebImage','>= 4.0.0'
+     s.dependency 'SDWebImage'
 end

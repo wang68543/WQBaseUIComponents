@@ -81,9 +81,15 @@
     [super setSelected:selected animated:animated];
     // Configure the view for the selected state
 }
+-(void)resetContent{
+    _subtitleLabel.text = nil;
+    _bageView.text = nil;
+   _titleLbale.text = nil;
+    _iconView.image = nil;
+}
 -(void)setBaseItem:(WQCommonBaseItem *)baseItem{
     _baseItem = baseItem;
-    
+    [self resetContent];
     NSString *bageText = @"";
     NSString *subtitle = @"";
     UIColor *textLbaleBackcolor = [UIColor clearColor];
@@ -132,7 +138,7 @@
                 imageW = _iconView.image.size.width;
             }
         }
-        [_iconView mas_makeConstraints:^(MASConstraintMaker *make) {
+        [_iconView mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(weakSelf.contentView);
             make.left.equalTo(leftMaxXAttribute).with.offset(leftPadding);
             make.width.mas_equalTo(imageW);
@@ -172,7 +178,7 @@
                 bageText = [NSString stringWithFormat:@"%ld",(long)arrowItem.bageValue];
             }
             if(bageW > 0){
-                [self.bageView mas_makeConstraints:^(MASConstraintMaker *make) {
+                [self.bageView mas_remakeConstraints:^(MASConstraintMaker *make) {
                     make.centerY.equalTo(weakSelf.contentView);
                     make.right.equalTo(weakSelf.contentView.mas_right);
                     make.height.and.width.mas_equalTo(bageW);
@@ -188,7 +194,7 @@
                 self.bageView.hidden = YES;
             }
             
-            [self.titleLbale mas_makeConstraints:^(MASConstraintMaker *make) {
+            [self.titleLbale mas_remakeConstraints:^(MASConstraintMaker *make) {
                 make.top.equalTo(weakSelf.contentView.mas_top);
                 make.bottom.equalTo(weakSelf.contentView.mas_bottom);
                 make.left.equalTo(leftMaxXAttribute).with.offset(firstIconPadding);
@@ -228,7 +234,7 @@
                     bageText = [NSString stringWithFormat:@"%ld",(long)subtitleItem.bageValue];
                 }
                 if(bageW > 0){
-                    [self.bageView mas_makeConstraints:^(MASConstraintMaker *make) {
+                    [self.bageView mas_remakeConstraints:^(MASConstraintMaker *make) {
                         make.centerY.equalTo(weakSelf.contentView);
                         make.right.equalTo(weakSelf.contentView.mas_right);
                         make.height.and.width.mas_equalTo(bageW);
@@ -250,13 +256,13 @@
             switch (subtitleItem.subtitleAlignment) {
                 case SubtitleAlignmentRightCenter:
                 {
-                    [self.titleLbale mas_makeConstraints:^(MASConstraintMaker *make) {
+                    [self.titleLbale mas_remakeConstraints:^(MASConstraintMaker *make) {
                         make.top.equalTo(weakSelf.contentView.mas_top);
                         make.bottom.equalTo(weakSelf.contentView.mas_bottom);
                         make.left.equalTo(leftMaxXAttribute).with.offset(firstIconPadding);
                         make.width.mas_equalTo(CGRectGetWidth(weakSelf.contentView.frame)*0.4);
                     }];
-                    [self.subtitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                    [self.subtitleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
                         make.top.equalTo(weakSelf.contentView.mas_top);
                         make.bottom.equalTo(weakSelf.contentView.mas_bottom);
                         make.right.equalTo(rightMinXAttribute).with.offset(-sectionH);
@@ -267,13 +273,13 @@
                     break;
                 case SubtitleAlignmentLeftBottom:
                 {
-                    [self.titleLbale mas_makeConstraints:^(MASConstraintMaker *make) {
+                    [self.titleLbale mas_remakeConstraints:^(MASConstraintMaker *make) {
                         make.top.equalTo(weakSelf.contentView.mas_top);
                         make.left.equalTo(leftMaxXAttribute).with.offset(firstIconPadding);
                         make.right.equalTo(rightMinXAttribute).with.offset(-sectionH);
                         make.height.mas_equalTo(CGRectGetHeight(weakSelf.contentView.frame)*0.6);
                     }];
-                    [self.subtitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                    [self.subtitleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
                         make.top.equalTo(weakSelf.titleLbale.mas_bottom);
                         make.bottom.equalTo(weakSelf.contentView.mas_bottom);
                         make.right.equalTo(weakSelf.titleLbale.mas_right);
@@ -292,7 +298,7 @@
         case CommonItemTypeCenter:
         {
             WQCommonCenterItem *centerItem = (WQCommonCenterItem *)baseItem;
-            [self.titleLbale mas_makeConstraints:^(MASConstraintMaker *make) {
+            [self.titleLbale mas_remakeConstraints:^(MASConstraintMaker *make) {
                 make.edges.equalTo(weakSelf.contentView).with.insets(centerItem.contentEdge);
             }];
             
@@ -307,7 +313,7 @@
             
             WQCommonSwitchItem *switchItem = (WQCommonSwitchItem *)baseItem;
             
-            [self.titleLbale mas_makeConstraints:^(MASConstraintMaker *make) {
+            [self.titleLbale mas_remakeConstraints:^(MASConstraintMaker *make) {
                 make.top.equalTo(weakSelf.contentView.mas_top);
                 make.bottom.equalTo(weakSelf.contentView.mas_bottom);
                 make.left.equalTo(leftMaxXAttribute).with.offset(firstIconPadding);
@@ -321,7 +327,7 @@
             break;
         case CommonItemTypeBase:
         default:
-            [self.titleLbale mas_makeConstraints:^(MASConstraintMaker *make) {
+            [self.titleLbale mas_remakeConstraints:^(MASConstraintMaker *make) {
                 make.top.equalTo(weakSelf.contentView.mas_top);
                 make.bottom.equalTo(weakSelf.contentView.mas_bottom);
                 make.left.equalTo(leftMaxXAttribute).with.offset(firstIconPadding);
@@ -362,8 +368,8 @@
     }else{
         self.selectedBackgroundView.backgroundColor = [UIColor clearColor];
     }
-    [self updateConstraints];
-    [self layoutIfNeeded];
+//    [self updateConstraints];
+    [self setNeedsLayout];
     
 }
 //-(void)setBaseItem:(WQCommonBaseItem *)baseItem{

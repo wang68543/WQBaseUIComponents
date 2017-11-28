@@ -122,7 +122,7 @@ static char *const kBindKey = "bidnKey";
     return canEnableBtn;
 }
 
-//TODO: 当前所有输入框是否有内容
+//MARK: =========== 当前是否有输入框没有内容 ===========
 - (BOOL)textFieldViewsHasText{
      __block BOOL hasText = YES;
     [_textFieldViews enumerateObjectsUsingBlock:^(WQTextFiledView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -133,7 +133,17 @@ static char *const kBindKey = "bidnKey";
     }];
     return hasText;
 }
-
+//MARK: =========== 当前是否有输入框有内容 ===========
+- (BOOL)textFieldViewsHasValue{
+    __block BOOL hasText = NO;
+    [_textFieldViews enumerateObjectsUsingBlock:^(WQTextFiledView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if([obj hasText]){
+            hasText = YES;
+            *stop = YES;
+        }
+    }];
+    return hasText;
+}
 -(void)tapBackground:(UITapGestureRecognizer *)tapGR{
 //    self.keyboardChangeing = NO;
     if(_gestureView){

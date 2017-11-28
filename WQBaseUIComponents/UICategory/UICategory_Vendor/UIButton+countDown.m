@@ -57,7 +57,7 @@ static const char * kWaitTime = "waitTime";
     dispatch_source_set_event_handler(_timer, ^{
         //倒计时结束，关闭
         
-        if (timeLine <= 0) {
+        if (timeLine <= 1) {
             dispatch_source_cancel(_timer);
         } else {
             dispatch_async(dispatch_get_main_queue(), ^{

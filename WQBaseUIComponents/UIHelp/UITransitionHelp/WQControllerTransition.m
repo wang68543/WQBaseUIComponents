@@ -189,6 +189,7 @@ typedef void(^AnmationCompeletion)(BOOL finished);
     NSLog(@"%@----%@",toViewController,fromViewController);
     NSLog(@"%@----%@",[transitionContext viewForKey:UITransitionContextToViewKey],[transitionContext viewForKey:UITransitionContextFromViewKey]);
     */
+    
     UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
     UIColor *viewBackColor ;
     //    CGAffineTransform  transform;
@@ -557,7 +558,7 @@ typedef void(^AnmationCompeletion)(BOOL finished);
 -(void)animationSuperView:(id <UIViewControllerContextTransitioning>)transitionContext{
  
     UIView *contanierView = [transitionContext containerView];
-   
+ 
     if(_showSuperViewType < ShowSuperViewTypeFrameChange){
         UIView *fromView = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey].view;
         UIView *toView = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey].view;
