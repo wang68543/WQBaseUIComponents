@@ -150,5 +150,6 @@ static NSString *const identifier = @"commonCell";
             }
             break;
     }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 @end
