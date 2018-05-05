@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
 
   s.name         = "WQBaseUIComponents"
   #弄错了 版本号
-  s.version      = "0.1.6"
+  s.version      = "0.1.7"
   s.summary      = "基础组件(UI部分)"
 
   s.description  = <<-DESC 

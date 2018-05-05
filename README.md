@@ -1,7 +1,7 @@
 # WQBaseUIComponents
 基础组件(自定义UI)
 ### 支持CocoaPods'
-    pod 'WQBaseUIComponents',~>'0.1.6'
+    pod 'WQBaseUIComponents',~>'0.1.7'
 ---
 #### 1.五星评分
 ><small>支持任意大小的五角星形状，也支持使用图片</small>
