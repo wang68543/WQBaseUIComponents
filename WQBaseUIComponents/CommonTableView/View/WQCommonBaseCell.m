@@ -109,7 +109,7 @@
     CGFloat cellHeight = baseItem.cellHeight;
     
     CGFloat titleLabelRadius = 0.0;
-    self.backgroundColor = baseItem.backgroundColor;
+    self.contentView.backgroundColor = baseItem.backgroundColor;
     if(cellHeight <= 0){
         cellHeight = CGRectGetHeight(self.frame);
     }

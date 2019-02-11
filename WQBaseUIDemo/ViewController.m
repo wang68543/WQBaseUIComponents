@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "WQEdgeTitleButton.h"
 #import "WQAPPHELP.h"
+//#import ""
 @interface ViewController ()
 
 @end
@@ -22,7 +23,6 @@ static NSString *const identifier = @"cell";
     _titleArray = @[@"获取图片与分享UI",@"下拉框",@"按钮的图片与标题的排列",@"任意大小的星星评分",@"垂直无限滚动文字",@"textView的占位文字",@"考试题目翻页",@"日期选择",@"无限循环",@"TabBar滑动",@"日历",@"CAReplicatorLayer生成重复控件动画",@"富文本输入框",@"多个标签选择",@"抽屉式菜单",@"键盘处理",@"转场动画",@"通用tableView",@"录音播放"];
     _viewControllers = @[@"GetPictureViewController",@"DropDownViewController",@"ButtonTitleImageLayoutViewController",@"StarViewController",@"VerticalScrollTextViewController",@"TextViewPlacehodelViewController",@"GuDExamineViewController",@"DateSelectViewController",@"WQLoopViewController",@"WQTabBarViewController",@"WQClanderViewController",@"ReplicatorViewController",@"WQChatInputViewController",@"WQSelectedTagsViewController",@"WQContainerViewController",@"WQKeyboardHandleViewController",@"WQAnimationTrasitionViewController",@"WQTableViewController",@"WQVoiceViewController"];
     self.tableView.rowHeight = 60.0;
-    
 }
 
 

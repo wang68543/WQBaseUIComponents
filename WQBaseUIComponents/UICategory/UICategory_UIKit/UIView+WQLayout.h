@@ -16,7 +16,10 @@
 @property (nonatomic, assign) CGFloat width;
 @property (nonatomic, assign) CGFloat height;
 @property (nonatomic, assign) CGSize size;
+@property (assign, nonatomic, readonly) CGFloat maxX;
+@property (assign, nonatomic, readonly) CGFloat maxY;
 
+- (void)addRoundedCorners:(UIRectCorner)corners rect:(CGRect)rect withRadii:(CGSize)radii;
 - (void)addRoundedCorners:(UIRectCorner)corners withRadii:(CGSize)radii;
 - (void)addCornerRadius:(CGFloat)radius;
 

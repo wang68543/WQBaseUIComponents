@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <MBProgressHUD/MBProgressHUD.h>
 @interface WQHUD : MBProgressHUD
+//@property (assign, nonatomic) BOOL isShowBlack;
+@property (class,strong, nonatomic) UIColor *bezelViewBackgroundColor;
+
 +(NSString *)errorDescription:(NSError *)error;
 
 
@@ -18,7 +21,7 @@
 /** 隐藏 没有动画 */
 -(void)wq_hideHUD;
 -(void)wq_hideHUDAnimated:(BOOL)animated;
-
+-(void)wq_hideHUDWithTipError:(NSError *)error;
 +(void)wq_showTipError:(NSError *)error;
 +(void)wq_showTipError:(NSError *)error toView:(UIView *)view;
 +(void)wq_showTipMessage:(NSString *)message;

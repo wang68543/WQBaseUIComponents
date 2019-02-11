@@ -16,9 +16,9 @@ or alternatively using `brew cask install fastlane`
 
 # Available Actions
 ## iOS
-### ios WQBasicComponents
+### ios WQBaseUIComponents
 ```
-fastlane ios WQBasicComponents
+fastlane ios WQBaseUIComponents
 ```
 自动Pod更新库
 

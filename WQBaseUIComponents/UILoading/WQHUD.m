@@ -7,8 +7,16 @@
 //
 
 #import "WQHUD.h"
+#import <objc/runtime.h>
 static CGFloat const kHUDShowTime = 2.0;
 @implementation WQHUD
+static void *kBezelViewBackgroundColor = "kBezelViewBackgroundColor";
++(void)setBezelViewBackgroundColor:(UIColor *)bezelViewBackgroundColor{
+    objc_setAssociatedObject(self, kBezelViewBackgroundColor, bezelViewBackgroundColor, OBJC_ASSOCIATION_RETAIN);
+}
++(UIColor *)bezelViewBackgroundColor{
+    return objc_getAssociatedObject(self, kBezelViewBackgroundColor);
+}
 + (UIView *)getTopView{
     __block UIWindow *view;
     NSArray *windows = [UIApplication sharedApplication].windows;
@@ -30,6 +38,7 @@ static CGFloat const kHUDShowTime = 2.0;
     }
     WQHUD *hud = [[self alloc] initWithView:view];
     hud.removeFromSuperViewOnHide = YES;
+    [self configHUDBezelViewBackgroundColor:hud];
     [view addSubview:hud];
     [hud showAnimated:animated];
     return hud;
@@ -42,7 +51,7 @@ static CGFloat const kHUDShowTime = 2.0;
     if(message && message.length > 0)
     hud.label.text = message;
     hud.removeFromSuperViewOnHide = YES;
-    
+    [self configHUDBezelViewBackgroundColor:hud];
     return hud;
 }
 -(void)wq_hideHUD{
@@ -51,7 +60,14 @@ static CGFloat const kHUDShowTime = 2.0;
 -(void)wq_hideHUDAnimated:(BOOL)animated{
     [self hideAnimated:animated];
 }
-
+-(void)wq_hideHUDWithTipError:(NSError *)error{
+    if (error != nil) {
+        [self wq_hideHUD];
+        [WQHUD wq_showTipError:error];
+    }else {
+        [self wq_hideHUDAnimated:YES];
+    } 
+}
 +(void)wq_showTipError:(NSError *)error{
     [self wq_showTipError:error toView:nil];
 }
@@ -79,6 +95,7 @@ static CGFloat const kHUDShowTime = 2.0;
     hud.customView = tipLabel;
     hud.margin = 10.0;
     hud.mode = MBProgressHUDModeCustomView;
+    [self configHUDBezelViewBackgroundColor:hud];
     hud.customView.backgroundColor = hud.backgroundColor;
     hud.removeFromSuperViewOnHide = YES;
     [hud showAnimated:YES];
@@ -111,10 +128,19 @@ static CGFloat const kHUDShowTime = 2.0;
     // 隐藏时候从父控件中移除
     hud.removeFromSuperViewOnHide = YES;
     
+    [self configHUDBezelViewBackgroundColor:hud];
     // 1秒之后再消失
     [hud hideAnimated:YES afterDelay:kHUDShowTime];
 }
 
++ (void)configHUDBezelViewBackgroundColor:(MBProgressHUD *)hud {
+    UIColor *backgroundColor = WQHUD.bezelViewBackgroundColor;
+    if (backgroundColor) {
+        hud.animationType = MBProgressHUDAnimationFade;
+        hud.bezelView.backgroundColor = backgroundColor;
+        hud.label.textColor = [UIColor whiteColor];
+    }
+}
 //TODO: 错误信息描述
 +(NSString *)errorDescription:(NSError *)error{
     if ([error code] == -1009) {

@@ -57,4 +57,6 @@ typedef NS_ENUM(NSInteger ,CommonItemType) {
 
 /** 如果这里值小于0 就使用Group的值 */
 @property (assign ,nonatomic) CGFloat cellHeight;
+/// 隐藏分割线
+@property (assign, nonatomic) BOOL hiddenSepratorLine;
 @end

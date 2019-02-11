@@ -59,7 +59,11 @@ static NSString *const identifier = @"commonCell";
         WQCommonBaseCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
    
         if(self.tableView.separatorStyle != UITableViewCellSeparatorStyleNone){
-           [cell setSeparatorInset:UIEdgeInsetsZero];
+            if (baseItem.hiddenSepratorLine) {
+                [cell setSeparatorInset:UIEdgeInsetsMake(0, CGRectGetWidth(self.tableView.frame), 0, 0)];
+            } else {
+                [cell setSeparatorInset:UIEdgeInsetsZero];
+            } 
         }
         cell.baseItem = self.groups[indexPath.section].items[indexPath.row];
         return cell;

@@ -32,7 +32,12 @@
 {
     return self.frame.origin.y;
 }
-
+-(CGFloat)maxX {
+    return CGRectGetMaxX(self.frame);
+}
+-(CGFloat)maxY {
+    return CGRectGetMaxY(self.frame);
+}
 - (void)setCenterX:(CGFloat)centerX
 {
     CGPoint center = self.center;
@@ -97,21 +102,23 @@
 
 
 - (void)addRoundedCorners:(UIRectCorner)corners withRadii:(CGSize)radii {
-   
+    [self addRoundedCorners:corners rect:self.bounds withRadii:radii];
+  
+}
+- (void)addRoundedCorners:(UIRectCorner)corners rect:(CGRect)rect withRadii:(CGSize)radii{
     UIBezierPath *roundedPath = [UIBezierPath bezierPathWithRoundedRect:
-                                 self.bounds byRoundingCorners:corners cornerRadii:radii];
+                                 rect byRoundingCorners:corners cornerRadii:radii];
     
     CAShapeLayer *maskLayer = [CAShapeLayer layer];
     maskLayer.frame = self.bounds;
     
-    //会覆盖原本的颜色 
-//    maskLayer.fillColor = [[UIColor clearColor] CGColor];
-//    maskLayer.backgroundColor = [[UIColor clearColor] CGColor];
+    //会覆盖原本的颜色
+    //    maskLayer.fillColor = [[UIColor clearColor] CGColor];
+    //    maskLayer.backgroundColor = [[UIColor clearColor] CGColor];
     maskLayer.path = [roundedPath CGPath];
     
     self.layer.mask = maskLayer;
 }
-
 - (void)addCornerRadius:(CGFloat)radius {
     self.layer.masksToBounds = YES;
     self.layer.cornerRadius = radius;
