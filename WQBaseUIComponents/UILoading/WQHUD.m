@@ -50,7 +50,7 @@ static void *kBezelViewBackgroundColor = "kBezelViewBackgroundColor";
     WQHUD *hud = [WQHUD showHUDAddedTo:view animated:YES];
     if(message && message.length > 0)
     hud.label.text = message;
-    hud.removeFromSuperViewOnHide = YES;
+    hud.removeFromSuperViewOnHide = YES; 
     [self configHUDBezelViewBackgroundColor:hud];
     return hud;
 }
@@ -100,6 +100,7 @@ static void *kBezelViewBackgroundColor = "kBezelViewBackgroundColor";
     hud.removeFromSuperViewOnHide = YES;
     [hud showAnimated:YES];
     hud.backgroundView.style = MBProgressHUDBackgroundStyleSolidColor;
+    hud.bezelView.backgroundColor = [UIColor blackColor];
     [hud hideAnimated:YES afterDelay:kHUDShowTime];
 }
 
