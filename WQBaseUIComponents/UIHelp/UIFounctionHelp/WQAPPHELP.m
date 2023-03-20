@@ -8,10 +8,10 @@
 
 #import "WQAPPHELP.h"
 #import <objc/runtime.h>
-
+#import <WebKit/WebKit.h>
 #import "WQBroserController.h"
 @interface WQAPPHELP()
-@property (strong ,nonatomic) UIWebView *webView;
+@property (strong ,nonatomic) WKWebView *webView;
 
 @end
 @implementation WQAPPHELP
@@ -34,9 +34,9 @@
     [[WQAPPHELP sharedAPP].webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",phoneNumber]]]];
  
 }
--(UIWebView *)webView{
+-(WKWebView *)webView{
     if(!_webView){
-        _webView = [[UIWebView alloc] initWithFrame:CGRectZero];
+        _webView = [[WKWebView alloc] initWithFrame:CGRectZero];
     }
     return _webView;
 }

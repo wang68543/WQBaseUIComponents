@@ -8,17 +8,18 @@
 
 #import "WQBroserController.h"
 #import "WQAPPHELP.h"
-@interface WQBroserController ()<UIWebViewDelegate>
-@property (strong, nonatomic)  UIWebView *webView;
+#import <WebKit/WebKit.h>
+@interface WQBroserController ()<WKNavigationDelegate>
+@property (strong, nonatomic)  WKWebView *webView;
 @end
 
 @implementation WQBroserController
 
--(UIWebView *)webView{
+-(WKWebView *)webView{
     if(!_webView){
-        _webView = [[UIWebView alloc] init];
-        _webView.scalesPageToFit = YES;
-        _webView.delegate = self;
+        _webView = [[WKWebView alloc] init];
+//        _webView.scalesPageToFit = YES;
+//        _webView.delegate = self;
     }
     return _webView;
 }
@@ -27,19 +28,7 @@
     [super viewDidLayoutSubviews];
     self.webView.frame = self.view.bounds;
 }
-
--(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
-    if([request.URL.scheme compare:@"tel" options:NSCaseInsensitiveSearch] == NSOrderedSame){
-        [WQAPPHELP callNumber:request.URL.resourceSpecifier];
-        return NO;
-    }
-    return YES;
-}
--(void)webViewDidFinishLoad:(UIWebView *)webView{
-    if(!self.title || self.title.length <= 0){
-        self.title =  [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
-    }
-}
+ 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.webView];

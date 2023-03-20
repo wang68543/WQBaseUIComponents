@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
 
   s.name         = "WQBaseUIComponents"
   #弄错了 版本号
-  s.version      = "0.1.8"
+  s.version      = "1.1.0"
   s.summary      = "基础组件(UI部分)"
 
   s.description  = <<-DESC 
@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.author             = { "王强" => "wang68543@163.com" }
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 
-  s.platform     = :ios, "8.0"
+  s.platform     = :ios, "9.0"
 
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
